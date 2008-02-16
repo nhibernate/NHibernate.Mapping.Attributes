@@ -243,7 +243,7 @@ namespace NHibernate.Mapping.Attributes
 		#region Serialize() for Assemblies
 		/// <summary> Writes a hbm.xml file in the specified directory for each mapped class in the specified assembly. </summary>
 		/// <param name="directory">Directory where each serialized hbm.xml file will be written.</param>
-		/// <param name="assembly">Assembly used to extract user-defined types containing a valid attribute (can be [Class], [Subclass] or [JoinedSubclass]).</param>
+		/// <param name="assembly">Assembly used to extract user-defined types containing a valid attribute (can be [Class] or [xSubclass]).</param>
 		public virtual void Serialize(string directory, System.Reflection.Assembly assembly)
 		{
 			if(assembly == null)
@@ -253,16 +253,14 @@ namespace NHibernate.Mapping.Attributes
 			{
 				if( type.IsNestedFamORAssem || type.IsNestedPrivate || type.IsNestedPublic )
 					continue; // will be include in its container mapping file
-				if( type.IsDefined( typeof(ClassAttribute), false ) ||
-					type.IsDefined( typeof(JoinedSubclassAttribute), false ) ||
-					type.IsDefined( typeof(SubclassAttribute), false ) )
+				if( IsClass(type) || IsSubclass(type) )
 					Serialize( System.IO.Path.Combine(directory, type.Name+".hbm.xml"), type );
 			}
 		}
 
 
 		/// <summary> Writes the mapping of all mapped classes of the specified assembly in the specified hbm.xml file. </summary>
-		/// <param name="assembly">Assembly used to extract user-defined types containing a valid attribute (can be [Class], [Subclass] or [JoinedSubclass]).</param>
+		/// <param name="assembly">Assembly used to extract user-defined types containing a valid attribute (can be [Class] or [xSubclass]).</param>
 		/// <param name="filePath">Where the xml is written.</param>
 		public virtual void Serialize(System.Reflection.Assembly assembly, string filePath)
 		{
@@ -273,7 +271,7 @@ namespace NHibernate.Mapping.Attributes
 
 		/// <summary> Writes the mapping of all mapped classes of the specified assembly in the specified stream. </summary>
 		/// <param name="stream">Where the xml is written.</param>
-		/// <param name="assembly">Assembly used to extract user-defined types containing a valid attribute (can be [Class], [Subclass] or [JoinedSubclass]).</param>
+		/// <param name="assembly">Assembly used to extract user-defined types containing a valid attribute (can be [Class] or [xSubclass]).</param>
 		public virtual void Serialize(System.IO.Stream stream, System.Reflection.Assembly assembly)
 		{
 			if(stream == null)
@@ -305,11 +303,11 @@ namespace NHibernate.Mapping.Attributes
 				}
 			}
 
-			// Write classes, subclasses and joined-subclasses (classes must come first if inherited by "external" subclasses)
+			// Write classes and x-subclasses (classes must come first if inherited by "external" subclasses)
 			System.Collections.ArrayList mappedClassesNames = new System.Collections.ArrayList();
 			foreach(System.Type type in assembly.GetTypes())
 			{
-				if( ! type.IsDefined( typeof(ClassAttribute), false ) )
+				if( ! IsClass(type) )
 					continue;
 				HbmWriter.WriteClass(writer, type);
 				mappedClassesNames.Add(type.FullName + ", " + type.Assembly.GetName().Name);
@@ -319,47 +317,28 @@ namespace NHibernate.Mapping.Attributes
 			System.Collections.Specialized.StringCollection extendedClassesNames = new System.Collections.Specialized.StringCollection();
 			foreach(System.Type type in assembly.GetTypes())
 			{
-				if( ! type.IsDefined( typeof(SubclassAttribute), false ) )
+				if( ! IsSubclass(type) )
 					continue;
 				bool map = true;
 				System.Type t = type;
 				while( (t=t.DeclaringType) != null )
-					if( t.IsDefined( typeof(ClassAttribute), false )
-						|| t.IsDefined( typeof(SubclassAttribute), false ) )
+					if (IsClass(t) || AreSameSubclass(type, t)) // If a base class is also mapped... (Note: A x-subclass can only contain x-subclasses of the same family)
 					{
-						map = false; // The class's mapping is included in the mapping of the declaring class
+						map = false; // This class's mapping is already included in the mapping of the base class
 						break;
 					}
 				if(map)
 				{
-					SubclassAttribute attribute = type.GetCustomAttributes(typeof(SubclassAttribute), false)[0] as SubclassAttribute;
 					subclasses.Add(type);
-					extendedClassesNames.Add(attribute.Extends);
+					if( IsSubclass(type, typeof(SubclassAttribute)) )
+						extendedClassesNames.Add((type.GetCustomAttributes(typeof(SubclassAttribute), false)[0] as SubclassAttribute).Extends);
+					else if( IsSubclass(type, typeof(JoinedSubclassAttribute)) )
+						extendedClassesNames.Add((type.GetCustomAttributes(typeof(JoinedSubclassAttribute), false)[0] as JoinedSubclassAttribute).Extends);
+					else if( IsSubclass(type, typeof(UnionSubclassAttribute)) )
+						extendedClassesNames.Add((type.GetCustomAttributes(typeof(UnionSubclassAttribute), false)[0] as UnionSubclassAttribute).Extends);
 				}
 			}
-			MapSubclasses(true, subclasses, extendedClassesNames, mappedClassesNames, writer);
-
-			foreach(System.Type type in assembly.GetTypes())
-			{
-				if( ! type.IsDefined( typeof(JoinedSubclassAttribute), false ) )
-					continue;
-				bool map = true;
-				System.Type t = type;
-				while( (t=t.DeclaringType) != null )
-					if( t.IsDefined( typeof(ClassAttribute), false )
-						|| t.IsDefined( typeof(JoinedSubclassAttribute), false ) )
-					{
-						map = false; // The class's mapping is included in the mapping of the declaring class
-						break;
-					}
-				if(map)
-				{
-					JoinedSubclassAttribute attribute = type.GetCustomAttributes(typeof(JoinedSubclassAttribute), false)[0] as JoinedSubclassAttribute;
-					subclasses.Add(type);
-					extendedClassesNames.Add(attribute.Extends);
-				}
-			}
-			MapSubclasses(false, subclasses, extendedClassesNames, mappedClassesNames, writer);
+			MapSubclasses(subclasses, extendedClassesNames, mappedClassesNames, writer);
 
 			writer.WriteEndElement(); // </hibernate-mapping>
 			writer.WriteEndDocument();
@@ -393,7 +372,7 @@ namespace NHibernate.Mapping.Attributes
 
 
 		/// <summary> Writes the mapping of all mapped classes of the specified assembly in a MemoryStream and returns it. </summary>
-		/// <param name="assembly">Assembly used to extract user-defined types containing a valid attribute (can be [Class], [Subclass] or [JoinedSubclass]).</param>
+		/// <param name="assembly">Assembly used to extract user-defined types containing a valid attribute (can be [Class] or [xSubclass]).</param>
 		/// <returns>Stream containing the XML mapping.</returns>
 		public virtual System.IO.MemoryStream Serialize(System.Reflection.Assembly assembly)
 		{
@@ -415,7 +394,7 @@ namespace NHibernate.Mapping.Attributes
 
 		#region Serialize() for Classes
 		/// <summary> Writes the mapping of the specified class in a MemoryStream and returns it. </summary>
-		/// <param name="type">User-defined type containing a valid attribute (can be [Class], [Subclass] or [JoinedSubclass]).</param>
+		/// <param name="type">User-defined type containing a valid attribute (can be [Class] or [xSubclass]).</param>
 		/// <returns>Stream containing the XML mapping.</returns>
 		public virtual System.IO.MemoryStream Serialize(System.Type type)
 		{
@@ -436,7 +415,7 @@ namespace NHibernate.Mapping.Attributes
 
 		/// <summary> Writes the mapping of the specified class in the specified hbm.xml file. </summary>
 		/// <param name="filePath">Where the xml is written.</param>
-		/// <param name="type">User-defined type containing a valid attribute (can be [Class], [Subclass] or [JoinedSubclass]).</param>
+		/// <param name="type">User-defined type containing a valid attribute (can be [Class] or [xSubclass]).</param>
 		public virtual void Serialize(string filePath, System.Type type)
 		{
 			using( System.IO.Stream stream = new System.IO.FileStream(filePath, System.IO.FileMode.Create) )
@@ -446,7 +425,7 @@ namespace NHibernate.Mapping.Attributes
 
 		/// <summary> Writes the mapping of the specified class in the specified stream. </summary>
 		/// <param name="stream">Where the xml is written.</param>
-		/// <param name="type">User-defined type containing a valid attribute (can be [Class], [Subclass] or [JoinedSubclass]).</param>
+		/// <param name="type">User-defined type containing a valid attribute (can be [Class] or [xSubclass]).</param>
 		public virtual void Serialize(System.IO.Stream stream, System.Type type)
 		{
 			Serialize(stream, type, null, true);
@@ -455,7 +434,7 @@ namespace NHibernate.Mapping.Attributes
 
 		/// <summary> Writes the mapping of the specified class in the specified stream. </summary>
 		/// <param name="stream">Where the xml is written; can be null if you send the writer.</param>
-		/// <param name="type">User-defined type containing a valid attribute (can be [Class], [Subclass] or [JoinedSubclass]).</param>
+		/// <param name="type">User-defined type containing a valid attribute (can be [Class] or [xSubclass]).</param>
 		/// <param name="writer">The XmlTextWriter used to write the xml; can be null if you send the stream. You can also create it yourself, but don't forget to write the StartElement ("hibernate-mapping") before.</param>
 		/// <param name="writeEndDocument">Tells if the EndElement of "hibernate-mapping" must be written; send false to append many classes in the same stream.</param>
 		/// <returns>The parameter writer if it was not null; else it is a new writer (created using the stream). Send it back to append many classes in this stream.</returns>
@@ -476,14 +455,16 @@ namespace NHibernate.Mapping.Attributes
 				WriteHibernateMapping(writer, type);
 			}
 
-			if( type.IsDefined( typeof(ClassAttribute), false ) )
+			if( IsClass(type) )
 				HbmWriter.WriteClass(writer, type);
-			else if( type.IsDefined( typeof(SubclassAttribute), false ) )
+			else if( IsSubclass(type, typeof(SubclassAttribute)) )
 				HbmWriter.WriteSubclass(writer, type);
-			else if( type.IsDefined( typeof(JoinedSubclassAttribute), false ) )
+			else if( IsSubclass(type, typeof(JoinedSubclassAttribute)) )
 				HbmWriter.WriteJoinedSubclass(writer, type);
+			else if( IsSubclass(type, typeof(UnionSubclassAttribute)) )
+				HbmWriter.WriteUnionSubclass(writer, type);
 			else
-				throw new System.ArgumentException("No valid attribute; looking for [Class], [Subclass] or [JoinedSubclass].", "type");
+				throw new System.ArgumentException("No valid attribute; looking for [Class] or [xSubclass].", "type");
 
 			if(writeEndDocument)
 			{
@@ -524,7 +505,7 @@ namespace NHibernate.Mapping.Attributes
 		#endregion
 
 
-		#region XmlValidationHandler() and WriteHibernateMapping()
+		#region XmlValidationHandler(), WriteHibernateMapping(), IsSubclass() and MapSubclasses()
 		private void XmlValidationHandler(object sender, System.Xml.Schema.ValidationEventArgs e)
 		{
 			Error.Append( "Validation error: Severity=" + e.Severity ).Append(System.Environment.NewLine)
@@ -599,7 +580,34 @@ namespace NHibernate.Mapping.Attributes
 
 
 
-		private void MapSubclasses(bool areSubclasses, System.Collections.ArrayList subclasses, System.Collections.Specialized.StringCollection extendedClassesNames, System.Collections.ArrayList mappedClassesNames, System.Xml.XmlTextWriter writer)
+
+		private bool IsClass(System.Type type)
+		{
+			return type.IsDefined(typeof(ClassAttribute), false);
+		}
+
+		private bool IsSubclass(System.Type type, System.Type attribute)
+		{
+			return type.IsDefined(attribute, false);
+		}
+
+		private bool IsSubclass(System.Type type)
+		{
+			return IsSubclass(type, typeof(SubclassAttribute))
+				|| IsSubclass(type, typeof(JoinedSubclassAttribute))
+				|| IsSubclass(type, typeof(UnionSubclassAttribute));
+		}
+
+		private bool AreSameSubclass(System.Type type1, System.Type type2)
+		{
+			return (IsSubclass(type1, typeof(SubclassAttribute)) && IsSubclass(type2, typeof(SubclassAttribute)))
+				|| (IsSubclass(type1, typeof(JoinedSubclassAttribute)) && IsSubclass(type2, typeof(JoinedSubclassAttribute)))
+				|| (IsSubclass(type1, typeof(UnionSubclassAttribute)) && IsSubclass(type2, typeof(UnionSubclassAttribute)));
+		}
+
+
+
+		private void MapSubclasses(System.Collections.ArrayList subclasses, System.Collections.Specialized.StringCollection extendedClassesNames, System.Collections.ArrayList mappedClassesNames, System.Xml.XmlTextWriter writer)
 		{
 			System.Collections.ArrayList mappedSubclassesNames = new System.Collections.ArrayList();
 			// Map each subclass after the class it extends
@@ -614,7 +622,7 @@ namespace NHibernate.Mapping.Attributes
 					if( ! mappedClassesNames.Contains(extendedClassName)
 						&& ! mappedSubclassesNames.Contains(extendedClassName) )
 					{
-						bool found = false;
+						bool extendedClassFoundButNotMappedYet = false;
 						// Make sure that the extended class is mapped (in this assembly)
 						foreach(System.Type subclass in subclasses)
 						{
@@ -625,23 +633,25 @@ namespace NHibernate.Mapping.Attributes
 									throw new MappingException("The Subclass " + type.FullName + " extends itself.");
 								else
 								{
-									found = true;
+									extendedClassFoundButNotMappedYet = true;
 									break;
 								}
 							}
 						}
-						if(found)
-							continue; // ok, will map it later
+						if (extendedClassFoundButNotMappedYet)
+							continue; // Map this one later
 						// Else unknown extended class:
-						// Assume it is mapped somewhere else and let map this subclass
+						//   Assume it is mapped somewhere else and map this subclass
 					}
 
-					if(areSubclasses)
+					if( IsSubclass(type, typeof(SubclassAttribute)) )
 						HbmWriter.WriteSubclass(writer, type);
-					else
+					else if( IsSubclass(type, typeof(JoinedSubclassAttribute)) )
 						HbmWriter.WriteJoinedSubclass(writer, type);
+					else if( IsSubclass(type, typeof(UnionSubclassAttribute)) )
+						HbmWriter.WriteUnionSubclass(writer, type);
 
-					// Note: Do not add to mappedClassesNames because it is for subclasses and joined-subclasses (and a joined-subclasses shouldn't extend a subclasses)
+					// Note: Do not add to mappedClassesNames because it is for x-subclasses (and a x-subclasses shouldn't extend another x-subclasses)
 					mappedSubclassesNames.Add(type.FullName + ", " + type.Assembly.GetName().Name);
 					subclasses.RemoveAt(i);
 					extendedClassesNames.RemoveAt(i);

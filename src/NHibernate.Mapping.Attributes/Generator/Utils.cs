@@ -24,6 +24,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 				if(_knowEnums == null)
 				{
 					_knowEnums = new System.Collections.Specialized.StringCollection();
+					_knowEnums.Add("cacheMode");
 					_knowEnums.Add("cascadeStyle");
 					_knowEnums.Add("collectionFetchMode");
 					_knowEnums.Add("customSQLCheck");
@@ -49,7 +50,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 		public static string AllowMultipleValue(string elt)
 		{
 			if( elt=="hibernate-mapping" || elt=="class"
-				|| elt=="subclass" || elt=="joined-subclass" )
+				|| elt=="subclass" || elt=="joined-subclass" || elt=="union-subclass" )
 				return "false";
 
 			return "true"; // TODO: Put back the following code? (harder to maintain)
@@ -77,6 +78,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 		{
 			return name=="HibernateMapping" || name=="Class"
 				|| name=="Subclass" || name=="JoinedSubclass"
+				|| name=="UnionSubclass"
 				|| name=="Component" || name=="Import";
 		}
 
@@ -89,10 +91,10 @@ namespace NHibernate.Mapping.Attributes.Generator
 
 			if(attribMember.Name == "name" || attribMember.Name == "proxy")
 				return parentEltName=="class" || parentEltName=="subclass"
-					|| parentEltName=="joined-subclass" || parentEltName == "type";
+					|| parentEltName=="joined-subclass" || parentEltName=="union-subclass" || parentEltName == "type";
 
 			if(attribMember.Name == "extends")
-				return parentEltName=="subclass" || parentEltName == "joined-subclass";
+				return parentEltName=="subclass" || parentEltName=="joined-subclass" || parentEltName=="union-subclass";
 
 			// Note : Easier to write and it can't hurt :D (and ATM they are all System.Type)
 			if( attribMember.Name == "access" || attribMember.Name == "default-access"
@@ -287,8 +289,13 @@ namespace NHibernate.Mapping.Attributes.Generator
 				case "positiveInteger" : return "System.Int32";
 				case "string" : return "System.String";
 				default:
-					if( ! KnowEnums.Contains(attribTypeName) && attribTypeName.Length>0 )
-						log.Warn("\n\nUnknow TYPE (can be an enum): " + attribTypeName + "\n\n");
+					if (!KnowEnums.Contains(attribTypeName) && attribTypeName.Length > 0)
+					{
+						if (attribTypeName == "int")
+							log.Warn("\n\nType 'xs:int' purposely not supported. Use 'xs:positiveInteger' or support it by updating Utils.GetAttributeTypeName()\n\n");
+						else
+							log.Warn("\n\nUnknow TYPE (can be an enum): " + attribTypeName + "\n\n");
+					}
 					return Program.Conformer.ToCapitalized(attribTypeName);
 			}
 		}

@@ -23,33 +23,48 @@ namespace NHibernate.Mapping.Attributes
 	/// <summary> </summary>
 	[System.AttributeUsage(System.AttributeTargets.Property | System.AttributeTargets.Field, AllowMultiple=true)]
 	[System.Serializable()]
-	public class CreateAttribute : BaseAttribute
+	public class QueryParamAttribute : BaseAttribute
 	{
 		
-		private string _content = null;
+		private string _name = null;
+		
+		private string _type = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
-		public CreateAttribute() : 
+		public QueryParamAttribute() : 
 				base(0)
 		{
 		}
 		
 		/// <summary> Constructor taking the position of the attribute. </summary>
-		public CreateAttribute(int position) : 
+		public QueryParamAttribute(int position) : 
 				base(position)
 		{
 		}
 		
-		/// <summary> Gets or sets the content of this element </summary>
-		public virtual string Content
+		/// <summary> </summary>
+		public virtual string Name
 		{
 			get
 			{
-				return this._content;
+				return this._name;
 			}
 			set
 			{
-				this._content = value;
+				this._name = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual string Type
+		{
+			get
+			{
+				return this._type;
+			}
+			set
+			{
+				this._type = value;
 			}
 		}
 	}

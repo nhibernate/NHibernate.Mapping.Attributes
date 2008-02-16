@@ -263,8 +263,9 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// </summary>
 	[NHMA.List(0, Lazy=true, Cascade=NHMA.CascadeStyle.All, Name="List", AccessType=typeof(Foo), OuterJoin=NHMA.OuterJoinStrategy.True)]
 		[NHMA.Key(1, Column="bazid")]
-		[NHMA.Index(2, Column="bazind")]
-		[NHMA.OneToMany(3, NotFound=NHMA.NotFoundMode.Exception, ClassType=typeof(Fee))]
+		[NHMA.ListIndex(2, Column="bazind", Base=123)]
+			[NHMA.Column(3, Name="listIndexCol", Length=4)]
+		[NHMA.OneToMany(4, NotFound=NHMA.NotFoundMode.Exception, ClassType=typeof(Fee))]
 	public System.Collections.IList Fees
 	{
 		get { return _fees; }
@@ -979,7 +980,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 
 
 	#region interface Sql
-	[NHMA.Class]
+	[NHMA.Class(Abstract=true)]
 		[NHMA.Cache(Usage=NHMA.CacheUsage.NonStrictReadWrite)]
 		[NHMA.Discriminator]
 	public interface Sql
@@ -996,6 +997,16 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 		
 		[NHMA.Filter(Name="Null", Condition="1==2")]
 		int filter { get; }
+	}
+	#endregion
+
+
+	#region interface UnionSubclass
+	[NHMA.UnionSubclass(Abstract=false, Table="uT", Schema="none", Check="maybe", NameType=typeof(UnionSubclass), ProxyType=typeof(UnionSubclass), ExtendsType=typeof(Baz), SelectBeforeUpdate=true)]
+	public interface UnionSubclass
+	{
+		[NHMA.Meta(Attribute="Meta", Content="Content")]
+		object Object { get;}
 	}
 	#endregion
 }
