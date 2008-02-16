@@ -21,36 +21,30 @@ namespace NHibernate.Mapping.Attributes
 	
 	
 	/// <summary> </summary>
-	[System.AttributeUsage(System.AttributeTargets.Property | System.AttributeTargets.Field, AllowMultiple=true)]
-	[System.Serializable()]
-	public class CreateAttribute : BaseAttribute
+	public enum CacheMode
 	{
 		
-		private string _content = null;
+		/// <summary>Default value (don't use it)</summary>
+		Unspecified,
 		
-		/// <summary> Default constructor (position=0) </summary>
-		public CreateAttribute() : 
-				base(0)
-		{
-		}
+		/// <summary>get</summary>
+		[System.Xml.Serialization.XmlEnumAttribute("get")]
+		Get,
 		
-		/// <summary> Constructor taking the position of the attribute. </summary>
-		public CreateAttribute(int position) : 
-				base(position)
-		{
-		}
+		/// <summary>ignore</summary>
+		[System.Xml.Serialization.XmlEnumAttribute("ignore")]
+		Ignore,
 		
-		/// <summary> Gets or sets the content of this element </summary>
-		public virtual string Content
-		{
-			get
-			{
-				return this._content;
-			}
-			set
-			{
-				this._content = value;
-			}
-		}
+		/// <summary>normal</summary>
+		[System.Xml.Serialization.XmlEnumAttribute("normal")]
+		Normal,
+		
+		/// <summary>put</summary>
+		[System.Xml.Serialization.XmlEnumAttribute("put")]
+		Put,
+		
+		/// <summary>refresh</summary>
+		[System.Xml.Serialization.XmlEnumAttribute("refresh")]
+		Refresh,
 	}
 }

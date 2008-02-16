@@ -23,33 +23,48 @@ namespace NHibernate.Mapping.Attributes
 	/// <summary> </summary>
 	[System.AttributeUsage(System.AttributeTargets.Property | System.AttributeTargets.Field, AllowMultiple=true)]
 	[System.Serializable()]
-	public class CreateAttribute : BaseAttribute
+	public class ListIndexAttribute : BaseAttribute
 	{
 		
-		private string _content = null;
+		private string _column = null;
+		
+		private int _base = -1;
 		
 		/// <summary> Default constructor (position=0) </summary>
-		public CreateAttribute() : 
+		public ListIndexAttribute() : 
 				base(0)
 		{
 		}
 		
 		/// <summary> Constructor taking the position of the attribute. </summary>
-		public CreateAttribute(int position) : 
+		public ListIndexAttribute(int position) : 
 				base(position)
 		{
 		}
 		
-		/// <summary> Gets or sets the content of this element </summary>
-		public virtual string Content
+		/// <summary> </summary>
+		public virtual string Column
 		{
 			get
 			{
-				return this._content;
+				return this._column;
 			}
 			set
 			{
-				this._content = value;
+				this._column = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual int Base
+		{
+			get
+			{
+				return this._base;
+			}
+			set
+			{
+				this._base = value;
 			}
 		}
 	}

@@ -20,10 +20,10 @@ namespace NHibernate.Mapping.Attributes
 {
 	
 	
-	/// <summary>Joined subclasses are used for the normalized table-per-subclass mapping strategy</summary>
+	/// <summary>A subclass in a table-per-concrete-class mapping</summary>
 	[System.AttributeUsage(System.AttributeTargets.Class | System.AttributeTargets.Struct | System.AttributeTargets.Interface, AllowMultiple=false)]
 	[System.Serializable()]
-	public class JoinedSubclassAttribute : BaseAttribute
+	public class UnionSubclassAttribute : BaseAttribute
 	{
 		
 		private bool _abstractspecified;
@@ -59,13 +59,13 @@ namespace NHibernate.Mapping.Attributes
 		private bool _dynamicinsertspecified;
 		
 		/// <summary> Default constructor (position=0) </summary>
-		public JoinedSubclassAttribute() : 
+		public UnionSubclassAttribute() : 
 				base(0)
 		{
 		}
 		
 		/// <summary> Constructor taking the position of the attribute. </summary>
-		public JoinedSubclassAttribute(int position) : 
+		public UnionSubclassAttribute(int position) : 
 				base(position)
 		{
 		}
@@ -243,7 +243,7 @@ namespace NHibernate.Mapping.Attributes
 			}
 		}
 		
-		/// <summary>Name of the root class. Required if the Joined Subclass is declared outside the declaration of its root class</summary>
+		/// <summary>Name of the root class. Required if the subclass is declared outside the declaration of its root class</summary>
 		public virtual string Extends
 		{
 			get
@@ -256,7 +256,7 @@ namespace NHibernate.Mapping.Attributes
 			}
 		}
 		
-		/// <summary>Name of the root class. Required if the Joined Subclass is declared outside the declaration of its root class</summary>
+		/// <summary>Name of the root class. Required if the subclass is declared outside the declaration of its root class</summary>
 		public virtual System.Type ExtendsType
 		{
 			get

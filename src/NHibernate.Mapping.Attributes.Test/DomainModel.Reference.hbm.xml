@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Generated from NHibernate.Mapping.Attributes on 2007-09-28 17:50:11Z.-->
+<!--Generated from NHibernate.Mapping.Attributes on 2008-02-15 15:06:44Z.-->
 <hibernate-mapping auto-import="true" default-lazy="true" xmlns="urn:nhibernate-mapping-2.2">
   <import class="Double" rename="RealNumber" />
   <import class="NHibernate.Mapping.Attributes.Test.DomainModel.Glarch, NHibernate.Mapping.Attributes.Test" />
@@ -97,7 +97,9 @@
     </list>
     <list name="List" access="NHibernate.Mapping.Attributes.Test.DomainModel.Foo, NHibernate.Mapping.Attributes.Test" lazy="true" outer-join="true" cascade="all">
       <key column="bazid" />
-      <index column="bazind" />
+      <list-index column="bazind" base="123">
+        <column name="listIndexCol" length="4" />
+      </list-index>
       <one-to-many class="NHibernate.Mapping.Attributes.Test.DomainModel.Fee, NHibernate.Mapping.Attributes.Test" not-found="exception" />
     </list>
     <list name="Customs" optimistic-lock="true">
@@ -258,7 +260,7 @@
       <many-to-one name="JoinedManyToOne" />
     </join>
   </class>
-  <class name="NHibernate.Mapping.Attributes.Test.DomainModel.Sql, NHibernate.Mapping.Attributes.Test">
+  <class name="NHibernate.Mapping.Attributes.Test.DomainModel.Sql, NHibernate.Mapping.Attributes.Test" abstract="true">
     <cache usage="nonstrict-read-write" />
     <id>
       <generator class="?" />
@@ -285,7 +287,6 @@
     </id>
     <!----><version name="" />
   </class>
-  <subclass name="X+PrivS, NHibernate.Mapping.Attributes.Test" extends="Guid" />
   <joined-subclass name="X+PrivS+PrivJ, NHibernate.Mapping.Attributes.Test" extends="Guid">
     <key />
     <property name="userPattern" type="X+PrivS+PrivC, NHMA.Test" />
@@ -294,6 +295,10 @@
       <key />
     </joined-subclass>
   </joined-subclass>
+  <subclass name="X+PrivS, NHibernate.Mapping.Attributes.Test" extends="Guid" />
+  <union-subclass name="NHibernate.Mapping.Attributes.Test.DomainModel.UnionSubclass, NHibernate.Mapping.Attributes.Test" proxy="NHibernate.Mapping.Attributes.Test.DomainModel.UnionSubclass, NHibernate.Mapping.Attributes.Test" select-before-update="true" abstract="false" extends="NHibernate.Mapping.Attributes.Test.DomainModel.Baz, NHibernate.Mapping.Attributes.Test" schema="none" table="uT" check="maybe">
+    <meta attribute="Meta">Content</meta>
+  </union-subclass>
   <joined-subclass name="NHibernate.Mapping.Attributes.Test.DomainModel.JoinedBaz, NHibernate.Mapping.Attributes.Test" proxy="NHibernate.Mapping.Attributes.Test.DomainModel.JoinedBaz, NHibernate.Mapping.Attributes.Test" select-before-update="true" extends="NHibernate.Mapping.Attributes.Test.DomainModel.Baz, NHibernate.Mapping.Attributes.Test">
     <meta attribute="Meta">Content</meta>
     <key column="JoinedId" />

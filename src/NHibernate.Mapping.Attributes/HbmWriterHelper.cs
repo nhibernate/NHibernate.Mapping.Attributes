@@ -55,8 +55,12 @@ namespace NHibernate.Mapping.Attributes
 			return type.FullName + ", " + type.Assembly.GetName().Name;
 		}
 
-
 		public virtual string Get_JoinedSubclass_Name_DefaultValue(System.Type type)
+		{
+			return type.FullName + ", " + type.Assembly.GetName().Name;
+		}
+
+		public virtual string Get_UnionSubclass_Name_DefaultValue(System.Type type)
 		{
 			return type.FullName + ", " + type.Assembly.GetName().Name;
 		}
@@ -68,13 +72,13 @@ namespace NHibernate.Mapping.Attributes
 		}
 
 
-		public string Get_MetaValue_Value_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_MetaValue_Value_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_MetaValue_Class_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_MetaValue_Class_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
@@ -278,126 +282,136 @@ namespace NHibernate.Mapping.Attributes
 		}
 
 
-		public string Get_Type_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_Type_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_FilterDef_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_FilterDef_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_Filter_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_Filter_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_FilterParam_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_FilterParam_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_FilterParam_Type_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_FilterParam_Type_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_Loader_QueryRef_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_Loader_QueryRef_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_ResultSet_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_ResultSet_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_Query_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_Query_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_SqlQuery_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_SqlQuery_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_ReturnProperty_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_ReturnProperty_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_ReturnJoin_Alias_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_ReturnJoin_Alias_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_ReturnJoin_Property_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_ReturnJoin_Property_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_ReturnScalar_Column_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_ReturnScalar_Column_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_ReturnScalar_Type_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_ReturnScalar_Type_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_LoadCollection_Alias_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_LoadCollection_Alias_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_LoadCollection_Role_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_LoadCollection_Role_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_DialectScope_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_DialectScope_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_ReturnDiscriminator_Column_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_ReturnDiscriminator_Column_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_ReturnColumn_Name_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_ReturnColumn_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
 
-		public string Get_Synchronize_Table_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_Synchronize_Table_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
 
-		public string Get_Definition_Class_DefaultValue(System.Reflection.MemberInfo member)
+		public virtual string Get_Definition_Class_DefaultValue(System.Reflection.MemberInfo member)
+		{
+			return ThrowRequiredValueNotProvidedException(member);
+		}
+
+		public virtual string Get_QueryParam_Name_DefaultValue(System.Reflection.MemberInfo member)
+		{
+			return ThrowRequiredValueNotProvidedException(member);
+		}
+
+		public virtual string Get_QueryParam_Type_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}

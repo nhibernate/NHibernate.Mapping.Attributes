@@ -106,6 +106,7 @@
     <Compile Include="CacheAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CacheMode.cs" />
     <Compile Include="CacheUsage.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -221,6 +222,7 @@
     <Compile Include="ListAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ListIndexAttribute.cs" />
     <Compile Include="LoadCollectionAttribute.cs" />
     <Compile Include="LoaderAttribute.cs" />
     <Compile Include="LockMode.cs" />
@@ -278,6 +280,7 @@
     </Compile>
     <Compile Include="PropertyGeneration.cs" />
     <Compile Include="QueryAttribute.cs" />
+    <Compile Include="QueryParamAttribute.cs" />
     <Compile Include="RawXmlAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -307,6 +310,7 @@
     <Compile Include="TypeAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UnionSubclassAttribute.cs" />
     <Compile Include="UnsavedValueType.cs">
       <SubType>Code</SubType>
     </Compile>
