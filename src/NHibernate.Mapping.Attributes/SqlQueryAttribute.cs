@@ -44,7 +44,7 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _name = null;
 		
-		private int _fetchsize = -1;
+		private long _fetchsize = -9223372036854775808;
 		
 		private FlushMode _flushmode = FlushMode.Unspecified;
 		
@@ -52,7 +52,7 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _content = null;
 		
-		private int _timeout = -1;
+		private long _timeout = -9223372036854775808;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public SqlQueryAttribute() : 
@@ -165,7 +165,7 @@ namespace NHibernate.Mapping.Attributes
 		}
 		
 		/// <summary> </summary>
-		public virtual int Timeout
+		public virtual long Timeout
 		{
 			get
 			{
@@ -178,7 +178,7 @@ namespace NHibernate.Mapping.Attributes
 		}
 		
 		/// <summary> </summary>
-		public virtual int FetchSize
+		public virtual long FetchSize
 		{
 			get
 			{

@@ -110,9 +110,6 @@
     <Compile Include="CacheUsage.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CascadeStyle.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ClassAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -251,6 +248,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="NotFoundMode.cs" />
+    <Compile Include="OnDelete.cs" />
     <Compile Include="OneToManyAttribute.cs">
       <SubType>Code</SubType>
     </Compile>

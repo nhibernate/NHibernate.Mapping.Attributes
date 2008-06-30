@@ -44,7 +44,7 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _idtype = null;
 		
-		private CascadeStyle _cascade = CascadeStyle.Unspecified;
+		private string _cascade = null;
 		
 		private bool _updatespecified;
 		
@@ -207,7 +207,7 @@ namespace NHibernate.Mapping.Attributes
 		}
 		
 		/// <summary> </summary>
-		public virtual CascadeStyle Cascade
+		public virtual string Cascade
 		{
 			get
 			{

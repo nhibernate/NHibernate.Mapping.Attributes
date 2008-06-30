@@ -38,6 +38,8 @@ namespace NHibernate.Mapping.Attributes
 		
 		private RestrictedLaziness _lazy = RestrictedLaziness.Unspecified;
 		
+		private NotFoundMode _notfound = NotFoundMode.Unspecified;
+		
 		/// <summary> Default constructor (position=0) </summary>
 		public KeyManyToOneAttribute() : 
 				base(0)
@@ -157,6 +159,19 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._lazy = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual NotFoundMode NotFound
+		{
+			get
+			{
+				return this._notfound;
+			}
+			set
+			{
+				this._notfound = value;
 			}
 		}
 	}

@@ -63,7 +63,7 @@ namespace NHibernate.Mapping.Attributes
 		private string _defaultaccess = null;
 		private string _assembly = null;
 		private string _namespace = null;
-		private CascadeStyle _defaultcascade = CascadeStyle.Unspecified;
+		private string _defaultcascade = null;
 
 		private bool _defaultlazyIsSpecified = false;
 		private bool _autoimportIsSpecified = false;
@@ -103,7 +103,7 @@ namespace NHibernate.Mapping.Attributes
 		}
 
 		/// <summary> Gets or sets this "hibernate-mapping" attribute </summary>
-		public virtual CascadeStyle HbmDefaultCascade
+		public virtual string HbmDefaultCascade
 		{
 			get
 			{
@@ -532,8 +532,8 @@ namespace NHibernate.Mapping.Attributes
 					if(attribute.Schema != null)
 						writer.WriteAttributeString("schema", attribute.Schema);
 					// Attribute: <default-cascade>
-					if(attribute.DefaultCascade != CascadeStyle.Unspecified)
-						writer.WriteAttributeString("default-cascade", HbmWriter.GetXmlEnumValue(typeof(CascadeStyle), attribute.DefaultCascade));
+					if(attribute.DefaultCascade != null)
+						writer.WriteAttributeString("default-cascade", attribute.DefaultCascade);
 					// Attribute: <default-access>
 					if(attribute.DefaultAccess != null)
 						writer.WriteAttributeString("default-access", attribute.DefaultAccess);
@@ -560,7 +560,7 @@ namespace NHibernate.Mapping.Attributes
 				writer.WriteAttributeString("schema", _schema);
 			// Attribute: <default-cascade>
 			if(_defaultcascadeIsSpecified)
-				writer.WriteAttributeString("default-cascade", HbmWriter.GetXmlEnumValue(typeof(CascadeStyle), _defaultcascade));
+				writer.WriteAttributeString("default-cascade", _defaultcascade);
 			// Attribute: <default-access>
 			if(_defaultaccessIsSpecified)
 				writer.WriteAttributeString("default-access", _defaultaccess);

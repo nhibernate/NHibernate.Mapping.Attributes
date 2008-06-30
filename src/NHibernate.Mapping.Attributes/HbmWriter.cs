@@ -2013,8 +2013,8 @@ writer.WriteStartElement( "hibernate-mapping" );
 if(attribute.Schema != null)
 writer.WriteAttributeString("schema", GetAttributeValue(attribute.Schema, type));
 			// Attribute: <default-cascade>
-if(attribute.DefaultCascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("default-cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.DefaultCascade));
+if(attribute.DefaultCascade != null)
+writer.WriteAttributeString("default-cascade", GetAttributeValue(attribute.DefaultCascade, type));
 			// Attribute: <default-access>
 if(attribute.DefaultAccess != null)
 writer.WriteAttributeString("default-access", GetAttributeValue(attribute.DefaultAccess, type));
@@ -3888,8 +3888,8 @@ writer.WriteAttributeString("insert", attribute.Insert ? "true" : "false");
 if( attribute.UpdateSpecified )
 writer.WriteAttributeString("update", attribute.Update ? "true" : "false");
 			// Attribute: <cascade>
-if(attribute.Cascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.Cascade));
+if(attribute.Cascade != null)
+writer.WriteAttributeString("cascade", GetAttributeValue(attribute.Cascade, mappedClass));
 			// Attribute: <index>
 if(attribute.Index != null)
 writer.WriteAttributeString("index", GetAttributeValue(attribute.Index, mappedClass));
@@ -3978,8 +3978,8 @@ writer.WriteAttributeString("schema", GetAttributeValue(attribute.Schema, mapped
 if(attribute.ElementClass != null)
 writer.WriteAttributeString("element-class", GetAttributeValue(attribute.ElementClass, mappedClass));
 			// Attribute: <cascade>
-if(attribute.Cascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.Cascade));
+if(attribute.Cascade != null)
+writer.WriteAttributeString("cascade", GetAttributeValue(attribute.Cascade, mappedClass));
 			// Attribute: <where>
 if(attribute.Where != null)
 writer.WriteAttributeString("where", GetAttributeValue(attribute.Where, mappedClass));
@@ -4936,8 +4936,8 @@ writer.WriteAttributeString("outer-join", GetXmlEnumValue(typeof(OuterJoinStrate
 if(attribute.Fetch != CollectionFetchMode.Unspecified)
 writer.WriteAttributeString("fetch", GetXmlEnumValue(typeof(CollectionFetchMode), attribute.Fetch));
 			// Attribute: <cascade>
-if(attribute.Cascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.Cascade));
+if(attribute.Cascade != null)
+writer.WriteAttributeString("cascade", GetAttributeValue(attribute.Cascade, mappedClass));
 			// Attribute: <where>
 if(attribute.Where != null)
 writer.WriteAttributeString("where", GetAttributeValue(attribute.Where, mappedClass));
@@ -5416,6 +5416,9 @@ writer.WriteAttributeString("foreign-key", GetAttributeValue(attribute.ForeignKe
 			// Attribute: <property-ref>
 if(attribute.PropertyRef != null)
 writer.WriteAttributeString("property-ref", GetAttributeValue(attribute.PropertyRef, mappedClass));
+			// Attribute: <on-delete>
+if(attribute.OnDelete != OnDelete.Unspecified)
+writer.WriteAttributeString("on-delete", GetXmlEnumValue(typeof(OnDelete), attribute.OnDelete));
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 
@@ -5468,6 +5471,9 @@ writer.WriteAttributeString("foreign-key", GetAttributeValue(attribute.ForeignKe
 			// Attribute: <lazy>
 if(attribute.Lazy != RestrictedLaziness.Unspecified)
 writer.WriteAttributeString("lazy", GetXmlEnumValue(typeof(RestrictedLaziness), attribute.Lazy));
+			// Attribute: <not-found>
+if(attribute.NotFound != NotFoundMode.Unspecified)
+writer.WriteAttributeString("not-found", GetXmlEnumValue(typeof(NotFoundMode), attribute.NotFound));
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 
@@ -5722,8 +5728,8 @@ writer.WriteAttributeString("unique-key", GetAttributeValue(attribute.UniqueKey,
 if(attribute.Index != null)
 writer.WriteAttributeString("index", GetAttributeValue(attribute.Index, mappedClass));
 			// Attribute: <cascade>
-if(attribute.Cascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.Cascade));
+if(attribute.Cascade != null)
+writer.WriteAttributeString("cascade", GetAttributeValue(attribute.Cascade, mappedClass));
 			// Attribute: <outer-join>
 if(attribute.OuterJoin != OuterJoinStrategy.Unspecified)
 writer.WriteAttributeString("outer-join", GetXmlEnumValue(typeof(OuterJoinStrategy), attribute.OuterJoin));
@@ -5929,8 +5935,8 @@ writer.WriteAttributeString("access", GetAttributeValue(attribute.Access, mapped
 if(attribute.Class != null)
 writer.WriteAttributeString("class", GetAttributeValue(attribute.Class, mappedClass));
 			// Attribute: <cascade>
-if(attribute.Cascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.Cascade));
+if(attribute.Cascade != null)
+writer.WriteAttributeString("cascade", GetAttributeValue(attribute.Cascade, mappedClass));
 			// Attribute: <outer-join>
 if(attribute.OuterJoin != OuterJoinStrategy.Unspecified)
 writer.WriteAttributeString("outer-join", GetXmlEnumValue(typeof(OuterJoinStrategy), attribute.OuterJoin));
@@ -6155,11 +6161,11 @@ writer.WriteAttributeString("cacheable", attribute.Cacheable ? "true" : "false")
 if(attribute.CacheRegion != null)
 writer.WriteAttributeString("cache-region", GetAttributeValue(attribute.CacheRegion, mappedClass));
 			// Attribute: <fetch-size>
-if(attribute.FetchSize != -1)
-writer.WriteAttributeString("fetch-size", attribute.FetchSize.ToString());
+if(attribute.FetchSize != -9223372036854775808)
+writer.WriteAttributeString("fetch-size", GetXmlEnumValue(typeof(System.Int64), attribute.FetchSize));
 			// Attribute: <timeout>
-if(attribute.Timeout != -1)
-writer.WriteAttributeString("timeout", attribute.Timeout.ToString());
+if(attribute.Timeout != -9223372036854775808)
+writer.WriteAttributeString("timeout", GetXmlEnumValue(typeof(System.Int64), attribute.Timeout));
 			// Attribute: <read-only>
 if( attribute.ReadOnlySpecified )
 writer.WriteAttributeString("read-only", attribute.ReadOnly ? "true" : "false");
@@ -6378,11 +6384,11 @@ writer.WriteAttributeString("callable", attribute.Callable ? "true" : "false");
 if( attribute.ReadOnlySpecified )
 writer.WriteAttributeString("read-only", attribute.ReadOnly ? "true" : "false");
 			// Attribute: <timeout>
-if(attribute.Timeout != -1)
-writer.WriteAttributeString("timeout", attribute.Timeout.ToString());
+if(attribute.Timeout != -9223372036854775808)
+writer.WriteAttributeString("timeout", GetXmlEnumValue(typeof(System.Int64), attribute.Timeout));
 			// Attribute: <fetch-size>
-if(attribute.FetchSize != -1)
-writer.WriteAttributeString("fetch-size", attribute.FetchSize.ToString());
+if(attribute.FetchSize != -9223372036854775808)
+writer.WriteAttributeString("fetch-size", GetXmlEnumValue(typeof(System.Int64), attribute.FetchSize));
 			// Attribute: <cache-region>
 if(attribute.CacheRegion != null)
 writer.WriteAttributeString("cache-region", GetAttributeValue(attribute.CacheRegion, mappedClass));
@@ -6423,8 +6429,8 @@ writer.WriteAttributeString("outer-join", GetXmlEnumValue(typeof(OuterJoinStrate
 if(attribute.Fetch != CollectionFetchMode.Unspecified)
 writer.WriteAttributeString("fetch", GetXmlEnumValue(typeof(CollectionFetchMode), attribute.Fetch));
 			// Attribute: <cascade>
-if(attribute.Cascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.Cascade));
+if(attribute.Cascade != null)
+writer.WriteAttributeString("cascade", GetAttributeValue(attribute.Cascade, mappedClass));
 			// Attribute: <where>
 if(attribute.Where != null)
 writer.WriteAttributeString("where", GetAttributeValue(attribute.Where, mappedClass));
@@ -6681,8 +6687,8 @@ writer.WriteAttributeString("outer-join", GetXmlEnumValue(typeof(OuterJoinStrate
 if(attribute.Fetch != CollectionFetchMode.Unspecified)
 writer.WriteAttributeString("fetch", GetXmlEnumValue(typeof(CollectionFetchMode), attribute.Fetch));
 			// Attribute: <cascade>
-if(attribute.Cascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.Cascade));
+if(attribute.Cascade != null)
+writer.WriteAttributeString("cascade", GetAttributeValue(attribute.Cascade, mappedClass));
 			// Attribute: <where>
 if(attribute.Where != null)
 writer.WriteAttributeString("where", GetAttributeValue(attribute.Where, mappedClass));
@@ -6990,8 +6996,8 @@ writer.WriteAttributeString("outer-join", GetXmlEnumValue(typeof(OuterJoinStrate
 if(attribute.Fetch != CollectionFetchMode.Unspecified)
 writer.WriteAttributeString("fetch", GetXmlEnumValue(typeof(CollectionFetchMode), attribute.Fetch));
 			// Attribute: <cascade>
-if(attribute.Cascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.Cascade));
+if(attribute.Cascade != null)
+writer.WriteAttributeString("cascade", GetAttributeValue(attribute.Cascade, mappedClass));
 			// Attribute: <where>
 if(attribute.Where != null)
 writer.WriteAttributeString("where", GetAttributeValue(attribute.Where, mappedClass));
@@ -7302,8 +7308,8 @@ writer.WriteAttributeString("outer-join", GetXmlEnumValue(typeof(OuterJoinStrate
 if(attribute.Fetch != CollectionFetchMode.Unspecified)
 writer.WriteAttributeString("fetch", GetXmlEnumValue(typeof(CollectionFetchMode), attribute.Fetch));
 			// Attribute: <cascade>
-if(attribute.Cascade != CascadeStyle.Unspecified)
-writer.WriteAttributeString("cascade", GetXmlEnumValue(typeof(CascadeStyle), attribute.Cascade));
+if(attribute.Cascade != null)
+writer.WriteAttributeString("cascade", GetAttributeValue(attribute.Cascade, mappedClass));
 			// Attribute: <where>
 if(attribute.Where != null)
 writer.WriteAttributeString("where", GetAttributeValue(attribute.Where, mappedClass));
