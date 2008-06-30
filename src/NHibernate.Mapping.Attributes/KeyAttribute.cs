@@ -32,6 +32,8 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _foreignkey = null;
 		
+		private OnDelete _ondelete = OnDelete.Unspecified;
+		
 		/// <summary> Default constructor (position=0) </summary>
 		public KeyAttribute() : 
 				base(0)
@@ -80,6 +82,19 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._propertyref = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual OnDelete OnDelete
+		{
+			get
+			{
+				return this._ondelete;
+			}
+			set
+			{
+				this._ondelete = value;
 			}
 		}
 	}

@@ -38,7 +38,7 @@ namespace NHibernate.Mapping.Attributes
 		
 		private bool _inversespecified;
 		
-		private CascadeStyle _cascade = CascadeStyle.Unspecified;
+		private string _cascade = null;
 		
 		private string _schema = null;
 		
@@ -200,7 +200,7 @@ namespace NHibernate.Mapping.Attributes
 		}
 		
 		/// <summary> </summary>
-		public virtual CascadeStyle Cascade
+		public virtual string Cascade
 		{
 			get
 			{

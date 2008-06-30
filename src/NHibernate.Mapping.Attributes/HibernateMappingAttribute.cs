@@ -36,7 +36,7 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _schema = null;
 		
-		private CascadeStyle _defaultcascade = CascadeStyle.Unspecified;
+		private string _defaultcascade = null;
 		
 		private string _defaultaccess = null;
 		
@@ -56,7 +56,7 @@ namespace NHibernate.Mapping.Attributes
 		{
 		}
 		
-		/// <summary>defaults to none used</summary>
+		/// <summary> </summary>
 		public virtual string Schema
 		{
 			get
@@ -70,7 +70,7 @@ namespace NHibernate.Mapping.Attributes
 		}
 		
 		/// <summary> </summary>
-		public virtual CascadeStyle DefaultCascade
+		public virtual string DefaultCascade
 		{
 			get
 			{

@@ -37,7 +37,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
  [Serializable]
 	// Set <hibernate-mapping> attributes
 	// Note: this attribute is used when you serialize this class (not the assembly)
- [NHMA.HibernateMapping(-1, DefaultLazy=true, DefaultCascade=Mapping.Attributes.CascadeStyle.None, Schema="Schema", DefaultAccessType=typeof(int), AutoImport=true, Namespace="NH", Assembly="NH")]
+ [NHMA.HibernateMapping(-1, DefaultLazy=true, DefaultCascade="none", Schema="Schema", DefaultAccessType=typeof(int), AutoImport=true, Namespace="NH", Assembly="NH")]
  [NHMA.Class(DiscriminatorValue="base", NameType=typeof(Baz), Mutable=false, Polymorphism=NHMA.PolymorphismType.Explicit, ProxyType=typeof(Baz), PersisterType=typeof(Baz), BatchSize=9, Check="0" ,Where="1")]
  public class Baz
  {
@@ -261,7 +261,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for fees
 	/// </summary>
-	[NHMA.List(0, Lazy=true, Cascade=NHMA.CascadeStyle.All, Name="List", AccessType=typeof(Foo), OuterJoin=NHMA.OuterJoinStrategy.True)]
+	[NHMA.List(0, Lazy=true, Cascade="all", Name="List", AccessType=typeof(Foo), OuterJoin=NHMA.OuterJoinStrategy.True)]
 		[NHMA.Key(1, Column="bazid")]
 		[NHMA.ListIndex(2, Column="bazind", Base=123)]
 			[NHMA.Column(3, Name="listIndexCol", Length=4)]
@@ -441,7 +441,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for stringGlarchMap
 	/// </summary>
-	[NHMA.Map(0, Where="baz_map_index &gt; 'a' and tha_key is not null", Cascade=NHMA.CascadeStyle.All)]
+	[NHMA.Map(0, Where="baz_map_index &gt; 'a' and tha_key is not null", Cascade="all")]
 		[NHMA.JcsCache(1, Usage=NHMA.JcsCacheUsage.ReadWrite)]
 		[NHMA.Key(2, Column="baz")]
 		[NHMA.IndexManyToMany(3, Column="another_baz", ClassType=typeof(Baz))]
@@ -553,7 +553,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	 /// <summary>
 	 /// Gets or sets the timeArray
 	 /// </summary> 
-	[NHMA.Array(Name="TimeArray", Schema="Schema", ElementClass="ElementClass", Cascade=NHMA.CascadeStyle.None, Where="1=1")]
+	[NHMA.Array(Name="TimeArray", Schema="Schema", ElementClass="ElementClass", Cascade="none", Where="1=1")]
 	[NHMA.Key(1)]
 		[NHMA.Column(2, Name="baz_id", Length=16)]
 	[NHMA.Index(3, Column="j")]
@@ -699,7 +699,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for bag
 	/// </summary>
-	[NHMA.Bag(-2, Name="Bag", OptimisticLock=true, Generic=false, OrderBy="x", Where="1", Lazy=true, Check="0", AccessType=typeof(Foo), PersisterType=typeof(string), Cascade=NHMA.CascadeStyle.All)]
+	[NHMA.Bag(-2, Name="Bag", OptimisticLock=true, Generic=false, OrderBy="x", Where="1", Lazy=true, Check="0", AccessType=typeof(Foo), PersisterType=typeof(string), Cascade="all")]
 		[NHMA.Key(-1, Column="baz")]
 			[NHMA.Column(Name="`baz_id@#$`", NotNull=true, Unique=false, UniqueKey="1")]
 		[NHMA.Element(1, Column="`name!`", TypeType=typeof(string))]
@@ -755,7 +755,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for idFooBag
 	/// </summary>
-	[NHMA.IdBag(0, Name="IdFooBag", Lazy=true, Generic=false, CollectionTypeType=typeof(bool), Table="baz_id_foo", Cascade=NHMA.CascadeStyle.All, AccessType=typeof(int), Schema="null", OrderBy="1", Where="1")]
+	[NHMA.IdBag(0, Name="IdFooBag", Lazy=true, Generic=false, CollectionTypeType=typeof(bool), Table="baz_id_foo", Cascade="all", AccessType=typeof(int), Schema="null", OrderBy="1", Where="1")]
 		[NHMA.CollectionId(1, Column="pkid", TypeType=typeof(System.Int64), Length=8)]
 			[NHMA.Generator(2, Class="hilo")]
 		[NHMA.Key(3, Column="baz")]
@@ -775,7 +775,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for byteBag
 	/// </summary>
-	[NHMA.IdBag(0, Lazy=true, Inverse=true, Table="baz_byte_bag", Cascade=NHMA.CascadeStyle.All, OptimisticLock=true)]
+	[NHMA.IdBag(0, Lazy=true, Inverse=true, Table="baz_byte_bag", Cascade="all", OptimisticLock=true)]
 		[NHMA.CollectionId(1, Column="pkid", TypeType=typeof(System.Int64))]
 			[NHMA.Generator(2, Class="hilo")]
 		[NHMA.Key(3, Column="baz")]
@@ -843,7 +843,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 		private FooProxy _reverse;
 		private object _object;
 
-		[NHMA.OneToOne(1, Name="Reverse", ClassType=typeof(FooProxy), Lazy=NHMA.Laziness.False, AccessType=typeof(Foo), ForeignKey="FK", Fetch=FetchMode.Join, Cascade=NHMA.CascadeStyle.SaveUpdate)]
+		[NHMA.OneToOne(1, Name="Reverse", ClassType=typeof(FooProxy), Lazy=NHMA.Laziness.False, AccessType=typeof(Foo), ForeignKey="FK", Fetch=FetchMode.Join, Cascade="save-update")]
 			[NHMA.Meta(2, Attribute="OneToOne Meta", Inherit=false)]
 		[NHMA.OneToOne(3, ClassType=typeof(int), Lazy=NHMA.Laziness.Proxy, AccessType=typeof(int), PropertyRef="TWO", OuterJoin=NHMA.OuterJoinStrategy.Auto, Constrained=true)]
 			[NHMA.Meta(4, Attribute="OneToOne Meta TWO")]
@@ -855,7 +855,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 
 
 		[NHMA.Meta(-2, Attribute="Meta", Content="Content")]
-		[NHMA.Any(-1, IdTypeType=typeof(System.Int64), Cascade=NHMA.CascadeStyle.All, AccessType=typeof(int), MetaTypeType=typeof(Baz))]
+		[NHMA.Any(-1, IdTypeType=typeof(System.Int64), Cascade="all", AccessType=typeof(int), MetaTypeType=typeof(Baz))]
 			[NHMA.MetaValue(Value="val1", ClassType=typeof(Foo))]
 			[NHMA.Column(1, Name="clazz", Length=200)]
 		public object Object
@@ -940,7 +940,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 			set { _timestamp = value; }
 		}
 
-		[NHMA.Set(-2, Generic=true, Inverse=true, OptimisticLock=true, CollectionTypeType=typeof(Stuff), Cascade=NHMA.CascadeStyle.All, OuterJoin=NHMA.OuterJoinStrategy.True, AccessType=typeof(bool), Where="1=1", PersisterType=typeof(Foo), SortType=typeof(bool))]
+		[NHMA.Set(-2, Generic=true, Inverse=true, OptimisticLock=true, CollectionTypeType=typeof(Stuff), Cascade="all", OuterJoin=NHMA.OuterJoinStrategy.True, AccessType=typeof(bool), Where="1=1", PersisterType=typeof(Foo), SortType=typeof(bool))]
 			[NHMA.Key(-1, Column="col")]
 			[NHMA.OneToMany(ClassType=typeof(int))]
 		public Iesi.Collections.ISet Set

@@ -33,6 +33,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 					_knowEnums.Add("laziness");
 					_knowEnums.Add("lockMode");
 					_knowEnums.Add("notFoundMode");
+					_knowEnums.Add("ondelete");
 					_knowEnums.Add("optimisticLockMode");
 					_knowEnums.Add("outerJoinStrategy");
 					_knowEnums.Add("polymorphismType");
@@ -264,7 +265,8 @@ namespace NHibernate.Mapping.Attributes.Generator
 			// (in this case, we should write it; even if it is the default value)
 			switch(attrib.SchemaTypeName.Name)
 			{
-				case "boolean" : return attrib.DefaultValue==null ? "false" : attrib.DefaultValue; // This value is meaningless because of its "bool XXXIsSpecified" property
+				case "boolean": return attrib.DefaultValue == null ? "false" : attrib.DefaultValue; // This value is meaningless because of its "bool XXXIsSpecified" property
+				case "int": return long.MinValue.ToString(); // Use a value outside the range of integers
 				case "positiveInteger" : return "-1"; // value should be positive (so we can use -1 as unspecified value)
 				case "string" : return "null";
 				default: // => Treat it as Enumeration
@@ -285,16 +287,14 @@ namespace NHibernate.Mapping.Attributes.Generator
 				case "" : // => Dynamically generated enumeration
 					return Capitalize(parentElt.Name)
 						+ Capitalize(attrib.Name);
-				case "boolean" : return "System.Boolean";
+				case "boolean": return "System.Boolean";
+				case "int": return "System.Int64";
 				case "positiveInteger" : return "System.Int32";
 				case "string" : return "System.String";
 				default:
 					if (!KnowEnums.Contains(attribTypeName) && attribTypeName.Length > 0)
 					{
-						if (attribTypeName == "int")
-							log.Warn("\n\nType 'xs:int' purposely not supported. Use 'xs:positiveInteger' or support it by updating Utils.GetAttributeTypeName()\n\n");
-						else
-							log.Warn("\n\nUnknow TYPE (can be an enum): " + attribTypeName + "\n\n");
+						log.Warn("\n\nUnknow TYPE (can be an enum): " + attribTypeName + "\n\n");
 					}
 					return Program.Conformer.ToCapitalized(attribTypeName);
 			}

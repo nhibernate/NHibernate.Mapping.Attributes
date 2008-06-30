@@ -21,6 +21,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 		{
 "abstract",
 "access",
+"action",
 "alias",
 "all",
 "always",
@@ -118,6 +119,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 "not",
 "null",
 "object",
+"on",
 "one",
 "only",
 "optimistic",
