@@ -9,10 +9,10 @@ With NHibernate.Mapping.Attributes, you can use .NET attributes to decorate your
 
 
 =================================
-Build for NHibernate 2.0.0.Alpha2
+Build for NHibernate 2.0.0.Beta1
 =================================
 
-Maintainance update to mirror the mapping of NHibernate 2.0.0.Alpha2.
+Maintainance update to mirror the mapping of NHibernate 2.0.0.Beta1.
 
 
 
