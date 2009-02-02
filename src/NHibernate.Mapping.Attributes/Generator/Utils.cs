@@ -25,8 +25,9 @@ namespace NHibernate.Mapping.Attributes.Generator
 				{
 					_knowEnums = new System.Collections.Specialized.StringCollection();
 					_knowEnums.Add("cacheMode");
-					_knowEnums.Add("cascadeStyle");
-					_knowEnums.Add("collectionFetchMode");
+                    _knowEnums.Add("cascadeStyle");
+                    _knowEnums.Add("collectionFetchMode");
+                    _knowEnums.Add("collectionLazy");
 					_knowEnums.Add("customSQLCheck");
 					_knowEnums.Add("fetchMode");
 					_knowEnums.Add("flushMode");
@@ -109,7 +110,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 					|| parentEltName == "composite-index" || parentEltName == "index-many-to-many" || parentEltName == "key-many-to-one"
 					|| parentEltName == "many-to-many" || parentEltName == "many-to-one" || parentEltName == "meta-value"
 					|| parentEltName == "nested-composite-element" || parentEltName == "one-to-many" || parentEltName == "one-to-one"
-					|| parentEltName == "import"  || parentEltName == "definition";
+					|| parentEltName == "import" || parentEltName == "definition" || parentEltName == "tuplizer";
 
 			if(attribMember.Name == "type")
 				return parentEltName == "collection-id" || parentEltName == "discriminator" || parentEltName == "element"

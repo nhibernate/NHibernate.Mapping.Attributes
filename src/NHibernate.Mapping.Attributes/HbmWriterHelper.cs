@@ -32,12 +32,6 @@ namespace NHibernate.Mapping.Attributes
 		}
 
 
-		public virtual string Get_Class_Name_DefaultValue(System.Type type)
-		{
-			return type.FullName + ", " + type.Assembly.GetName().Name;
-		}
-
-
 		public virtual string Get_Version_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return member.Name;
@@ -47,22 +41,6 @@ namespace NHibernate.Mapping.Attributes
 		public virtual string Get_Timestamp_Name_DefaultValue(System.Reflection.MemberInfo member)
 		{
 			return member.Name;
-		}
-
-
-		public virtual string Get_Subclass_Name_DefaultValue(System.Type type)
-		{
-			return type.FullName + ", " + type.Assembly.GetName().Name;
-		}
-
-		public virtual string Get_JoinedSubclass_Name_DefaultValue(System.Type type)
-		{
-			return type.FullName + ", " + type.Assembly.GetName().Name;
-		}
-
-		public virtual string Get_UnionSubclass_Name_DefaultValue(System.Type type)
-		{
-			return type.FullName + ", " + type.Assembly.GetName().Name;
 		}
 
 
@@ -415,5 +393,40 @@ namespace NHibernate.Mapping.Attributes
 		{
 			return ThrowRequiredValueNotProvidedException(member);
 		}
+
+	    public string Get_CompositeMapKey_Class_DefaultValue(System.Reflection.MemberInfo member)
+        {
+            return ThrowRequiredValueNotProvidedException(member);
+	    }
+
+	    public string Get_Tuplizer_Class_DefaultValue(System.Reflection.MemberInfo member)
+        {
+            return ThrowRequiredValueNotProvidedException(member);
+	    }
+
+	    public string Get_TypeDef_Class_DefaultValue(System.Reflection.MemberInfo member)
+        {
+            return ThrowRequiredValueNotProvidedException(member);
+	    }
+
+	    public string Get_TypeDef_Name_DefaultValue(System.Reflection.MemberInfo member)
+        {
+            return ThrowRequiredValueNotProvidedException(member);
+	    }
+
+	    public string Get_MapKey_Type_DefaultValue(System.Reflection.MemberInfo member)
+        {
+            return ThrowRequiredValueNotProvidedException(member);
+	    }
+
+	    public string Get_Properties_Name_DefaultValue(System.Reflection.MemberInfo member)
+        {
+            return ThrowRequiredValueNotProvidedException(member);
+	    }
+
+	    public string Get_Join_Table_DefaultValue(System.Reflection.MemberInfo member)
+        {
+            return ThrowRequiredValueNotProvidedException(member);
+	    }
 	}
 }

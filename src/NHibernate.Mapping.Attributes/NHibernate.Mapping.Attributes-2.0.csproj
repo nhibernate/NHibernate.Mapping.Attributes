@@ -106,6 +106,7 @@
     <Compile Include="CacheAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CacheInclude.cs" />
     <Compile Include="CacheMode.cs" />
     <Compile Include="CacheUsage.cs">
       <SubType>Code</SubType>
@@ -117,9 +118,11 @@
     <Compile Include="CollectionIdAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CollectionLazy.cs" />
     <Compile Include="ColumnAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CommentAttribute.cs" />
     <Compile Include="ComponentAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -135,6 +138,7 @@
     <Compile Include="CompositeIndexAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CompositeMapKeyAttribute.cs" />
     <Compile Include="CreateAttribute.cs" />
     <Compile Include="CustomSqlCheck.cs" />
     <Compile Include="DatabaseObjectAttribute.cs" />
@@ -157,6 +161,7 @@
     <Compile Include="FilterDefAttribute.cs" />
     <Compile Include="FilterParamAttribute.cs" />
     <Compile Include="FlushMode.cs" />
+    <Compile Include="FormulaAttribute.cs" />
     <Compile Include="GeneratorAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -196,16 +201,11 @@
     <Compile Include="IndexManyToManyAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JcsCacheAttribute.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="JcsCacheUsage.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="JoinAttribute.cs" />
     <Compile Include="JoinedSubclassAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="JoinFetch.cs" />
     <Compile Include="KeyAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -235,6 +235,8 @@
     <Compile Include="MapAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MapKeyAttribute.cs" />
+    <Compile Include="MapKeyManyToManyAttribute.cs" />
     <Compile Include="MappingException.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -244,6 +246,7 @@
     <Compile Include="MetaValueAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="NaturalIdAttribute.cs" />
     <Compile Include="NestedCompositeElementAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -273,6 +276,9 @@
     <Compile Include="PrimitiveArrayAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PrimitiveArrayFetch.cs" />
+    <Compile Include="PrimitiveArrayOuterJoin.cs" />
+    <Compile Include="PropertiesAttribute.cs" />
     <Compile Include="PropertyAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -301,13 +307,19 @@
     <Compile Include="SubclassAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SubselectAttribute.cs" />
     <Compile Include="SynchronizeAttribute.cs" />
     <Compile Include="TimestampAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TimestampSource.cs" />
+    <Compile Include="TimestampUnsavedValue.cs" />
+    <Compile Include="TuplizerAttribute.cs" />
+    <Compile Include="TuplizerEntityMode.cs" />
     <Compile Include="TypeAttribute.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TypeDefAttribute.cs" />
     <Compile Include="UnionSubclassAttribute.cs" />
     <Compile Include="UnsavedValueType.cs">
       <SubType>Code</SubType>
