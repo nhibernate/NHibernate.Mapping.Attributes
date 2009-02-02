@@ -524,8 +524,9 @@ namespace NHibernate.Mapping.Attributes.Generator
 
 			switch(fieldType)
 			{
-				case "System.Boolean" : return val + " ? \"true\" : \"false\"";
-				case "System.Int32" : return val + ".ToString()";
+                case "System.Boolean": return val + " ? \"true\" : \"false\"";
+                case "System.Int32": return val + ".ToString()";
+				case "System.Int64" : return val + ".ToString()";
 				case "System.String" : return "GetAttributeValue(" + val + (isRoot? ", type)" : ", mappedClass)");
 				default: // => Enum
 					return "GetXmlEnumValue(typeof(" + fieldType + "), " + val + ")";

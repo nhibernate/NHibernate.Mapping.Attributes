@@ -261,7 +261,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for fees
 	/// </summary>
-	[NHMA.List(0, Lazy=true, Cascade="all", Name="List", AccessType=typeof(Foo), OuterJoin=NHMA.OuterJoinStrategy.True)]
+	[NHMA.List(0, Lazy=NHMA.CollectionLazy.True, Cascade="all", Name="List", AccessType=typeof(Foo), OuterJoin=NHMA.OuterJoinStrategy.True)]
 		[NHMA.Key(1, Column="bazid")]
 		[NHMA.ListIndex(2, Column="bazind", Base=123)]
 			[NHMA.Column(3, Name="listIndexCol", Length=4)]
@@ -297,7 +297,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// Get/set for topComponents
 	/// </summary>
 	[NHMA.List(0, Table="topcomponents", Schema="Schema", Where="0", Inverse=false, Fetch=CollectionFetchMode.Select, PersisterType=typeof(int))]
-		[NHMA.Cache(1, Region="kmer", Usage=NHMA.CacheUsage.ReadWrite)]
+		[NHMA.Cache(1, Region="kmer", Usage=NHMA.CacheUsage.ReadWrite, Include=CacheInclude.All)]
 		[NHMA.Key(2, Column="id_")]
 		[NHMA.Index(3, Column="i")]
 		[NHMA.CompositeElement(4, ClassType=typeof(FooComponent))]
@@ -323,6 +323,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 			[NHMA.Column(2, Name="baz_id", Length=16)]
 		[NHMA.IndexManyToMany(3, Column="foo_id", ClassType=typeof(Foo))]
 		[NHMA.ManyToMany(4, Column="glarch_id", ClassType=typeof(Glarch), Lazy=NHMA.RestrictedLaziness.Proxy, Where="0==0", OuterJoin=NHMA.OuterJoinStrategy.Auto)]
+			[NHMA.Formula(5, Content="Formula E=MC2")]
 	public System.Collections.IDictionary FooToGlarch
 	{
 		get
@@ -339,7 +340,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// Get/set for fooComponentToFoo
 	/// </summary>
 	[NHMA.Map(OptimisticLock=true)]
-		[NHMA.JcsCache(1, Region="togs", Usage=NHMA.JcsCacheUsage.ReadWrite)]
+		[NHMA.Cache(1, Region="togs", Usage=NHMA.CacheUsage.ReadWrite)]
 		[NHMA.Key(2)]
 			[NHMA.Column(3, Name="baz_id", Length=16)]
 		[NHMA.CompositeIndex(4, ClassType=typeof(FooComponent))]
@@ -381,7 +382,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for stringDateMap
 	/// </summary>
-	[NHMA.Map(-3, Lazy=true, SortType=typeof(ReverseComparator), AccessType=typeof(Foo), PersisterType=typeof(int))]
+	[NHMA.Map(-3, Lazy=NHMA.CollectionLazy.True, SortType=typeof(ReverseComparator), AccessType=typeof(Foo), PersisterType=typeof(int))]
 		[NHMA.Key(-2, Column="id_")]
 		[NHMA.Index(-1, Column="map_key", TypeType=typeof(Foo), Length=32)]
 		[NHMA.Element(Column="map_value", TypeType=typeof(System.DateTime), Length=9, Unique=false)]
@@ -442,7 +443,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// Get/set for stringGlarchMap
 	/// </summary>
 	[NHMA.Map(0, Where="baz_map_index &gt; 'a' and tha_key is not null", Cascade="all")]
-		[NHMA.JcsCache(1, Usage=NHMA.JcsCacheUsage.ReadWrite)]
+		[NHMA.Cache(1, Usage=NHMA.CacheUsage.ReadWrite)]
 		[NHMA.Key(2, Column="baz")]
 		[NHMA.IndexManyToMany(3, Column="another_baz", ClassType=typeof(Baz))]
 		[NHMA.CompositeElement(4, ClassType=typeof(FooComponent))]
@@ -463,7 +464,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for anyToAny
 	/// </summary>
-	[NHMA.Map(-5, Lazy=true)]
+	[NHMA.Map(-5, Lazy=NHMA.CollectionLazy.True)]
 		[NHMA.Key(-4, Column="baz")]
 		[NHMA.IndexManyToAny(-3, IdTypeType=typeof(System.Int64), MetaTypeType=typeof(int))]
 			[NHMA.Column(-2, Name="ind_id_")]
@@ -485,7 +486,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	 /// <summary>
 	 /// Get/set for manyToAny
 	 /// </summary>
-	[NHMA.List(0, Lazy=true, CollectionTypeType=typeof(System.Collections.ArrayList))]
+	[NHMA.List(0, Lazy=NHMA.CollectionLazy.True, CollectionTypeType=typeof(System.Collections.ArrayList))]
 		[NHMA.Key(1, Column="baz")]
 		[NHMA.Index(2, Column="ind")]
 		[NHMA.ManyToAny(3, IdTypeType=typeof(string))]
@@ -573,7 +574,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	 /// <summary>
 	 /// Gets or sets the stringArray
 	 /// </summary> 
-	[NHMA.Any(Name="StringArray", Insert=true, Update=true, UniqueKey="uKey", Index="null", IdTypeType=typeof(Foo), AccessType=typeof(Baz), MetaTypeType=typeof(int))]
+	[NHMA.Any(Name="StringArray", Insert=true, Update=true, Node="node", Index="null", IdTypeType=typeof(Foo), AccessType=typeof(Baz), MetaTypeType=typeof(int))]
 		[NHMA.MetaValue(1, Value="val2", ClassType=typeof(int))]
 		[NHMA.Column(2, Name="clazz")]
 	 public string[] StringArray
@@ -699,7 +700,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for bag
 	/// </summary>
-	[NHMA.Bag(-2, Name="Bag", OptimisticLock=true, Generic=false, OrderBy="x", Where="1", Lazy=true, Check="0", AccessType=typeof(Foo), PersisterType=typeof(string), Cascade="all")]
+	[NHMA.Bag(-2, Name="Bag", OptimisticLock=true, Generic=false, OrderBy="x", Where="1", Lazy=NHMA.CollectionLazy.True, Check="0", AccessType=typeof(Foo), PersisterType=typeof(string), Cascade="all")]
 		[NHMA.Key(-1, Column="baz")]
 			[NHMA.Column(Name="`baz_id@#$`", NotNull=true, Unique=false, UniqueKey="1")]
 		[NHMA.Element(1, Column="`name!`", TypeType=typeof(string))]
@@ -737,7 +738,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for bazez
 	/// </summary>
-	[NHMA.Set(Name="Bazez", AccessType=typeof(Foo), Table="SetTable", Schema="Schema", Lazy=true, Check="0", OrderBy="1", BatchSize=3, Fetch=CollectionFetchMode.Join, PersisterType=typeof(int), SortType=typeof(Foo))]
+	[NHMA.Set(Name="Bazez", AccessType=typeof(Foo), Table="SetTable", Schema="Schema", Lazy=NHMA.CollectionLazy.Extra, Check="0", OrderBy="1", BatchSize=3, Fetch=CollectionFetchMode.Join, PersisterType=typeof(int), SortType=typeof(Foo))]
 		[NHMA.Key(1, Column="col")]
 		[NHMA.OneToMany(2, ClassType=typeof(int))]
 	public System.Collections.IList Bazez
@@ -755,7 +756,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for idFooBag
 	/// </summary>
-	[NHMA.IdBag(0, Name="IdFooBag", Lazy=true, Generic=false, CollectionTypeType=typeof(bool), Table="baz_id_foo", Cascade="all", AccessType=typeof(int), Schema="null", OrderBy="1", Where="1")]
+	[NHMA.IdBag(0, Name="IdFooBag", Lazy=NHMA.CollectionLazy.False, Generic=false, CollectionTypeType=typeof(bool), Table="baz_id_foo", Cascade="all", AccessType=typeof(int), Schema="null", OrderBy="1", Where="1")]
 		[NHMA.CollectionId(1, Column="pkid", TypeType=typeof(System.Int64), Length=8)]
 			[NHMA.Generator(2, Class="hilo")]
 		[NHMA.Key(3, Column="baz")]
@@ -775,7 +776,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	/// <summary>
 	/// Get/set for byteBag
 	/// </summary>
-	[NHMA.IdBag(0, Lazy=true, Inverse=true, Table="baz_byte_bag", Cascade="all", OptimisticLock=true)]
+	[NHMA.IdBag(0, Lazy=NHMA.CollectionLazy.True, Inverse=true, Table="baz_byte_bag", Cascade="all", OptimisticLock=true)]
 		[NHMA.CollectionId(1, Column="pkid", TypeType=typeof(System.Int64))]
 			[NHMA.Generator(2, Class="hilo")]
 		[NHMA.Key(3, Column="baz")]
@@ -900,10 +901,11 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 
 	#region class Stuff
 	[NHMA.Class(-1, NameType=typeof(int), Table="Stuff", DiscriminatorValueEnumFormat="none", DiscriminatorValueObject=7, Schema="none", Lazy=true, DynamicUpdate=false, DynamicInsert=false, SelectBeforeUpdate=true, OptimisticLock=NHMA.OptimisticLockMode.None, ProxyType=typeof(bool), PersisterType=typeof(string))]
-	[NHMA.JcsCache(Usage=NHMA.JcsCacheUsage.NonStrictReadWrite)]
+	[NHMA.Cache(Usage=NHMA.CacheUsage.NonStrictReadWrite, Include=CacheInclude.NonLazy)]
 	public class Stuff
 	{
-		[NHMA.Join(Table="Table", Schema="Schema", Fetch=FetchMode.Join, Inverse=true, Optional=false)]
+		[NHMA.Join(-1, Table="Table", Schema="Schema", Fetch=JoinFetch.Join, Inverse=true, Optional=false)]
+			[NHMA.Comment(Content="Comment on the Join")]
 			[NHMA.Key(1, Column="JoinedKey")]
 			[NHMA.Property(2, Name="JoinedProp")]
 			[NHMA.ManyToOne(3, Name="JoinedManyToOne")]
@@ -933,7 +935,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 			set { _foo = value; }
 		}
 
-		[NHMA.Timestamp(0, Generated = VersionGeneration.Always, Column = "`timestamp`", UnsavedValueObject = true, AccessType = typeof(bool))]
+		[NHMA.Timestamp(0, Source=TimestampSource.Vm, Generated = VersionGeneration.Always, Column = "`timestamp`", UnsavedValue = NHMA.TimestampUnsavedValue.Null, AccessType = typeof(bool))]
 		public DateTime Timestamp
 		{
 			get { return _timestamp; }
@@ -944,6 +946,15 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 			[NHMA.Key(-1, Column="col")]
 			[NHMA.OneToMany(ClassType=typeof(int))]
 		public Iesi.Collections.ISet Set
+		{
+			get {return _set;}
+			set {_set = value;}
+		}
+
+		[NHMA.Tuplizer(-1, ClassType=typeof(Baz), EntityMode=NHMA.TuplizerEntityMode.Poco)]
+		[NHMA.Properties(Name="Properties Property :)", Unique=true, Insert=false, Update=false, OptimisticLock=false, Node="A node")]
+			[NHMA.ManyToOne(1, Name="Contained ManyToOne")]
+		public Iesi.Collections.ISet Properties
 		{
 			get {return _set;}
 			set {_set = value;}
@@ -980,7 +991,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 
 
 	#region interface Sql
-	[NHMA.Class(Abstract=true)]
+	[NHMA.Class(EntityName="Entity Sql", Abstract=true)]
 		[NHMA.Cache(Usage=NHMA.CacheUsage.NonStrictReadWrite)]
 		[NHMA.Discriminator]
 	public interface Sql
@@ -1005,6 +1016,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	[NHMA.UnionSubclass(Abstract=false, Table="uT", Schema="none", Check="maybe", NameType=typeof(UnionSubclass), ProxyType=typeof(UnionSubclass), ExtendsType=typeof(Baz), SelectBeforeUpdate=true)]
 	public interface UnionSubclass
 	{
+		[NHMA.Tuplizer(Class="FakeClass", EntityMode=NHMA.TuplizerEntityMode.Xml)]
 		[NHMA.Meta(Attribute="Meta", Content="Content")]
 		object Object { get;}
 	}
@@ -1056,19 +1068,19 @@ class JS
 // Test mapping of nested classes
 internal class X
 {
-	[NHMA.Subclass(ExtendsType=typeof(Guid))]
+	[NHMA.Subclass(NameType=typeof(PrivS), ExtendsType=typeof(Guid))]
 	private class PrivS
 	{
-		[NHMA.Class]
+		[NHMA.Class(NameType=typeof(PrivC))]
 		private class PrivC
 		{
-			[NHMA.Subclass(ExtendsType=typeof(Guid))]
+			[NHMA.Subclass(NameType=typeof(IntS), ExtendsType=typeof(Guid))]
 			internal class IntS : PrivS
 			{
 				[NHMA.Component(Name="CompX")]
 				private class Comp {}
 
-				[NHMA.Class]
+				[NHMA.Class(NameType=typeof(IntC))]
 				internal class IntC : PrivC
 				{
 					[NHMA.Id]
@@ -1085,12 +1097,12 @@ internal class X
 			public int id = -1;
 		}
 
-		[NHMA.JoinedSubclass(ExtendsType=typeof(Guid))]
+		[NHMA.JoinedSubclass(NameType=typeof(PrivJ), ExtendsType=typeof(Guid))]
 		private class PrivJ
 		{
 			private class C
 			{
-				[NHMA.JoinedSubclass(ExtendsType=typeof(Guid))]
+				[NHMA.JoinedSubclass(NameType=typeof(IntJ), ExtendsType=typeof(Guid))]
 				internal class IntJ : PrivJ
 				{
 					[NHMA.Key]

@@ -83,12 +83,6 @@ namespace NHibernate.Mapping.Attributes
 				if(attributes.Length > 0)
 					WriteCache(writer, null, (CacheAttribute)attributes[0], parentAttribute, classType);
 			}
-			if(contentAttributeType == typeof(JcsCacheAttribute)) 
-			{
-				object[] attributes = classType.GetCustomAttributes(typeof(JcsCacheAttribute), false);
-				if(attributes.Length > 0)
-					WriteJcsCache(writer, null, (JcsCacheAttribute)attributes[0], parentAttribute, classType);
-			}
 			if(contentAttributeType == typeof(DiscriminatorAttribute)) 
 			{
 				object[] attributes = classType.GetCustomAttributes(typeof(DiscriminatorAttribute), false);
