@@ -9,12 +9,17 @@ With NHibernate.Mapping.Attributes, you can use .NET attributes to decorate your
 
 
 =================================
-Build for NHibernate 2.0.0.Beta1
+Build for NHibernate 2.1.0.Alpha1
 =================================
 
-Maintainance update to mirror the mapping of NHibernate 2.0.0.Beta1.
+Important breaking change: When using the [*Class] attributes, the property Name must now be manually specified.
+This is due to the fact that this property is optional since you can use EntityName instead.
 
 
+
+==================
+Online information
+==================
 
 Up-to-date source code available in the SVN:
 http://nhcontrib.svn.sourceforge.net/svnroot/nhcontrib/trunk/src/NHibernate.Mapping.Attributes/
