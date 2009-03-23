@@ -1111,40 +1111,75 @@ if( element1 == null )
 			{
 	if( typeOfElement2 == typeof(SubselectAttribute) )
 				{
-					if( element1 is CommentAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+					if( element1 is CommentAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(CommentAttribute) )
 				{
-					if( element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+					if( element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(KeyAttribute) )
 				{
-					if( element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+					if( element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(PropertyAttribute) )
 				{
-					if( element1 is ManyToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+					if( element1 is ManyToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ManyToOneAttribute) )
 				{
-					if( element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+					if( element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ComponentAttribute) )
 				{
-					if( element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+					if( element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(DynamicComponentAttribute) )
 				{
-					if( element1 is AnyAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+					if( element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(AnyAttribute) )
+				{
+					if( element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(MapAttribute) )
+				{
+					if( element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(SetAttribute) )
+				{
+					if( element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(ListAttribute) )
+				{
+					if( element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(BagAttribute) )
+				{
+					if( element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(IdBagAttribute) )
+				{
+					if( element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(ArrayAttribute) )
+				{
+					if( element1 is PrimitiveArrayAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(PrimitiveArrayAttribute) )
 				{
 					if( element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || typeOfElement2 == null )
 						return true;
@@ -6067,6 +6102,118 @@ for(; i<memberAttribs.Count; i++)
 				}
 			}
 WriteUserDefinedContent(writer, member, typeof(AnyAttribute), attribute);
+			// Element: <map>
+for(; i<memberAttribs.Count; i++)
+			{
+				BaseAttribute memberAttrib = memberAttribs[i] as BaseAttribute;
+				if( IsNextElement(memberAttrib, parentAttribute, attribute.GetType())
+					|| IsNextElement(memberAttrib, attribute, typeof(MapAttribute)) )
+					break; // next attributes are 'elements' of the same level OR for 'sub-elements'
+				else
+				{
+					if( memberAttrib is JoinAttribute )
+						break; // Following attributes are for this Join
+					if( memberAttrib is MapAttribute )
+						WriteMap(writer, member, memberAttrib as MapAttribute, attribute, mappedClass);
+				}
+			}
+WriteUserDefinedContent(writer, member, typeof(MapAttribute), attribute);
+			// Element: <set>
+for(; i<memberAttribs.Count; i++)
+			{
+				BaseAttribute memberAttrib = memberAttribs[i] as BaseAttribute;
+				if( IsNextElement(memberAttrib, parentAttribute, attribute.GetType())
+					|| IsNextElement(memberAttrib, attribute, typeof(SetAttribute)) )
+					break; // next attributes are 'elements' of the same level OR for 'sub-elements'
+				else
+				{
+					if( memberAttrib is JoinAttribute )
+						break; // Following attributes are for this Join
+					if( memberAttrib is SetAttribute )
+						WriteSet(writer, member, memberAttrib as SetAttribute, attribute, mappedClass);
+				}
+			}
+WriteUserDefinedContent(writer, member, typeof(SetAttribute), attribute);
+			// Element: <list>
+for(; i<memberAttribs.Count; i++)
+			{
+				BaseAttribute memberAttrib = memberAttribs[i] as BaseAttribute;
+				if( IsNextElement(memberAttrib, parentAttribute, attribute.GetType())
+					|| IsNextElement(memberAttrib, attribute, typeof(ListAttribute)) )
+					break; // next attributes are 'elements' of the same level OR for 'sub-elements'
+				else
+				{
+					if( memberAttrib is JoinAttribute )
+						break; // Following attributes are for this Join
+					if( memberAttrib is ListAttribute )
+						WriteList(writer, member, memberAttrib as ListAttribute, attribute, mappedClass);
+				}
+			}
+WriteUserDefinedContent(writer, member, typeof(ListAttribute), attribute);
+			// Element: <bag>
+for(; i<memberAttribs.Count; i++)
+			{
+				BaseAttribute memberAttrib = memberAttribs[i] as BaseAttribute;
+				if( IsNextElement(memberAttrib, parentAttribute, attribute.GetType())
+					|| IsNextElement(memberAttrib, attribute, typeof(BagAttribute)) )
+					break; // next attributes are 'elements' of the same level OR for 'sub-elements'
+				else
+				{
+					if( memberAttrib is JoinAttribute )
+						break; // Following attributes are for this Join
+					if( memberAttrib is BagAttribute )
+						WriteBag(writer, member, memberAttrib as BagAttribute, attribute, mappedClass);
+				}
+			}
+WriteUserDefinedContent(writer, member, typeof(BagAttribute), attribute);
+			// Element: <idbag>
+for(; i<memberAttribs.Count; i++)
+			{
+				BaseAttribute memberAttrib = memberAttribs[i] as BaseAttribute;
+				if( IsNextElement(memberAttrib, parentAttribute, attribute.GetType())
+					|| IsNextElement(memberAttrib, attribute, typeof(IdBagAttribute)) )
+					break; // next attributes are 'elements' of the same level OR for 'sub-elements'
+				else
+				{
+					if( memberAttrib is JoinAttribute )
+						break; // Following attributes are for this Join
+					if( memberAttrib is IdBagAttribute )
+						WriteIdBag(writer, member, memberAttrib as IdBagAttribute, attribute, mappedClass);
+				}
+			}
+WriteUserDefinedContent(writer, member, typeof(IdBagAttribute), attribute);
+			// Element: <array>
+for(; i<memberAttribs.Count; i++)
+			{
+				BaseAttribute memberAttrib = memberAttribs[i] as BaseAttribute;
+				if( IsNextElement(memberAttrib, parentAttribute, attribute.GetType())
+					|| IsNextElement(memberAttrib, attribute, typeof(ArrayAttribute)) )
+					break; // next attributes are 'elements' of the same level OR for 'sub-elements'
+				else
+				{
+					if( memberAttrib is JoinAttribute )
+						break; // Following attributes are for this Join
+					if( memberAttrib is ArrayAttribute )
+						WriteArray(writer, member, memberAttrib as ArrayAttribute, attribute, mappedClass);
+				}
+			}
+WriteUserDefinedContent(writer, member, typeof(ArrayAttribute), attribute);
+			// Element: <primitive-array>
+for(; i<memberAttribs.Count; i++)
+			{
+				BaseAttribute memberAttrib = memberAttribs[i] as BaseAttribute;
+				if( IsNextElement(memberAttrib, parentAttribute, attribute.GetType())
+					|| IsNextElement(memberAttrib, attribute, typeof(PrimitiveArrayAttribute)) )
+					break; // next attributes are 'elements' of the same level OR for 'sub-elements'
+				else
+				{
+					if( memberAttrib is JoinAttribute )
+						break; // Following attributes are for this Join
+					if( memberAttrib is PrimitiveArrayAttribute )
+						WritePrimitiveArray(writer, member, memberAttrib as PrimitiveArrayAttribute, attribute, mappedClass);
+				}
+			}
+WriteUserDefinedContent(writer, member, typeof(PrimitiveArrayAttribute), attribute);
 			// Element: <sql-insert>
 for(; i<memberAttribs.Count; i++)
 			{
