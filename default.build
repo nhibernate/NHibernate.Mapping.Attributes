@@ -3,16 +3,18 @@
 		name="NHibernate.Mapping.Attributes"
 		default="build"
 		description="Library of attributes which can be used to decorate your entities and generate hbm.xml mapping documents"
-		xmlns="http://nant.sf.net/release/0.85/nant.xsd">
+		xmlns="http://nant.sf.net/release/0.85-rc3/nant.xsd">
 
 	<property name="framework.family" value="${framework::get-family(framework::get-target-framework())}"/>
 	<property name="framework.version" value="${framework::get-version(framework::get-target-framework())}"/>
-	
+	<property name="folders.lib" value="lib" />
+	<property name="folders.build" value="build" />
+
 	<target name="build">
 		<mkdir dir="build"/>
 
 		<csc target="library"
-			 output="build/NHibernate.Mapping.Attributes.dll"
+			 output="${folders.build}/NHibernate.Mapping.Attributes.dll"
 		>
 			<nowarn>
 				<warning number="1591" />
@@ -22,13 +24,13 @@
 				<include name="*.cs"/>
 			</sources>
 			<references>
-				<include name="../../lib/${framework.family}/${framework.version}/NHibernate.dll"/>
-				<include name="../../lib/${framework.family}/${framework.version}/log4net.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/NHibernate.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/log4net.dll"/>
 			</references>
 		</csc>
 
 		<csc target="library"
-			 output="build/NHibernate.Mapping.Attributes.Test.dll"
+			 output="${folders.build}/NHibernate.Mapping.Attributes.Test.dll"
 		>
 			<nowarn>
 				<warning number="1591" />
@@ -38,11 +40,11 @@
 				<include name="**/*.cs"/>
 			</sources>
 			<references>
-				<include name="../../lib/${framework.family}/${framework.version}/NHibernate.dll"/>
-				<include name="../../lib/${framework.family}/${framework.version}/Iesi.Collections.dll"/>
-				<include name="../../lib/${framework.family}/${framework.version}/log4net.dll"/>
-				<include name="../../lib/${framework.family}/${framework.version}/nunit.framework.dll"/>
-				<include name="build/NHibernate.Mapping.Attributes.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/NHibernate.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/Iesi.Collections.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/log4net.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/nunit.framework.dll"/>
+				<include name="${folders.build}/NHibernate.Mapping.Attributes.dll"/>
 			</references>
 			<resources basedir="src/NHibernate.Mapping.Attributes.Test" prefix="NHibernate.Mapping.Attributes.Test" dynamicprefix="true">
 				<include name="**/*.hbm.xml"/>
@@ -52,19 +54,19 @@
 		</csc>
 
 		<copy file="src/NHibernate.Mapping.Attributes.Test/App.config"
-			  tofile="build/NHibernate.Mapping.Attributes.Test.dll.config"
+			  tofile="${folders.build}/NHibernate.Mapping.Attributes.Test.dll.config"
 			  if="${file::exists('src/NHibernate.Mapping.Attributes.Test/App.config')}"
 		/>
 
 		<copy todir="build" flatten="true">
 			<fileset>
-				<include name="../../lib/${framework.family}/${framework.version}/NHibernate.dll"/>
-				<include name="../../lib/${framework.family}/${framework.version}/Iesi.Collections.dll"/>
-				<include name="../../lib/${framework.family}/${framework.version}/log4net.dll"/>
-				<include name="../../lib/${framework.family}/${framework.version}/nunit.framework.dll"/>
-				<include name="../../lib/${framework.family}/${framework.version}/Castle.DynamicProxy2.dll"/>
-				<include name="build/NHibernate.Mapping.Attributes.dll"/>
-				<include name="build/NHibernate.Mapping.Attributes.Test.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/NHibernate.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/Iesi.Collections.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/log4net.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/nunit.framework.dll"/>
+				<include name="${folders.lib}/${framework.family}/${framework.version}/Castle.DynamicProxy2.dll"/>
+				<include name="${folders.build}/NHibernate.Mapping.Attributes.dll"/>
+				<include name="${folders.build}/NHibernate.Mapping.Attributes.Test.dll"/>
 			</fileset>
 		</copy>
 	</target>
@@ -77,7 +79,7 @@
 			<formatter type="Xml"
 			           usefile="true"
 			           extension=".xml" />
-			<test assemblyname="build/NHibernate.Mapping.Attributes.Test.dll" />
+			<test assemblyname="${folders.build}/NHibernate.Mapping.Attributes.Test.dll" />
 		</nunit2-->
 	</target>
 
