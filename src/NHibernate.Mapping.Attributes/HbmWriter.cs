@@ -581,65 +581,70 @@ if( element1 == null )
 			{
 	if( typeOfElement2 == typeof(MetaAttribute) )
 				{
-					if( element1 is TuplizerAttribute || element1 is ParentAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is TuplizerAttribute || element1 is ParentAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(TuplizerAttribute) )
 				{
-					if( element1 is ParentAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is ParentAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ParentAttribute) )
 				{
-					if( element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(PropertyAttribute) )
 				{
-					if( element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ManyToOneAttribute) )
 				{
-					if( element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(OneToOneAttribute) )
 				{
-					if( element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ComponentAttribute) )
 				{
-					if( element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is DynamicComponentAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(DynamicComponentAttribute) )
 				{
-					if( element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(AnyAttribute) )
 				{
-					if( element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(MapAttribute) )
 				{
-					if( element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SetAttribute) )
 				{
-					if( element1 is ListAttribute || element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ListAttribute) )
 				{
-					if( element1 is BagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+					if( element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(BagAttribute) )
+				{
+					if( element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(IdBagAttribute) )
 				{
 					if( element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || typeOfElement2 == null )
 						return true;
@@ -4190,6 +4195,18 @@ System.Collections.ArrayList BagList = FindAttributedMembers( attribute, typeof(
 					WriteBag(writer, member, memberAttrib as BagAttribute, attribute, type);
 			}
 WriteUserDefinedContent(writer, type, typeof(BagAttribute), attribute);
+			// Element: <idbag>
+System.Collections.ArrayList IdBagList = FindAttributedMembers( attribute, typeof(IdBagAttribute), type );
+			foreach( System.Reflection.MemberInfo member in IdBagList )
+			{
+				object[] objects = member.GetCustomAttributes(typeof(IdBagAttribute), false);
+				System.Collections.ArrayList memberAttribs = new System.Collections.ArrayList();
+				memberAttribs.AddRange(objects);
+				memberAttribs.Sort();
+				foreach(object memberAttrib in memberAttribs)
+					WriteIdBag(writer, member, memberAttrib as IdBagAttribute, attribute, type);
+			}
+WriteUserDefinedContent(writer, type, typeof(IdBagAttribute), attribute);
 			// Element: <array>
 System.Collections.ArrayList ArrayList = FindAttributedMembers( attribute, typeof(ArrayAttribute), type );
 			foreach( System.Reflection.MemberInfo member in ArrayList )
