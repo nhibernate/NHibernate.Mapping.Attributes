@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Generated from NHibernate.Mapping.Attributes on 2009-02-02 11:51:55Z.-->
+<!--Generated from NHibernate.Mapping.Attributes on 2009-10-23 02:23:41Z.-->
 <hibernate-mapping auto-import="true" default-lazy="true" xmlns="urn:nhibernate-mapping-2.2">
   <import class="NHibernate.Mapping.Attributes.Test.DomainModel.Glarch, NHibernate.Mapping.Attributes.Test" />
   <import class="Double" rename="RealNumber" />
@@ -108,8 +108,8 @@
       <key column="id_" />
       <index column="indx" />
       <element type="Double">
-        <column name="first_" />
-        <column name="second_" />
+        <column name="first_" scale="0" />
+        <column name="second_" scale="1" />
       </element>
     </list>
     <list name="TopComponents" table="topcomponents" schema="Schema" inverse="false" where="0" fetch="select" persister="Int32">
@@ -233,7 +233,7 @@
     <composite-id class="Int64" name="ID" access="Int32" unsaved-value="any">
       <key-property name="Id" access="Int32" type="NHibernate.Mapping.Attributes.Test.DomainModel.Foo, NHibernate.Mapping.Attributes.Test" />
       <key-many-to-one name="Foo" access="Int32" class="NHibernate.Mapping.Attributes.Test.DomainModel.Foo, NHibernate.Mapping.Attributes.Test" column="-" foreign-key="x" lazy="false" />
-      <key-many-to-one name="Bar" access="NHibernate.Mapping.Attributes.Test.DomainModel.Bar, NHibernate.Mapping.Attributes.Test" class="Int32" lazy="proxy" />
+      <key-many-to-one name="Bar" access="NHibernate.Mapping.Attributes.Test.DomainModel.Bar, NHibernate.Mapping.Attributes.Test" class="Int32" lazy="proxy" not-found="ignore" />
     </composite-id>
     <timestamp name="Timestamp" column="`timestamp`" access="Boolean" unsaved-value="null" source="vm" generated="always" />
     <property name="Foo" optimistic-lock="true" generated="never">
@@ -294,7 +294,7 @@
     </id>
     <!----><version name="" />
   </class>
-  <joined-subclass name="X+PrivS+PrivJ, NHibernate.Mapping.Attributes.Test" extends="Guid">
+  <joined-subclass extends="Guid" name="X+PrivS+PrivJ, NHibernate.Mapping.Attributes.Test">
     <key />
     <property name="userPattern" type="X+PrivS+PrivC, NHMA.Test" />
     <property name="sqlPattern" type="NHibernate.UserTypes.SqlTypes.SqlDateTimeType, NHibernate.UserTypes.SqlTypes" />
@@ -302,8 +302,8 @@
       <key />
     </joined-subclass>
   </joined-subclass>
-  <subclass name="X+PrivS, NHibernate.Mapping.Attributes.Test" extends="Guid" />
-  <union-subclass name="NHibernate.Mapping.Attributes.Test.DomainModel.UnionSubclass, NHibernate.Mapping.Attributes.Test" proxy="NHibernate.Mapping.Attributes.Test.DomainModel.UnionSubclass, NHibernate.Mapping.Attributes.Test" table="uT" schema="none" select-before-update="true" extends="NHibernate.Mapping.Attributes.Test.DomainModel.Baz, NHibernate.Mapping.Attributes.Test" abstract="false" check="maybe">
+  <subclass extends="Guid" name="X+PrivS, NHibernate.Mapping.Attributes.Test" />
+  <union-subclass proxy="NHibernate.Mapping.Attributes.Test.DomainModel.UnionSubclass, NHibernate.Mapping.Attributes.Test" table="uT" schema="none" select-before-update="true" extends="NHibernate.Mapping.Attributes.Test.DomainModel.Baz, NHibernate.Mapping.Attributes.Test" abstract="false" check="maybe" name="NHibernate.Mapping.Attributes.Test.DomainModel.UnionSubclass, NHibernate.Mapping.Attributes.Test">
     <meta attribute="Meta">Content</meta>
     <tuplizer entity-mode="xml" class="FakeClass" />
   </union-subclass>

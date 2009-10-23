@@ -304,6 +304,7 @@ namespace NHibernate.Mapping.Attributes
 			}
 
 			// Write classes and x-subclasses (classes must come first if inherited by "external" subclasses)
+		    int classCount = 0;
 			System.Collections.ArrayList mappedClassesNames = new System.Collections.ArrayList();
 			foreach(System.Type type in assembly.GetTypes())
 			{
@@ -311,6 +312,7 @@ namespace NHibernate.Mapping.Attributes
 					continue;
 				HbmWriter.WriteClass(writer, type);
 				mappedClassesNames.Add(type.FullName + ", " + type.Assembly.GetName().Name);
+			    classCount++;
 			}
 
 			System.Collections.ArrayList subclasses = new System.Collections.ArrayList();
@@ -339,11 +341,14 @@ namespace NHibernate.Mapping.Attributes
 				}
 			}
 			MapSubclasses(subclasses, extendedClassesNames, mappedClassesNames, writer);
+		    classCount += subclasses.Count;
 
 			writer.WriteEndElement(); // </hibernate-mapping>
 			writer.WriteEndDocument();
 			writer.Flush();
 
+            if(classCount == 0)
+                throw new MappingException("The following assembly contains no mapped classes: " + assembly.FullName);
 			if( ! Validate )
 				return;
 

@@ -772,6 +772,11 @@ if( element1 == null )
 
 			if( baseAttrib is DefinitionAttribute )
 			{
+	if( typeOfElement2 == typeof(ParamAttribute) )
+				{
+					if( typeOfElement2 == null )
+						return true;
+				}
 }
 
 			if( baseAttrib is DialectScopeAttribute )
@@ -4667,6 +4672,31 @@ writer.WriteAttributeString("class", attribute.Class==null ? DefaultHelper.Get_D
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 
+			System.Collections.ArrayList memberAttribs = GetSortedAttributes(member);
+			int attribPos; // Find the position of the DefinitionAttribute (its <sub-element>s must be after it)
+			for(attribPos=0; attribPos<memberAttribs.Count; attribPos++)
+				if( memberAttribs[attribPos] is DefinitionAttribute
+					&& ((BaseAttribute)memberAttribs[attribPos]).Position == attribute.Position )
+					break; // found
+			int i = attribPos + 1;
+
+			// Element: <param>
+for(; i<memberAttribs.Count; i++)
+			{
+				BaseAttribute memberAttrib = memberAttribs[i] as BaseAttribute;
+				if( IsNextElement(memberAttrib, parentAttribute, attribute.GetType())
+					|| IsNextElement(memberAttrib, attribute, typeof(ParamAttribute)) )
+					break; // next attributes are 'elements' of the same level OR for 'sub-elements'
+				else
+				{
+					if( memberAttrib is DefinitionAttribute )
+						break; // Following attributes are for this Definition
+					if( memberAttrib is ParamAttribute )
+						WriteParam(writer, member, memberAttrib as ParamAttribute, attribute, mappedClass);
+				}
+			}
+WriteUserDefinedContent(writer, member, typeof(ParamAttribute), attribute);
+
 			writer.WriteEndElement();
 		}
 		
@@ -6760,6 +6790,9 @@ writer.WriteAttributeString("foreign-key", GetAttributeValue(attribute.ForeignKe
 			// Attribute: <lazy>
 if(attribute.Lazy != RestrictedLaziness.Unspecified)
 writer.WriteAttributeString("lazy", GetXmlEnumValue(typeof(RestrictedLaziness), attribute.Lazy));
+			// Attribute: <not-found>
+if(attribute.NotFound != NotFoundMode.Unspecified)
+writer.WriteAttributeString("not-found", GetXmlEnumValue(typeof(NotFoundMode), attribute.NotFound));
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 

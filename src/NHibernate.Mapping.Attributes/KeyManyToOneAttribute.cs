@@ -26,19 +26,21 @@ namespace NHibernate.Mapping.Attributes
 	public class KeyManyToOneAttribute : BaseAttribute
 	{
 		
-		private string _column = null;
-		
-		private string _name = null;
-		
-		private string _foreignkey = null;
-		
-		private string _access = null;
+		private NotFoundMode _notfound = NotFoundMode.Unspecified;
 		
 		private string _class = null;
 		
 		private RestrictedLaziness _lazy = RestrictedLaziness.Unspecified;
 		
+		private string _access = null;
+		
+		private string _column = null;
+		
+		private string _name = null;
+		
 		private string _entityname = null;
+		
+		private string _foreignkey = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public KeyManyToOneAttribute() : 
@@ -172,6 +174,19 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._lazy = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual NotFoundMode NotFound
+		{
+			get
+			{
+				return this._notfound;
+			}
+			set
+			{
+				this._notfound = value;
 			}
 		}
 	}
