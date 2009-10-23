@@ -10,12 +10,14 @@ Licensed under the terms of the GNU Lesser General Public License.
 
 
 
-=============================
-Build for NHibernate 2.1.0.GA
-=============================
+========================
+Build for NHibernate 3.0
+========================
 
-Important breaking change: When using the [*Class] attributes, the property Name must now be manually specified.
+Important breaking change: When using the [*Class] attributes, the property Name is automatically deduced only if Name and EntityName are both null.
 This is due to the fact that this property is optional since you can use EntityName instead.
+You can turn of this behavior by doing:
+((HbmWriterEx) HbmSerializer.Default.HbmWriter).DoNotAutoDetectClassName = true;
 
 
 
