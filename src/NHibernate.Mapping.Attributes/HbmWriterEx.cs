@@ -9,7 +9,11 @@ namespace NHibernate.Mapping.Attributes
 	/// Support ComponentPropertyAttribute.
 	/// </summary>
 	public class HbmWriterEx : HbmWriter
-	{
+    {
+        /// <summary> Gets or sets whether, when a class attribute doesn't have a name & entity-name, its name should be the class type name. </summary>
+        public virtual bool DoNotAutoDetectClassName { get; set; }
+
+
 		public virtual System.Collections.ArrayList FindSystemAttributedMembers(System.Type attributeType, System.Type classType)
 		{
 			// Return all members from the classType (and its base types) decorated with this attributeType
@@ -36,7 +40,35 @@ namespace NHibernate.Mapping.Attributes
 
 		public override void WriteUserDefinedContent(System.Xml.XmlWriter writer, System.Type classType, System.Type contentAttributeType, BaseAttribute parentAttribute)
 		{
-			base.WriteUserDefinedContent(writer, classType, contentAttributeType, parentAttribute);
+            base.WriteUserDefinedContent(writer, classType, contentAttributeType, parentAttribute);
+
+            if (contentAttributeType == null && !DoNotAutoDetectClassName) // First time that this method is called for this class
+            {
+                var classAttribute = parentAttribute as ClassAttribute;
+                if (classAttribute != null)
+                {
+                    if (classAttribute.EntityName == null && classAttribute.Name == null)
+                        writer.WriteAttributeString("name", classType.FullName + ", " + classType.Assembly.GetName().Name);
+                }
+                var subclassAttribute = parentAttribute as SubclassAttribute;
+                if (subclassAttribute != null)
+                {
+                    if (subclassAttribute.EntityName == null && subclassAttribute.Name == null)
+                        writer.WriteAttributeString("name", classType.FullName + ", " + classType.Assembly.GetName().Name);
+                }
+                var joinedSubclassAttribute = parentAttribute as JoinedSubclassAttribute;
+                if (joinedSubclassAttribute != null)
+                {
+                    if (joinedSubclassAttribute.EntityName == null && joinedSubclassAttribute.Name == null)
+                        writer.WriteAttributeString("name", classType.FullName + ", " + classType.Assembly.GetName().Name);
+                }
+                var unionSubclassAttribute = parentAttribute as UnionSubclassAttribute;
+                if (unionSubclassAttribute != null)
+                {
+                    if (unionSubclassAttribute.EntityName == null && unionSubclassAttribute.Name == null)
+                        writer.WriteAttributeString("name", classType.FullName + ", " + classType.Assembly.GetName().Name);
+                }
+            }
 
 			// Insert [RawXml] after the specified type of attribute
 			System.Collections.ArrayList RawXmlAttributedMembersList = FindSystemAttributedMembers( typeof(RawXmlAttribute), classType );

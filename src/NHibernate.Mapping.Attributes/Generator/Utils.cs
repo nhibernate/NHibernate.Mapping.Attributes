@@ -267,7 +267,8 @@ namespace NHibernate.Mapping.Attributes.Generator
 			switch(attrib.SchemaTypeName.Name)
 			{
 				case "boolean": return attrib.DefaultValue == null ? "false" : attrib.DefaultValue; // This value is meaningless because of its "bool XXXIsSpecified" property
-				case "int": return long.MinValue.ToString(); // Use a value outside the range of integers
+                case "int": return long.MinValue.ToString(); // Use a value outside the range of integers
+                case "nonNegativeInteger":
 				case "positiveInteger" : return "-1"; // value should be positive (so we can use -1 as unspecified value)
 				case "string" : return "null";
 				default: // => Treat it as Enumeration
@@ -289,7 +290,8 @@ namespace NHibernate.Mapping.Attributes.Generator
 					return Capitalize(parentElt.Name)
 						+ Capitalize(attrib.Name);
 				case "boolean": return "System.Boolean";
-				case "int": return "System.Int64";
+                case "int": return "System.Int64";
+                case "nonNegativeInteger":
 				case "positiveInteger" : return "System.Int32";
 				case "string" : return "System.String";
 				default:

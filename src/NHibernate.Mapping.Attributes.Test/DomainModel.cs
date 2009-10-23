@@ -279,8 +279,8 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 		[NHMA.Key(1, Column="id_")]
 		[NHMA.Index(2, Column="indx")]
 		[NHMA.Element(3, TypeType=typeof(double))]
-			[NHMA.Column(4, Name="first_")]
-			[NHMA.Column(5, Name="second_")]
+			[NHMA.Column(4, Name="first_", Scale = 0)]
+			[NHMA.Column(5, Name="second_", Scale = 1)]
 	public System.Collections.IList Customs
 	{
 		get
@@ -919,7 +919,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 		[NHMA.CompositeId(1, Name="ID", ClassType=typeof(long), AccessType=typeof(int), UnsavedValue=NHMA.UnsavedValueType.Any)]
 			[NHMA.KeyProperty(2, Name="Id", AccessType=typeof(int), TypeType=typeof(Foo))]
 			[NHMA.KeyManyToOne(3, Name="Foo", ClassType=typeof(Foo), Lazy=NHMA.RestrictedLaziness.False, AccessType=typeof(int), Column="-", ForeignKey="x")]
-			[NHMA.KeyManyToOne(4, Name="Bar", ClassType=typeof(int), Lazy=NHMA.RestrictedLaziness.Proxy, AccessType=typeof(Bar))]
+			[NHMA.KeyManyToOne(4, Name="Bar", ClassType=typeof(int), Lazy=NHMA.RestrictedLaziness.Proxy, AccessType=typeof(Bar), NotFound = NotFoundMode.Ignore)]
 		public long Id
 		{
 			get { return _id; }
@@ -1013,11 +1013,11 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 
 
 	#region interface UnionSubclass
-	[NHMA.UnionSubclass(Abstract=false, Table="uT", Schema="none", Check="maybe", NameType=typeof(UnionSubclass), ProxyType=typeof(UnionSubclass), ExtendsType=typeof(Baz), SelectBeforeUpdate=true)]
+	[NHMA.UnionSubclass(Abstract=false, Table="uT", Schema="none", Check="maybe", ProxyType=typeof(UnionSubclass), ExtendsType=typeof(Baz), SelectBeforeUpdate=true)]
 	public interface UnionSubclass
 	{
-		[NHMA.Tuplizer(Class="FakeClass", EntityMode=NHMA.TuplizerEntityMode.Xml)]
-		[NHMA.Meta(Attribute="Meta", Content="Content")]
+		[NHMA.Meta(0, Attribute="Meta", Content="Content")]
+		[NHMA.Tuplizer(1, Class="FakeClass", EntityMode=NHMA.TuplizerEntityMode.Xml)]
 		object Object { get;}
 	}
 	#endregion
@@ -1068,10 +1068,10 @@ class JS
 // Test mapping of nested classes
 internal class X
 {
-	[NHMA.Subclass(NameType=typeof(PrivS), ExtendsType=typeof(Guid))]
+	[NHMA.Subclass(ExtendsType=typeof(Guid))]
 	private class PrivS
 	{
-		[NHMA.Class(NameType=typeof(PrivC))]
+		[NHMA.Class]
 		private class PrivC
 		{
 			[NHMA.Subclass(NameType=typeof(IntS), ExtendsType=typeof(Guid))]
@@ -1097,7 +1097,7 @@ internal class X
 			public int id = -1;
 		}
 
-		[NHMA.JoinedSubclass(NameType=typeof(PrivJ), ExtendsType=typeof(Guid))]
+		[NHMA.JoinedSubclass(ExtendsType=typeof(Guid))]
 		private class PrivJ
 		{
 			private class C
