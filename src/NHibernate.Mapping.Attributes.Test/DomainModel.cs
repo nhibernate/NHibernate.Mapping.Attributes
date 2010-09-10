@@ -59,7 +59,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 				[NHMA.Column(2, Name="baz_id", Length=16)]
 			[NHMA.Index(3, Column="i")]
 			[NHMA.CompositeElement(4, ClassType=typeof(FooComponent))]
-				[NHMA.Parent(5, Name="Baz")]
+				[NHMA.Parent(5, Name="Baz", Access = "Random")]
 				[NHMA.Property(6, Name="Name", Length=64, NotNull=false, UniqueKey="something", Unique=false, Update=false, Insert=false, Formula="Formula")]
 					[NHMA.Column(7, Name="name", Length=56)]
 					[NHMA.Type(8, NameType=typeof(bool))]

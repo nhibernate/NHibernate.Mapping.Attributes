@@ -195,6 +195,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 "update",
 "upgrade",
 "usage",
+"use",
 "value",
 "version",
 "wait",

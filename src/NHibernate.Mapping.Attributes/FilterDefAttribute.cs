@@ -30,7 +30,11 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _content = null;
 		
+		private bool _usemanytoonespecified;
+		
 		private string _condition = null;
+		
+		private bool _usemanytoone = true;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public FilterDefAttribute() : 
@@ -67,6 +71,29 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._condition = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual bool UseManyToOne
+		{
+			get
+			{
+				return this._usemanytoone;
+			}
+			set
+			{
+				this._usemanytoone = value;
+				_usemanytoonespecified = true;
+			}
+		}
+		
+		/// <summary> Tells if UseManyToOne has been specified. </summary>
+		public virtual bool UseManyToOneSpecified
+		{
+			get
+			{
+				return this._usemanytoonespecified;
 			}
 		}
 		

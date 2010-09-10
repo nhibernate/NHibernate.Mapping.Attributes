@@ -340,8 +340,8 @@ namespace NHibernate.Mapping.Attributes
 						extendedClassesNames.Add((type.GetCustomAttributes(typeof(UnionSubclassAttribute), false)[0] as UnionSubclassAttribute).Extends);
 				}
 			}
-			MapSubclasses(subclasses, extendedClassesNames, mappedClassesNames, writer);
 		    classCount += subclasses.Count;
+			MapSubclasses(subclasses, extendedClassesNames, mappedClassesNames, writer);
 
 			writer.WriteEndElement(); // </hibernate-mapping>
 			writer.WriteEndDocument();
