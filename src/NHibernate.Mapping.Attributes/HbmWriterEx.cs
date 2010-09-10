@@ -28,10 +28,12 @@ namespace NHibernate.Mapping.Attributes
 					if( member.GetCustomAttributes(attributeType, false).Length > 0 )
 						list.Add(member);
 
-				type = type.BaseType;
-				if( type!=null && ( type.IsDefined(typeof(ComponentAttribute), false) || type.IsDefined(typeof(ClassAttribute), false)
-					|| type.IsDefined(typeof(SubclassAttribute), false) || type.IsDefined(typeof(JoinedSubclassAttribute), false) ) )
-					break; // don't use members of a mapped base class
+                type = type.BaseType;
+                if (type != null
+                  && ( type.IsDefined(typeof(ComponentAttribute), false) || type.IsDefined(typeof(ClassAttribute), false)
+                    || type.IsDefined(typeof(SubclassAttribute), false) || type.IsDefined(typeof(JoinedSubclassAttribute), false)
+                    || type.IsDefined(typeof(UnionSubclassAttribute), false) ))
+                    break; // don't use members of a mapped base class
 			}
 
 			return list;

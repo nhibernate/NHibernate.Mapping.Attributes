@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Generated from NHibernate.Mapping.Attributes on 2009-10-23 02:23:41Z.-->
+<!--Generated from NHibernate.Mapping.Attributes on 2010-09-10 08:48:42Z.-->
 <hibernate-mapping auto-import="true" default-lazy="true" xmlns="urn:nhibernate-mapping-2.2">
   <import class="NHibernate.Mapping.Attributes.Test.DomainModel.Glarch, NHibernate.Mapping.Attributes.Test" />
   <import class="Double" rename="RealNumber" />
@@ -202,7 +202,7 @@
         </key>
         <index column="i" />
         <composite-element class="NHibernate.Mapping.Attributes.Test.DomainModel.FooComponent, NHibernate.Mapping.Attributes.Test">
-          <parent name="Baz" />
+          <parent name="Baz" access="Random" />
           <property name="Name" length="64" not-null="false" unique="false" unique-key="something" update="false" insert="false" formula="Formula">
             <column name="name" length="56" />
             <type name="Boolean">

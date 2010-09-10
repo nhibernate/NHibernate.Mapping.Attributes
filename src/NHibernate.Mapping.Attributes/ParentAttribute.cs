@@ -28,6 +28,8 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _name = null;
 		
+		private string _access = null;
+		
 		/// <summary> Default constructor (position=0) </summary>
 		public ParentAttribute() : 
 				base(0)
@@ -50,6 +52,35 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._name = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual string Access
+		{
+			get
+			{
+				return this._access;
+			}
+			set
+			{
+				this._access = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual System.Type AccessType
+		{
+			get
+			{
+				return System.Type.GetType( this.Access );
+			}
+			set
+			{
+				if(value.Assembly == typeof(int).Assembly)
+					this.Access = value.FullName.Substring(7);
+				else
+					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
 			}
 		}
 	}

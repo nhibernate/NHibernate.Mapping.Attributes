@@ -16,7 +16,7 @@ Build for NHibernate 3.0
 
 Important breaking change: When using the [*Class] attributes, the property Name is automatically deduced only if Name and EntityName are both null.
 This is due to the fact that this property is optional since you can use EntityName instead.
-You can turn of this behavior by doing:
+You can turn off this behavior by doing:
 ((HbmWriterEx) HbmSerializer.Default.HbmWriter).DoNotAutoDetectClassName = true;
 
 
@@ -30,7 +30,7 @@ http://nhforge.org/
 http://sourceforge.net/projects/nhcontrib/
 
 Documentation:
-http://www.hibernate.org/hib_docs/nhibernate/html/mapping-attributes.html
+http://www.nhforge.org/doc/nh/en/index.html#mapping-attributes
 
 Community Group (to ask questions):
 http://groups.google.com/group/nhcdevs

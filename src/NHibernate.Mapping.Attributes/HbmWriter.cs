@@ -119,9 +119,11 @@ namespace NHibernate.Mapping.Attributes
 					}
 				}
 				type = type.BaseType;
-				if( type!=null && ( type.IsDefined(typeof(ComponentAttribute), false) || type.IsDefined(typeof(ClassAttribute), false)
-					|| type.IsDefined(typeof(SubclassAttribute), false) || type.IsDefined(typeof(JoinedSubclassAttribute), false) ) )
-					break; // don't use members of a mapped base class
+                if (type != null
+                  && ( type.IsDefined(typeof(ComponentAttribute), false) || type.IsDefined(typeof(ClassAttribute), false)
+                    || type.IsDefined(typeof(SubclassAttribute), false) || type.IsDefined(typeof(JoinedSubclassAttribute), false)
+                    || type.IsDefined(typeof(UnionSubclassAttribute), false) ))
+                    break; // don't use members of a mapped base class
 			}
 
 			return list;
@@ -5143,6 +5145,9 @@ writer.WriteAttributeString("name", attribute.Name==null ? DefaultHelper.Get_Fil
 			// Attribute: <condition>
 if(attribute.Condition != null)
 writer.WriteAttributeString("condition", GetAttributeValue(attribute.Condition, mappedClass));
+			// Attribute: <use-many-to-one>
+if( attribute.UseManyToOneSpecified )
+writer.WriteAttributeString("use-many-to-one", attribute.UseManyToOne ? "true" : "false");
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 
@@ -8698,6 +8703,9 @@ writer.WriteAttributeString("name", attribute.Name==null ? DefaultHelper.Get_Par
 writer.WriteStartElement( "parent" );
 			// Attribute: <name>
 writer.WriteAttributeString("name", attribute.Name==null ? DefaultHelper.Get_Parent_Name_DefaultValue(member) : GetAttributeValue(attribute.Name, mappedClass));
+			// Attribute: <access>
+if(attribute.Access != null)
+writer.WriteAttributeString("access", GetAttributeValue(attribute.Access, mappedClass));
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 

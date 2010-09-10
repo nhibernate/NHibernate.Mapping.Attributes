@@ -302,7 +302,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 			method.Signature.ReturnType = new Refly.CodeDom.TypeTypeDeclaration(typeof(System.Collections.ArrayList));
 
 			method.Body.Add(Refly.CodeDom.Stm.Snippet(
-			@"// Return all members from the classType (and its base types) decorated with this attributeType
+            @"// Return all members from the classType (and its base types) decorated with this attributeType
 			System.Collections.ArrayList list = new System.Collections.ArrayList();
 			const System.Reflection.BindingFlags bindings = System.Reflection.BindingFlags.Instance
 				| System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.DeclaredOnly;
@@ -324,9 +324,11 @@ namespace NHibernate.Mapping.Attributes.Generator
 					}
 				}
 				type = type.BaseType;
-				if( type!=null && ( type.IsDefined(typeof(ComponentAttribute), false) || type.IsDefined(typeof(ClassAttribute), false)
-					|| type.IsDefined(typeof(SubclassAttribute), false) || type.IsDefined(typeof(JoinedSubclassAttribute), false) ) )
-					break; // don't use members of a mapped base class
+                if (type != null
+                  && ( type.IsDefined(typeof(ComponentAttribute), false) || type.IsDefined(typeof(ClassAttribute), false)
+                    || type.IsDefined(typeof(SubclassAttribute), false) || type.IsDefined(typeof(JoinedSubclassAttribute), false)
+                    || type.IsDefined(typeof(UnionSubclassAttribute), false) ))
+                    break; // don't use members of a mapped base class
 			}
 
 			return list;"));
