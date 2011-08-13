@@ -65,7 +65,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Name = value.FullName.Substring(7);
 				else
-					this.Name = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Name = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 	}

@@ -26,61 +26,61 @@ namespace NHibernate.Mapping.Attributes
 	public class ManyToOneAttribute : BaseAttribute
 	{
 		
-		private bool _uniquespecified;
-		
-		private string _access = null;
-		
-		private bool _insertspecified;
-		
-		private string _foreignkey = null;
-		
-		private bool _embedxml = true;
+		private FetchMode _fetch = FetchMode.Unspecified;
 		
 		private bool _insert = true;
 		
-		private string _node = null;
-		
-		private string _class = null;
-		
-		private string _cascade = null;
-		
-		private bool _notnull = false;
-		
-		private string _propertyref = null;
-		
 		private string _column = null;
 		
-		private bool _unique = false;
-		
-		private NotFoundMode _notfound = NotFoundMode.Unspecified;
-		
-		private bool _update = true;
-		
-		private string _name = null;
-		
-		private bool _embedxmlspecified;
-		
-		private string _formula = null;
+		private string _node = null;
 		
 		private bool _updatespecified;
 		
-		private string _index = null;
-		
-		private Laziness _lazy = Laziness.Unspecified;
+		private bool _notnullspecified;
 		
 		private string _uniquekey = null;
 		
-		private bool _notnullspecified;
+		private NotFoundMode _notfound = NotFoundMode.Unspecified;
 		
-		private bool _optimisticlockspecified;
+		private string _formula = null;
+		
+		private bool _embedxmlspecified;
+		
+		private string _foreignkey = null;
+		
+		private string _access = null;
 		
 		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
 		
+		private string _propertyref = null;
+		
+		private string _index = null;
+		
 		private string _entityname = null;
+		
+		private string _name = null;
+		
+		private string _class = null;
+		
+		private bool _insertspecified;
+		
+		private bool _notnull = false;
+		
+		private bool _uniquespecified;
+		
+		private bool _update = true;
 		
 		private bool _optimisticlock = true;
 		
-		private FetchMode _fetch = FetchMode.Unspecified;
+		private bool _unique = false;
+		
+		private bool _optimisticlockspecified;
+		
+		private Laziness _lazy = Laziness.Unspecified;
+		
+		private bool _embedxml = true;
+		
+		private string _cascade = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ManyToOneAttribute() : 
@@ -132,7 +132,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -161,7 +161,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Class = value.FullName.Substring(7);
 				else
-					this.Class = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Class = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -175,6 +175,22 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._entityname = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual System.Type EntityNameType
+		{
+			get
+			{
+				return System.Type.GetType( this.EntityName );
+			}
+			set
+			{
+				if(value.Assembly == typeof(int).Assembly)
+					this.EntityName = value.FullName.Substring(7);
+				else
+					this.EntityName = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

@@ -26,23 +26,23 @@ namespace NHibernate.Mapping.Attributes
 	public class JoinAttribute : BaseAttribute
 	{
 		
-		private bool _inversespecified;
-		
-		private string _table = null;
-		
-		private bool _optional = false;
+		private bool _optionalspecified;
 		
 		private string _schema = null;
 		
-		private bool _optionalspecified;
-		
-		private string _subselect = null;
+		private bool _inverse = false;
 		
 		private JoinFetch _fetch = JoinFetch.Unspecified;
 		
+		private bool _optional = false;
+		
+		private string _subselect = null;
+		
 		private string _catalog = null;
 		
-		private bool _inverse = false;
+		private bool _inversespecified;
+		
+		private string _table = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public JoinAttribute() : 

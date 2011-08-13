@@ -26,19 +26,19 @@ namespace NHibernate.Mapping.Attributes
 	public class CompositeIdAttribute : BaseAttribute
 	{
 		
-		private string _node = null;
-		
-		private string _name = null;
-		
 		private UnsavedValueType _unsavedvalue = UnsavedValueType.Unspecified;
 		
-		private bool _mappedspecified;
-		
-		private string _class = null;
+		private string _node = null;
 		
 		private string _access = null;
 		
+		private bool _mappedspecified;
+		
 		private bool _mapped = false;
+		
+		private string _class = null;
+		
+		private string _name = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public CompositeIdAttribute() : 
@@ -77,7 +77,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Class = value.FullName.Substring(7);
 				else
-					this.Class = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Class = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -155,7 +155,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

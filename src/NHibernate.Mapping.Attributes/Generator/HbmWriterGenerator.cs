@@ -102,7 +102,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 					type = (member as System.Reflection.FieldInfo).FieldType;
 				if(type != null) // Transform using RegularExpressions
 				{
-					string typeName = type.FullName + "", "" + type.Assembly.GetName().Name;
+					string typeName = HbmWriterHelper.GetNameWithAssembly(type);
 					foreach(System.Collections.DictionaryEntry pattern in Patterns)
 					{
 						if(System.Text.RegularExpressions.Regex.IsMatch(typeName, pattern.Key as string))

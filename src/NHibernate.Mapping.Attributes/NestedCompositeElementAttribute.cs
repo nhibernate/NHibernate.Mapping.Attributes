@@ -28,11 +28,11 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _node = null;
 		
-		private string _name = null;
-		
 		private string _access = null;
 		
 		private string _class = null;
+		
+		private string _name = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public NestedCompositeElementAttribute() : 
@@ -71,7 +71,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Class = value.FullName.Substring(7);
 				else
-					this.Class = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Class = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -113,7 +113,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

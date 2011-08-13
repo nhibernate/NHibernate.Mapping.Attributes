@@ -26,9 +26,9 @@ namespace NHibernate.Mapping.Attributes
 	public class TypeDefAttribute : BaseAttribute
 	{
 		
-		private string _name = null;
-		
 		private string _class = null;
+		
+		private string _name = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public TypeDefAttribute() : 

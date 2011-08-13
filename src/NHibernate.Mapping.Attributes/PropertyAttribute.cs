@@ -26,53 +26,53 @@ namespace NHibernate.Mapping.Attributes
 	public class PropertyAttribute : BaseAttribute
 	{
 		
-		private bool _uniquespecified;
-		
-		private string _access = null;
-		
-		private bool _insertspecified;
-		
-		private int _length = -1;
-		
 		private bool _insert = false;
 		
-		private string _node = null;
-		
-		private int _precision = -1;
-		
-		private bool _optimisticlock = true;
-		
-		private bool _notnull = false;
-		
-		private string _type = null;
+		private string _access = null;
 		
 		private bool _lazyspecified;
 		
 		private string _column = null;
 		
-		private bool _unique = false;
-		
-		private bool _update = false;
-		
-		private string _name = null;
-		
-		private string _formula = null;
+		private PropertyGeneration _generated = PropertyGeneration.Unspecified;
 		
 		private bool _updatespecified;
 		
-		private string _index = null;
-		
-		private bool _lazy = false;
+		private bool _notnullspecified;
 		
 		private string _uniquekey = null;
 		
-		private bool _optimisticlockspecified;
+		private string _formula = null;
 		
-		private bool _notnullspecified;
+		private int _precision = -1;
+		
+		private string _node = null;
 		
 		private int _scale = -1;
 		
-		private PropertyGeneration _generated = PropertyGeneration.Unspecified;
+		private string _index = null;
+		
+		private string _name = null;
+		
+		private bool _insertspecified;
+		
+		private string _type = null;
+		
+		private bool _notnull = false;
+		
+		private bool _uniquespecified;
+		
+		private bool _update = false;
+		
+		private bool _optimisticlock = true;
+		
+		private bool _unique = false;
+		
+		private bool _optimisticlockspecified;
+		
+		private bool _lazy = false;
+		
+		private int _length = -1;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public PropertyAttribute() : 
@@ -137,7 +137,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -166,7 +166,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Type = value.FullName.Substring(7);
 				else
-					this.Type = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Type = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

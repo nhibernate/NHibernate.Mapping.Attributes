@@ -142,7 +142,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					HbmDefaultAccess = value.FullName.Substring(7);
 				else
-					HbmDefaultAccess = value.FullName + ", " + value.Assembly.GetName().Name;
+					HbmDefaultAccess = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 
@@ -296,7 +296,7 @@ namespace NHibernate.Mapping.Attributes
 					if(import.Class != null && import.Class != string.Empty)
 						writer.WriteAttributeString("class", import.Class);
 					else // Assume that it is the current type that must be imported
-						writer.WriteAttributeString("class", type.FullName + ", " + type.Assembly.GetName().Name);
+                        writer.WriteAttributeString("class", HbmWriterHelper.GetNameWithAssembly(type));
 					if(import.Rename != null && import.Rename != string.Empty)
 						writer.WriteAttributeString("rename", import.Rename);
 					writer.WriteEndElement();
@@ -311,7 +311,7 @@ namespace NHibernate.Mapping.Attributes
 				if( ! IsClass(type) )
 					continue;
 				HbmWriter.WriteClass(writer, type);
-				mappedClassesNames.Add(type.FullName + ", " + type.Assembly.GetName().Name);
+                mappedClassesNames.Add(HbmWriterHelper.GetNameWithAssembly(type));
 			    classCount++;
 			}
 
@@ -631,7 +631,7 @@ namespace NHibernate.Mapping.Attributes
 						// Make sure that the extended class is mapped (in this assembly)
 						foreach(System.Type subclass in subclasses)
 						{
-							if( subclass.FullName + ", " + subclass.Assembly.GetName().Name
+							if( HbmWriterHelper.GetNameWithAssembly(subclass)
 								== extendedClassName )
 							{
 								if(subclass==type)
@@ -657,7 +657,7 @@ namespace NHibernate.Mapping.Attributes
 						HbmWriter.WriteUnionSubclass(writer, type);
 
 					// Note: Do not add to mappedClassesNames because it is for x-subclasses (and a x-subclasses shouldn't extend another x-subclasses)
-					mappedSubclassesNames.Add(type.FullName + ", " + type.Assembly.GetName().Name);
+                    mappedSubclassesNames.Add(HbmWriterHelper.GetNameWithAssembly(type));
 					subclasses.RemoveAt(i);
 					extendedClassesNames.RemoveAt(i);
 				}

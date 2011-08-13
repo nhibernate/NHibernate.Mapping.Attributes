@@ -11,7 +11,16 @@ namespace NHibernate.Mapping.Attributes
 	///   ThrowRequiredValueNotProvidedException(); // There is no way to get it
 	/// </summary>
 	public class HbmWriterHelper
-	{
+    {
+        public static string GetNameWithAssembly(System.Type type)
+        {
+            //return type.FullName + ", " + type.Assembly.GetName().Name; // Requires FileIOPermission in medium-trust
+            string assemblyName = type.Assembly.FullName;
+            int comma = assemblyName.IndexOf(",");
+            assemblyName = assemblyName.Substring(0, comma);
+            return type.FullName + ", " + assemblyName;
+        }
+
 		protected virtual string ThrowRequiredValueNotProvidedException(System.Reflection.MemberInfo member)
 		{
 			throw new MappingException(

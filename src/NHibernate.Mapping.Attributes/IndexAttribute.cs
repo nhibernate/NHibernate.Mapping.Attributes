@@ -26,11 +26,11 @@ namespace NHibernate.Mapping.Attributes
 	public class IndexAttribute : BaseAttribute
 	{
 		
-		private string _column = null;
-		
 		private string _type = null;
 		
 		private int _length = -1;
+		
+		private string _column = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public IndexAttribute() : 
@@ -82,7 +82,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Type = value.FullName.Substring(7);
 				else
-					this.Type = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Type = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

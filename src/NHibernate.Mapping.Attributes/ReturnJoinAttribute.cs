@@ -26,11 +26,11 @@ namespace NHibernate.Mapping.Attributes
 	public class ReturnJoinAttribute : BaseAttribute
 	{
 		
-		private string _property = null;
-		
 		private LockMode _lockmode = LockMode.Unspecified;
 		
 		private string _alias = null;
+		
+		private string _property = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ReturnJoinAttribute() : 

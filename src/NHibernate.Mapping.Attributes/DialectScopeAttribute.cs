@@ -26,9 +26,9 @@ namespace NHibernate.Mapping.Attributes
 	public class DialectScopeAttribute : BaseAttribute
 	{
 		
-		private string _name = null;
-		
 		private string _content = null;
+		
+		private string _name = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public DialectScopeAttribute() : 

@@ -26,11 +26,11 @@ namespace NHibernate.Mapping.Attributes
 	public class ReturnAttribute : BaseAttribute
 	{
 		
-		private string _class = null;
-		
 		private LockMode _lockmode = LockMode.Unspecified;
 		
 		private string _alias = null;
+		
+		private string _class = null;
 		
 		private string _entityname = null;
 		
@@ -69,6 +69,22 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._entityname = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual System.Type EntityNameType
+		{
+			get
+			{
+				return System.Type.GetType( this.EntityName );
+			}
+			set
+			{
+				if(value.Assembly == typeof(int).Assembly)
+					this.EntityName = value.FullName.Substring(7);
+				else
+					this.EntityName = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

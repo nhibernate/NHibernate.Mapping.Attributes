@@ -26,9 +26,9 @@ namespace NHibernate.Mapping.Attributes
 	public class ParentAttribute : BaseAttribute
 	{
 		
-		private string _name = null;
-		
 		private string _access = null;
+		
+		private string _name = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ParentAttribute() : 
@@ -80,7 +80,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 	}

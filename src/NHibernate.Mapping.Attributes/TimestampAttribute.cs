@@ -26,19 +26,19 @@ namespace NHibernate.Mapping.Attributes
 	public class TimestampAttribute : BaseAttribute
 	{
 		
-		private string _node = null;
-		
-		private string _name = null;
-		
-		private string _column = null;
-		
 		private TimestampUnsavedValue _unsavedvalue = TimestampUnsavedValue.Unspecified;
+		
+		private string _node = null;
 		
 		private string _access = null;
 		
+		private VersionGeneration _generated = VersionGeneration.Unspecified;
+		
 		private TimestampSource _source = TimestampSource.Unspecified;
 		
-		private VersionGeneration _generated = VersionGeneration.Unspecified;
+		private string _column = null;
+		
+		private string _name = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public TimestampAttribute() : 
@@ -116,7 +116,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

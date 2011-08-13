@@ -26,49 +26,51 @@ namespace NHibernate.Mapping.Attributes
 	public class JoinedSubclassAttribute : BaseAttribute
 	{
 		
-		private string _schema = null;
+		private string _entityname = null;
 		
-		private string _table = null;
-		
-		private bool _abstract = false;
-		
-		private string _persister = null;
-		
-		private string _node = null;
-		
-		private string _extends = null;
-		
-		private string _subselect = null;
-		
-		private bool _selectbeforeupdatespecified;
+		private int _batchsize = -1;
 		
 		private bool _lazyspecified;
 		
 		private bool _dynamicupdate = false;
 		
+		private string _schema = null;
+		
+		private string _proxy = null;
+		
+		private bool _abstractspecified;
+		
+		private bool _dynamicinsert = false;
+		
+		private string _persister = null;
+		
+		private string _subselect = null;
+		
+		private string _check = null;
+		
+		private string _schemaaction = null;
+		
+		private string _node = null;
+		
+		private string _extends = null;
+		
+		private bool _selectbeforeupdatespecified;
+		
+		private bool _dynamicupdatespecified;
+		
+		private bool _abstract = false;
+		
+		private string _name = null;
+		
+		private string _table = null;
+		
 		private bool _selectbeforeupdate = false;
 		
 		private bool _dynamicinsertspecified;
 		
-		private int _batchsize = -1;
-		
-		private bool _dynamicinsert = false;
-		
-		private bool _dynamicupdatespecified;
-		
-		private string _name = null;
-		
-		private bool _abstractspecified;
+		private string _catalog = null;
 		
 		private bool _lazy = false;
-		
-		private string _proxy = null;
-		
-		private string _check = null;
-		
-		private string _entityname = null;
-		
-		private string _catalog = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public JoinedSubclassAttribute() : 
@@ -92,6 +94,22 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._entityname = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual System.Type EntityNameType
+		{
+			get
+			{
+				return System.Type.GetType( this.EntityName );
+			}
+			set
+			{
+				if(value.Assembly == typeof(int).Assembly)
+					this.EntityName = value.FullName.Substring(7);
+				else
+					this.EntityName = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -120,7 +138,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Name = value.FullName.Substring(7);
 				else
-					this.Name = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Name = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -149,7 +167,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Proxy = value.FullName.Substring(7);
 				else
-					this.Proxy = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Proxy = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -163,6 +181,19 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._table = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual string SchemaAction
+		{
+			get
+			{
+				return this._schemaaction;
+			}
+			set
+			{
+				this._schemaaction = value;
 			}
 		}
 		
@@ -299,7 +330,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Extends = value.FullName.Substring(7);
 				else
-					this.Extends = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Extends = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -374,7 +405,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Persister = value.FullName.Substring(7);
 				else
-					this.Persister = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Persister = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

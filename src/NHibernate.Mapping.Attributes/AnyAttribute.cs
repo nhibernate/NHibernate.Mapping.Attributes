@@ -26,37 +26,37 @@ namespace NHibernate.Mapping.Attributes
 	public class AnyAttribute : BaseAttribute
 	{
 		
-		private string _name = null;
-		
-		private bool _optimisticlockspecified;
-		
-		private string _node = null;
-		
-		private bool _lazy = false;
+		private bool _updatespecified;
 		
 		private string _access = null;
 		
-		private string _metatype = null;
-		
-		private bool _update = true;
-		
-		private string _column = null;
+		private string _node = null;
 		
 		private bool _lazyspecified;
 		
-		private bool _insert = true;
-		
-		private bool _insertspecified;
-		
 		private string _idtype = null;
 		
-		private string _cascade = null;
+		private bool _lazy = false;
 		
-		private string _index = null;
+		private bool _optimisticlockspecified;
 		
 		private bool _optimisticlock = true;
 		
-		private bool _updatespecified;
+		private bool _update = true;
+		
+		private string _cascade = null;
+		
+		private string _metatype = null;
+		
+		private string _index = null;
+		
+		private bool _insert = true;
+		
+		private string _name = null;
+		
+		private string _column = null;
+		
+		private bool _insertspecified;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public AnyAttribute() : 
@@ -108,7 +108,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.IdType = value.FullName.Substring(7);
 				else
-					this.IdType = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.IdType = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -137,7 +137,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.MetaType = value.FullName.Substring(7);
 				else
-					this.MetaType = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.MetaType = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -179,7 +179,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

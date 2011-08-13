@@ -26,29 +26,29 @@ namespace NHibernate.Mapping.Attributes
 	public class QueryAttribute : BaseAttribute
 	{
 		
-		private bool _readonly = false;
-		
-		private bool _cacheablespecified;
-		
-		private string _cacheregion = null;
-		
-		private bool _readonlyspecified;
-		
 		private CacheMode _cachemode = CacheMode.Unspecified;
-		
-		private bool _cacheable = false;
-		
-		private string _comment = null;
-		
-		private string _name = null;
 		
 		private long _fetchsize = -9223372036854775808;
 		
-		private FlushMode _flushmode = FlushMode.Unspecified;
+		private string _cacheregion = null;
 		
 		private string _content = null;
 		
+		private bool _cacheable = false;
+		
+		private bool _readonlyspecified;
+		
 		private int _timeout = -1;
+		
+		private string _comment = null;
+		
+		private bool _readonly = false;
+		
+		private FlushMode _flushmode = FlushMode.Unspecified;
+		
+		private string _name = null;
+		
+		private bool _cacheablespecified;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public QueryAttribute() : 

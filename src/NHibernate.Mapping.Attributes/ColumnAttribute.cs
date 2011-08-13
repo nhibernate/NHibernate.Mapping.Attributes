@@ -26,31 +26,31 @@ namespace NHibernate.Mapping.Attributes
 	public class ColumnAttribute : BaseAttribute
 	{
 		
-		private string _index = null;
-		
 		private int _length = -1;
-		
-		private int _precision = -1;
-		
-		private bool _notnullspecified;
-		
-		private string _check = null;
-		
-		private string _default = null;
-		
-		private string _uniquekey = null;
 		
 		private bool _notnull = false;
 		
-		private string _name = null;
+		private string _uniquekey = null;
 		
-		private string _sqltype = null;
+		private bool _unique = false;
 		
 		private int _scale = -1;
 		
-		private bool _uniquespecified;
+		private string _check = null;
 		
-		private bool _unique = false;
+		private string _sqltype = null;
+		
+		private string _default = null;
+		
+		private string _index = null;
+		
+		private bool _notnullspecified;
+		
+		private string _name = null;
+		
+		private int _precision = -1;
+		
+		private bool _uniquespecified;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ColumnAttribute() : 

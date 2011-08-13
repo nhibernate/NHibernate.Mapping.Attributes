@@ -26,25 +26,25 @@ namespace NHibernate.Mapping.Attributes
 	public class KeyAttribute : BaseAttribute
 	{
 		
-		private OnDelete _ondelete = OnDelete.Unspecified;
+		private bool _uniquespecified;
 		
 		private bool _notnull = false;
 		
-		private bool _notnullspecified;
-		
 		private bool _update = false;
 		
-		private string _propertyref = null;
-		
-		private string _column = null;
-		
-		private bool _unique = false;
-		
-		private bool _uniquespecified;
+		private OnDelete _ondelete = OnDelete.Unspecified;
 		
 		private string _foreignkey = null;
 		
+		private bool _notnullspecified;
+		
+		private string _propertyref = null;
+		
 		private bool _updatespecified;
+		
+		private bool _unique = false;
+		
+		private string _column = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public KeyAttribute() : 

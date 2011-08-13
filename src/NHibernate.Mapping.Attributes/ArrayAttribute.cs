@@ -26,53 +26,53 @@ namespace NHibernate.Mapping.Attributes
 	public class ArrayAttribute : BaseAttribute
 	{
 		
-		private bool _embedxmlspecified;
+		private CollectionFetchMode _fetch = CollectionFetchMode.Unspecified;
 		
-		private string _persister = null;
+		private bool _optimisticlockspecified;
 		
-		private string _access = null;
-		
-		private string _where = null;
-		
-		private bool _embedxml = true;
-		
-		private string _node = null;
-		
-		private bool _inversespecified;
-		
-		private string _subselect = null;
-		
-		private string _schema = null;
-		
-		private bool _mutablespecified;
+		private long _batchsize = -9223372036854775808;
 		
 		private string _collectiontype = null;
 		
+		private string _schema = null;
+		
+		private string _node = null;
+		
 		private bool _inverse = false;
 		
-		private bool _mutable = true;
+		private string _subselect = null;
 		
-		private bool _optimisticlock = true;
+		private string _check = null;
 		
-		private string _elementclass = null;
+		private string _access = null;
 		
-		private long _batchsize = -9223372036854775808;
+		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
+		
+		private bool _embedxmlspecified;
 		
 		private string _name = null;
 		
 		private string _table = null;
 		
-		private bool _optimisticlockspecified;
+		private bool _inversespecified;
 		
-		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
-		
-		private string _check = null;
+		private bool _mutable = true;
 		
 		private string _cascade = null;
 		
-		private CollectionFetchMode _fetch = CollectionFetchMode.Unspecified;
+		private string _persister = null;
+		
+		private bool _optimisticlock = true;
 		
 		private string _catalog = null;
+		
+		private string _elementclass = null;
+		
+		private bool _mutablespecified;
+		
+		private bool _embedxml = true;
+		
+		private string _where = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ArrayAttribute() : 
@@ -124,7 +124,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -329,7 +329,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Persister = value.FullName.Substring(7);
 				else
-					this.Persister = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Persister = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -358,7 +358,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.CollectionType = value.FullName.Substring(7);
 				else
-					this.CollectionType = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.CollectionType = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

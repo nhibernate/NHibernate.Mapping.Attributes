@@ -26,25 +26,25 @@ namespace NHibernate.Mapping.Attributes
 	public class HibernateMappingAttribute : BaseAttribute
 	{
 		
+		private string _schema = null;
+		
 		private string _defaultaccess = null;
 		
-		private bool _defaultlazy = true;
+		private string _defaultcascade = null;
 		
 		private bool _defaultlazyspecified;
 		
 		private string _namespace = null;
 		
-		private string _schema = null;
-		
-		private string _defaultcascade = null;
-		
-		private string _catalog = null;
-		
-		private bool _autoimport = true;
-		
 		private bool _autoimportspecified;
 		
 		private string _assembly = null;
+		
+		private bool _autoimport = true;
+		
+		private bool _defaultlazy = true;
+		
+		private string _catalog = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public HibernateMappingAttribute() : 
@@ -122,7 +122,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.DefaultAccess = value.FullName.Substring(7);
 				else
-					this.DefaultAccess = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.DefaultAccess = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

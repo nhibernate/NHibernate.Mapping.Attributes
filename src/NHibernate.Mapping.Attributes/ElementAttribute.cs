@@ -28,9 +28,17 @@ namespace NHibernate.Mapping.Attributes
 		
 		private int _length = -1;
 		
-		private int _precision = -1;
-		
 		private string _formula = null;
+		
+		private bool _unique = false;
+		
+		private int _scale = -1;
+		
+		private bool _notnull = false;
+		
+		private string _node = null;
+		
+		private int _precision = -1;
 		
 		private bool _notnullspecified;
 		
@@ -38,15 +46,7 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _column = null;
 		
-		private bool _notnull = false;
-		
-		private string _node = null;
-		
-		private int _scale = -1;
-		
 		private bool _uniquespecified;
-		
-		private bool _unique = false;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ElementAttribute() : 
@@ -124,7 +124,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Type = value.FullName.Substring(7);
 				else
-					this.Type = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Type = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

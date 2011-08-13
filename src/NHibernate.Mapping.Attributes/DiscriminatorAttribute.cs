@@ -26,25 +26,25 @@ namespace NHibernate.Mapping.Attributes
 	public class DiscriminatorAttribute : BaseAttribute
 	{
 		
+		private string _formula = null;
+		
 		private int _length = -1;
 		
-		private string _formula = null;
+		private bool _notnull = true;
+		
+		private bool _forcespecified;
+		
+		private bool _force = false;
 		
 		private bool _notnullspecified;
 		
 		private string _type = null;
 		
-		private bool _insertspecified;
-		
-		private bool _notnull = true;
-		
 		private bool _insert = true;
 		
 		private string _column = null;
 		
-		private bool _forcespecified;
-		
-		private bool _force = false;
+		private bool _insertspecified;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public DiscriminatorAttribute() : 
@@ -109,7 +109,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Type = value.FullName.Substring(7);
 				else
-					this.Type = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Type = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
