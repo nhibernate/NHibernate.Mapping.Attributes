@@ -26,9 +26,9 @@ namespace NHibernate.Mapping.Attributes
 	public class ReturnScalarAttribute : BaseAttribute
 	{
 		
-		private string _column = null;
-		
 		private string _type = null;
+		
+		private string _column = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ReturnScalarAttribute() : 

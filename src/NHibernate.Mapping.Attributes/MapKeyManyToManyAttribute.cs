@@ -26,15 +26,15 @@ namespace NHibernate.Mapping.Attributes
 	public class MapKeyManyToManyAttribute : BaseAttribute
 	{
 		
-		private string _column = null;
+		private string _entityname = null;
 		
 		private string _formula = null;
 		
 		private string _foreignkey = null;
 		
-		private string _class = null;
+		private string _column = null;
 		
-		private string _entityname = null;
+		private string _class = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public MapKeyManyToManyAttribute() : 
@@ -71,6 +71,22 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._entityname = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual System.Type EntityNameType
+		{
+			get
+			{
+				return System.Type.GetType( this.EntityName );
+			}
+			set
+			{
+				if(value.Assembly == typeof(int).Assembly)
+					this.EntityName = value.FullName.Substring(7);
+				else
+					this.EntityName = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

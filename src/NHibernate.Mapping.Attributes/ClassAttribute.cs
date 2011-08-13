@@ -26,65 +26,65 @@ namespace NHibernate.Mapping.Attributes
 	public class ClassAttribute : BaseAttribute
 	{
 		
-		private bool _selectbeforeupdate = false;
-		
-		private string _discriminatorvalueenumformat = "g";
-		
-		private string _persister = null;
-		
-		private bool _abstract = false;
-		
-		private string _discriminatorvalue = null;
-		
-		private string _where = null;
+		private long _batchsize = -9223372036854775808;
 		
 		private bool _dynamicinsertspecified;
 		
-		private string _rowid = null;
+		private bool _lazyspecified;
 		
-		private string _node = null;
-		
-		private string _proxy = null;
-		
-		private string _subselect = null;
+		private bool _dynamicupdate = false;
 		
 		private string _schema = null;
 		
-		private bool _lazyspecified;
+		private string _proxy = null;
+		
+		private bool _abstractspecified;
+		
+		private bool _dynamicinsert = false;
+		
+		private string _persister = null;
+		
+		private string _subselect = null;
+		
+		private OptimisticLockMode _optimisticlock = OptimisticLockMode.Unspecified;
+		
+		private string _node = null;
+		
+		private string _where = null;
+		
+		private string _entityname = null;
+		
+		private bool _dynamicupdatespecified;
+		
+		private bool _abstract = false;
+		
+		private bool _selectbeforeupdatespecified;
+		
+		private string _name = null;
+		
+		private string _table = null;
+		
+		private string _discriminatorvalueenumformat = "g";
+		
+		private bool _selectbeforeupdate = false;
+		
+		private string _discriminatorvalue = null;
+		
+		private bool _mutable = true;
+		
+		private string _check = null;
+		
+		private string _schemaaction = null;
+		
+		private string _rowid = null;
+		
+		private string _catalog = null;
+		
+		private bool _lazy = false;
 		
 		private bool _mutablespecified;
 		
 		private PolymorphismType _polymorphism = PolymorphismType.Unspecified;
-		
-		private bool _dynamicupdate = false;
-		
-		private bool _mutable = true;
-		
-		private bool _dynamicupdatespecified;
-		
-		private long _batchsize = -9223372036854775808;
-		
-		private bool _dynamicinsert = false;
-		
-		private string _name = null;
-		
-		private bool _abstractspecified;
-		
-		private string _table = null;
-		
-		private string _schemaaction = null;
-		
-		private bool _lazy = false;
-		
-		private string _check = null;
-		
-		private bool _selectbeforeupdatespecified;
-		
-		private string _entityname = null;
-		
-		private OptimisticLockMode _optimisticlock = OptimisticLockMode.Unspecified;
-		
-		private string _catalog = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ClassAttribute() : 
@@ -108,6 +108,22 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._entityname = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual System.Type EntityNameType
+		{
+			get
+			{
+				return System.Type.GetType( this.EntityName );
+			}
+			set
+			{
+				if(value.Assembly == typeof(int).Assembly)
+					this.EntityName = value.FullName.Substring(7);
+				else
+					this.EntityName = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -136,7 +152,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Name = value.FullName.Substring(7);
 				else
-					this.Name = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Name = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -165,7 +181,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Proxy = value.FullName.Substring(7);
 				else
-					this.Proxy = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Proxy = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -396,7 +412,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Persister = value.FullName.Substring(7);
 				else
-					this.Persister = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Persister = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

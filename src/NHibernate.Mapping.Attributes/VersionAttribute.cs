@@ -26,23 +26,23 @@ namespace NHibernate.Mapping.Attributes
 	public class VersionAttribute : BaseAttribute
 	{
 		
-		private string _node = null;
-		
-		private VersionGeneration _generated = VersionGeneration.Unspecified;
+		private bool _insertspecified;
 		
 		private string _access = null;
 		
-		private string _type = null;
+		private string _node = null;
 		
 		private string _unsavedvalue = null;
 		
-		private bool _insertspecified;
+		private bool _insert = false;
+		
+		private string _type = null;
 		
 		private string _name = null;
 		
 		private string _column = null;
 		
-		private bool _insert = false;
+		private VersionGeneration _generated = VersionGeneration.Unspecified;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public VersionAttribute() : 
@@ -107,7 +107,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -149,7 +149,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Type = value.FullName.Substring(7);
 				else
-					this.Type = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Type = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

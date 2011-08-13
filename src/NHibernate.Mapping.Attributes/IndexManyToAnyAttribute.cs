@@ -26,11 +26,11 @@ namespace NHibernate.Mapping.Attributes
 	public class IndexManyToAnyAttribute : BaseAttribute
 	{
 		
-		private string _column = null;
+		private string _idtype = null;
 		
 		private string _metatype = null;
 		
-		private string _idtype = null;
+		private string _column = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public IndexManyToAnyAttribute() : 
@@ -69,7 +69,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.IdType = value.FullName.Substring(7);
 				else
-					this.IdType = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.IdType = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -98,7 +98,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.MetaType = value.FullName.Substring(7);
 				else
-					this.MetaType = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.MetaType = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

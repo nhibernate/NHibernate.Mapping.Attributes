@@ -26,9 +26,9 @@ namespace NHibernate.Mapping.Attributes
 	public class ListIndexAttribute : BaseAttribute
 	{
 		
-		private string _column = null;
-		
 		private int _base = -1;
+		
+		private string _column = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ListIndexAttribute() : 

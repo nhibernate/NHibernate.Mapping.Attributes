@@ -26,61 +26,61 @@ namespace NHibernate.Mapping.Attributes
 	public class MapAttribute : BaseAttribute
 	{
 		
-		private bool _embedxmlspecified;
+		private string _orderby = null;
 		
-		private bool _genericspecified;
+		private long _batchsize = -9223372036854775808;
 		
-		private string _persister = null;
+		private CollectionFetchMode _fetch = CollectionFetchMode.Unspecified;
 		
-		private string _access = null;
+		private string _collectiontype = null;
 		
-		private string _where = null;
-		
-		private bool _embedxml = true;
+		private string _schema = null;
 		
 		private string _sort = null;
 		
 		private string _node = null;
 		
-		private bool _inversespecified;
+		private bool _inverse = false;
 		
 		private string _subselect = null;
 		
-		private string _schema = null;
+		private string _check = null;
 		
-		private string _orderby = null;
+		private string _access = null;
 		
-		private bool _mutablespecified;
+		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
 		
-		private string _collectiontype = null;
+		private bool _genericspecified;
 		
-		private bool _inverse = false;
-		
-		private bool _mutable = true;
-		
-		private bool _optimisticlock = true;
-		
-		private long _batchsize = -9223372036854775808;
-		
-		private bool _generic = false;
+		private bool _embedxmlspecified;
 		
 		private string _name = null;
 		
 		private string _table = null;
 		
-		private CollectionLazy _lazy = CollectionLazy.Unspecified;
+		private bool _generic = false;
 		
-		private bool _optimisticlockspecified;
+		private bool _inversespecified;
 		
-		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
-		
-		private string _check = null;
+		private bool _mutable = true;
 		
 		private string _cascade = null;
 		
-		private CollectionFetchMode _fetch = CollectionFetchMode.Unspecified;
+		private string _persister = null;
+		
+		private bool _optimisticlock = true;
 		
 		private string _catalog = null;
+		
+		private bool _optimisticlockspecified;
+		
+		private CollectionLazy _lazy = CollectionLazy.Unspecified;
+		
+		private bool _mutablespecified;
+		
+		private bool _embedxml = true;
+		
+		private string _where = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public MapAttribute() : 
@@ -132,7 +132,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -350,7 +350,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Persister = value.FullName.Substring(7);
 				else
-					this.Persister = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Persister = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -379,7 +379,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.CollectionType = value.FullName.Substring(7);
 				else
-					this.CollectionType = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.CollectionType = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -503,7 +503,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Sort = value.FullName.Substring(7);
 				else
-					this.Sort = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Sort = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 	}

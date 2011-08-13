@@ -26,13 +26,13 @@ namespace NHibernate.Mapping.Attributes
 	public class MetaAttribute : BaseAttribute
 	{
 		
-		private string _content = null;
+		private bool _inherit = true;
 		
 		private bool _inheritspecified;
 		
 		private string _attribute = null;
 		
-		private bool _inherit = true;
+		private string _content = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public MetaAttribute() : 

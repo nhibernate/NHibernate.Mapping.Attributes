@@ -102,7 +102,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 			if( attribMember.Name == "access" || attribMember.Name == "default-access"
 				|| attribMember.Name == "extends" || attribMember.Name == "id-type"
 				|| attribMember.Name == "meta-type" || attribMember.Name == "persister"
-				|| attribMember.Name == "collection-type" )
+                || attribMember.Name == "collection-type" || attribMember.Name == "entity-name")
 				return true;
 
 			if(attribMember.Name == "class")

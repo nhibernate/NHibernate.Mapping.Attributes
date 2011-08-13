@@ -265,7 +265,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 		[NHMA.Key(1, Column="bazid")]
 		[NHMA.ListIndex(2, Column="bazind", Base=123)]
 			[NHMA.Column(3, Name="listIndexCol", Length=4)]
-		[NHMA.OneToMany(4, NotFound=NHMA.NotFoundMode.Exception, ClassType=typeof(Fee))]
+		[NHMA.OneToMany(4, NotFound=NHMA.NotFoundMode.Exception, ClassType=typeof(Fee), EntityNameType = typeof(Fee))]
 	public System.Collections.IList Fees
 	{
 		get { return _fees; }
@@ -346,7 +346,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 		[NHMA.CompositeIndex(4, ClassType=typeof(FooComponent))]
 			[NHMA.KeyProperty(5, Name="Name", Length=32, Access="field.camelcase-underscore")]
 			[NHMA.KeyProperty(6, Name="Count", Column="count_", AccessType=typeof(Foo), TypeType=typeof(int))]
-		[NHMA.ManyToMany(7, Column="foo_id", ClassType=typeof(Foo), OuterJoin=NHMA.OuterJoinStrategy.True)]
+		[NHMA.ManyToMany(7, Column="foo_id", ClassType=typeof(Foo), EntityNameType=typeof(Foo), OuterJoin=NHMA.OuterJoinStrategy.True)]
 	public System.Collections.IDictionary FooComponentToFoo
 	{
 		get
@@ -837,7 +837,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 
 
 	#region class JoinedBaz
-	[NHMA.JoinedSubclass(NameType=typeof(JoinedBaz), ProxyType=typeof(JoinedBaz), ExtendsType=typeof(Baz), SelectBeforeUpdate=true)]
+	[NHMA.JoinedSubclass(NameType=typeof(JoinedBaz), ProxyType=typeof(JoinedBaz), ExtendsType=typeof(Baz), SelectBeforeUpdate=true, SchemaAction = "X")]
 	[NHMA.Key(Column="JoinedId")]
 	internal class JoinedBaz : Baz
 	{
@@ -918,8 +918,8 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 		[NHMA.Meta(Attribute="ClassName", Content="Stuff :)")]
 		[NHMA.CompositeId(1, Name="ID", ClassType=typeof(long), AccessType=typeof(int), UnsavedValue=NHMA.UnsavedValueType.Any)]
 			[NHMA.KeyProperty(2, Name="Id", AccessType=typeof(int), TypeType=typeof(Foo))]
-			[NHMA.KeyManyToOne(3, Name="Foo", ClassType=typeof(Foo), Lazy=NHMA.RestrictedLaziness.False, AccessType=typeof(int), Column="-", ForeignKey="x")]
-			[NHMA.KeyManyToOne(4, Name="Bar", ClassType=typeof(int), Lazy=NHMA.RestrictedLaziness.Proxy, AccessType=typeof(Bar), NotFound = NotFoundMode.Ignore)]
+			[NHMA.KeyManyToOne(3, Name="Foo", ClassType=typeof(Foo), EntityNameType=typeof(Foo), Lazy=NHMA.RestrictedLaziness.False, AccessType=typeof(int), Column="-", ForeignKey="x")]
+			[NHMA.KeyManyToOne(4, Name="Bar", ClassType=typeof(int), EntityNameType=typeof(int), Lazy=NHMA.RestrictedLaziness.Proxy, AccessType=typeof(Bar), NotFound = NotFoundMode.Ignore)]
 		public long Id
 		{
 			get { return _id; }
@@ -1013,7 +1013,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 
 
 	#region interface UnionSubclass
-	[NHMA.UnionSubclass(Abstract=false, Table="uT", Schema="none", Check="maybe", ProxyType=typeof(UnionSubclass), ExtendsType=typeof(Baz), SelectBeforeUpdate=true)]
+	[NHMA.UnionSubclass(Abstract=false, Table="uT", Schema="none", Check="maybe", EntityNameType=typeof(Foo), ProxyType=typeof(UnionSubclass), ExtendsType=typeof(Baz), SelectBeforeUpdate=true)]
 	public interface UnionSubclass
 	{
 		[NHMA.Meta(0, Attribute="Meta", Content="Content")]

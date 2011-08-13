@@ -26,33 +26,33 @@ namespace NHibernate.Mapping.Attributes
 	public class ComponentAttribute : BaseAttribute
 	{
 		
-		private bool _optimisticlockspecified;
-		
-		private string _node = null;
-		
-		private string _class = null;
-		
-		private bool _lazy = false;
-		
-		private bool _update = true;
+		private bool _insertspecified;
 		
 		private string _access = null;
 		
-		private bool _insertspecified;
+		private string _node = null;
+		
+		private bool _unique = false;
+		
+		private bool _optimisticlockspecified;
+		
+		private bool _update = true;
+		
+		private bool _lazy = false;
+		
+		private bool _optimisticlock = true;
+		
+		private string _class = null;
 		
 		private bool _lazyspecified;
+		
+		private bool _updatespecified;
 		
 		private string _name = null;
 		
 		private bool _insert = true;
 		
-		private bool _unique = false;
-		
-		private bool _optimisticlock = true;
-		
 		private bool _uniquespecified;
-		
-		private bool _updatespecified;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ComponentAttribute() : 
@@ -91,7 +91,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Class = value.FullName.Substring(7);
 				else
-					this.Class = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Class = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -133,7 +133,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

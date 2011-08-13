@@ -26,11 +26,11 @@ namespace NHibernate.Mapping.Attributes
 	public class CacheAttribute : BaseAttribute
 	{
 		
-		private string _region = null;
-		
 		private CacheInclude _include = CacheInclude.Unspecified;
 		
 		private CacheUsage _usage = CacheUsage.Unspecified;
+		
+		private string _region = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public CacheAttribute() : 

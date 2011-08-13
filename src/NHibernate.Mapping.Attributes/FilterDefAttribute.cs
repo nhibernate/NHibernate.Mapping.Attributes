@@ -26,15 +26,15 @@ namespace NHibernate.Mapping.Attributes
 	public class FilterDefAttribute : BaseAttribute
 	{
 		
-		private string _name = null;
-		
-		private string _content = null;
+		private string _condition = null;
 		
 		private bool _usemanytoonespecified;
 		
-		private string _condition = null;
+		private string _content = null;
 		
 		private bool _usemanytoone = true;
+		
+		private string _name = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public FilterDefAttribute() : 

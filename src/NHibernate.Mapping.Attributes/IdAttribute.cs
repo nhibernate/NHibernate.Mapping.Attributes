@@ -26,19 +26,19 @@ namespace NHibernate.Mapping.Attributes
 	public class IdAttribute : BaseAttribute
 	{
 		
-		private string _node = null;
-		
-		private string _name = null;
-		
-		private string _column = null;
-		
 		private string _unsavedvalue = null;
+		
+		private string _node = null;
 		
 		private string _access = null;
 		
 		private string _type = null;
 		
 		private int _length = -1;
+		
+		private string _column = null;
+		
+		private string _name = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public IdAttribute() : 
@@ -103,7 +103,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -145,7 +145,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Type = value.FullName.Substring(7);
 				else
-					this.Type = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Type = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

@@ -92,7 +92,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 				@"if(value.Assembly == typeof(int).Assembly)
 					this.{0} = value.FullName.Substring(7);
 				else
-					this.{0} = value.FullName + "", "" + value.Assembly.GetName().Name", pd.Name) ) );
+					this.{0} = HbmWriterHelper.GetNameWithAssembly(value)", pd.Name)));
 					}
 
 					// Add the object property (to allow setting this attribute with any object)

@@ -26,13 +26,13 @@ namespace NHibernate.Mapping.Attributes
 	public class SqlUpdateAttribute : BaseAttribute
 	{
 		
-		private CustomSqlCheck _check = CustomSqlCheck.Unspecified;
-		
-		private bool _callablespecified;
-		
 		private string _content = null;
 		
 		private bool _callable = false;
+		
+		private bool _callablespecified;
+		
+		private CustomSqlCheck _check = CustomSqlCheck.Unspecified;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public SqlUpdateAttribute() : 

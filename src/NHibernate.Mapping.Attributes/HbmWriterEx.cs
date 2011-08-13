@@ -50,25 +50,25 @@ namespace NHibernate.Mapping.Attributes
                 if (classAttribute != null)
                 {
                     if (classAttribute.EntityName == null && classAttribute.Name == null)
-                        writer.WriteAttributeString("name", classType.FullName + ", " + classType.Assembly.GetName().Name);
+                        writer.WriteAttributeString("name", HbmWriterHelper.GetNameWithAssembly(classType));
                 }
                 var subclassAttribute = parentAttribute as SubclassAttribute;
                 if (subclassAttribute != null)
                 {
                     if (subclassAttribute.EntityName == null && subclassAttribute.Name == null)
-                        writer.WriteAttributeString("name", classType.FullName + ", " + classType.Assembly.GetName().Name);
+                        writer.WriteAttributeString("name", HbmWriterHelper.GetNameWithAssembly(classType));
                 }
                 var joinedSubclassAttribute = parentAttribute as JoinedSubclassAttribute;
                 if (joinedSubclassAttribute != null)
                 {
                     if (joinedSubclassAttribute.EntityName == null && joinedSubclassAttribute.Name == null)
-                        writer.WriteAttributeString("name", classType.FullName + ", " + classType.Assembly.GetName().Name);
+                        writer.WriteAttributeString("name", HbmWriterHelper.GetNameWithAssembly(classType));
                 }
                 var unionSubclassAttribute = parentAttribute as UnionSubclassAttribute;
                 if (unionSubclassAttribute != null)
                 {
                     if (unionSubclassAttribute.EntityName == null && unionSubclassAttribute.Name == null)
-                        writer.WriteAttributeString("name", classType.FullName + ", " + classType.Assembly.GetName().Name);
+                        writer.WriteAttributeString("name", HbmWriterHelper.GetNameWithAssembly(classType));
                 }
             }
 

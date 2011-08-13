@@ -26,8 +26,6 @@ namespace NHibernate.Mapping.Attributes
 	public class MapKeyAttribute : BaseAttribute
 	{
 		
-		private string _column = null;
-		
 		private string _formula = null;
 		
 		private string _type = null;
@@ -35,6 +33,8 @@ namespace NHibernate.Mapping.Attributes
 		private string _node = null;
 		
 		private int _length = -1;
+		
+		private string _column = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public MapKeyAttribute() : 

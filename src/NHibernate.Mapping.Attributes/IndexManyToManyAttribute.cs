@@ -26,13 +26,13 @@ namespace NHibernate.Mapping.Attributes
 	public class IndexManyToManyAttribute : BaseAttribute
 	{
 		
-		private string _column = null;
+		private string _entityname = null;
 		
 		private string _foreignkey = null;
 		
-		private string _class = null;
+		private string _column = null;
 		
-		private string _entityname = null;
+		private string _class = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public IndexManyToManyAttribute() : 
@@ -71,7 +71,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Class = value.FullName.Substring(7);
 				else
-					this.Class = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Class = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
@@ -85,6 +85,22 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._entityname = value;
+			}
+		}
+		
+		/// <summary> </summary>
+		public virtual System.Type EntityNameType
+		{
+			get
+			{
+				return System.Type.GetType( this.EntityName );
+			}
+			set
+			{
+				if(value.Assembly == typeof(int).Assembly)
+					this.EntityName = value.FullName.Substring(7);
+				else
+					this.EntityName = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		

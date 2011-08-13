@@ -26,27 +26,27 @@ namespace NHibernate.Mapping.Attributes
 	public class DynamicComponentAttribute : BaseAttribute
 	{
 		
-		private string _name = null;
-		
-		private bool _optimisticlockspecified;
-		
-		private string _node = null;
-		
-		private bool _update = true;
+		private bool _insertspecified;
 		
 		private string _access = null;
 		
-		private bool _insert = true;
-		
-		private bool _insertspecified;
-		
 		private bool _unique = false;
+		
+		private bool _optimisticlockspecified;
+		
+		private bool _update = true;
+		
+		private string _node = null;
 		
 		private bool _optimisticlock = true;
 		
-		private bool _uniquespecified;
-		
 		private bool _updatespecified;
+		
+		private string _name = null;
+		
+		private bool _insert = true;
+		
+		private bool _uniquespecified;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public DynamicComponentAttribute() : 
@@ -98,7 +98,7 @@ namespace NHibernate.Mapping.Attributes
 				if(value.Assembly == typeof(int).Assembly)
 					this.Access = value.FullName.Substring(7);
 				else
-					this.Access = value.FullName + ", " + value.Assembly.GetName().Name;
+					this.Access = HbmWriterHelper.GetNameWithAssembly(value);
 			}
 		}
 		
