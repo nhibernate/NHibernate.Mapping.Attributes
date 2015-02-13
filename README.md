@@ -8,8 +8,6 @@ With NHibernate.Mapping.Attributes, you can use .NET attributes to decorate your
 
 Licensed under the terms of the GNU Lesser General Public License.
 
-
-
 ========================
 Build for NHibernate 3.0
 ========================
@@ -19,21 +17,24 @@ This is due to the fact that this property is optional since you can use EntityN
 You can turn off this behavior by doing:
 ((HbmWriterEx) HbmSerializer.Default.HbmWriter).DoNotAutoDetectClassName = true;
 
-
-
 ==================
 Online information
 ==================
 
-Website:
-http://nhforge.org/
-http://sourceforge.net/projects/nhcontrib/
+Website
+-------
+* http://nhibernate.info/
+* https://github.com/nhibernate/NHibernate.Mapping.Attributes/
 
-Documentation:
-http://www.nhforge.org/doc/nh/en/index.html#mapping-attributes
+Documentation
+-------------
+* http://nhibernate.info/doc/nh/en/index.html#mapping-attributes
 
-Community Group (to ask questions):
-http://groups.google.com/group/nhcdevs
+Community Group (to ask questions)
+----------------------------------
+* https://groups.google.com/group/nhusers
 
-Up-to-date source code available in the SVN:
-http://nhcontrib.svn.sourceforge.net/svnroot/nhcontrib/trunk/src/NHibernate.Mapping.Attributes/
+Up-to-date source code available at GitHub
+------------------------------------------
+
+* https://github.com/nhibernate/NHibernate.Mapping.Attributes/
