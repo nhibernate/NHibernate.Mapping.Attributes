@@ -233,8 +233,8 @@ namespace NHibernate.Mapping.Attributes.Generator
 					sb.Append(", SchemaType = ").Append(schemaElt.SchemaType).Append(" - ").Append(schemaElt.SchemaType.Name);
 				if(!schemaElt.SchemaTypeName.IsEmpty)
 					sb.Append(", SchemaTypeName = ").Append(schemaElt.SchemaTypeName.Name);
-				if(schemaElt.ElementType != null)
-					sb.Append(", ElementType = ").Append(schemaElt.ElementType);
+				if(schemaElt.ElementSchemaType != null)
+					sb.Append(", ElementType = ").Append(schemaElt.ElementSchemaType.Name);
 				log.Warn(sb.ToString());
 			}
 

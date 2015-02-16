@@ -20,7 +20,6 @@
 ///
 ///3. This notice may not be removed or altered from any source distribution.
 
-using System;
 using System.CodeDom;
 
 namespace Refly.CodeDom.Statements

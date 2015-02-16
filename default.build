@@ -64,7 +64,6 @@
 				<include name="${folders.lib}/${framework.family}/${framework.version}/Iesi.Collections.dll"/>
 				<include name="${folders.lib}/${framework.family}/${framework.version}/log4net.dll"/>
 				<include name="${folders.lib}/${framework.family}/${framework.version}/nunit.framework.dll"/>
-				<include name="${folders.lib}/${framework.family}/${framework.version}/Castle.DynamicProxy2.dll"/>
 				<include name="${folders.build}/NHibernate.Mapping.Attributes.dll"/>
 				<include name="${folders.build}/NHibernate.Mapping.Attributes.Test.dll"/>
 			</fileset>

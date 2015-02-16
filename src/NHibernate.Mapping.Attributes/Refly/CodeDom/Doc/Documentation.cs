@@ -21,13 +21,12 @@
 ///3. This notice may not be removed or altered from any source distribution.
 
 using System;
+using System.CodeDom;
 using System.IO;
 using System.Xml;
-using System.CodeDom;
 
 namespace Refly.CodeDom.Doc
 {
-	using Refly.CodeDom.Collections;
 
 	public class Documentation
 	{

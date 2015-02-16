@@ -21,11 +21,10 @@
 ///3. This notice may not be removed or altered from any source distribution.
 
 using System;
-using System.Reflection;
 using System.CodeDom;
-using System.CodeDom.Compiler;
-using System.Collections.Specialized;
 using System.Collections;
+using System.Collections.Specialized;
+using System.Reflection;
 
 namespace Refly.CodeDom
 {

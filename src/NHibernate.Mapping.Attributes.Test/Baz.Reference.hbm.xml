@@ -19,7 +19,7 @@
       <meta-value value="val2" class="Int32" />
       <column name="clazz" />
     </any>
-    <map name="FooToGlarch" generic="false">
+    <map name="FooToGlarch">
       <key>
         <column name="baz_id" length="16" />
       </key>
@@ -88,7 +88,7 @@
       <key column="col" />
       <one-to-many class="Int32" />
     </set>
-    <list name="StringList" access="Int32" table="string_list" batch-size="7" persister="NHibernate.Mapping.Attributes.Test.DomainModel.Foo, NHibernate.Mapping.Attributes.Test" check="Check" generic="false">
+    <list name="StringList" access="Int32" table="string_list" batch-size="7" persister="NHibernate.Mapping.Attributes.Test.DomainModel.Foo, NHibernate.Mapping.Attributes.Test" check="Check">
       <key>
         <column name="id" length="16" />
       </key>
@@ -127,7 +127,7 @@
         <column name="el_id_" />
       </many-to-any>
     </list>
-    <bag name="Bag" access="NHibernate.Mapping.Attributes.Test.DomainModel.Foo, NHibernate.Mapping.Attributes.Test" lazy="true" cascade="all" order-by="x" where="1" persister="String" check="0" optimistic-lock="true" generic="false">
+    <bag name="Bag" access="NHibernate.Mapping.Attributes.Test.DomainModel.Foo, NHibernate.Mapping.Attributes.Test" lazy="true" cascade="all" order-by="x" where="1" persister="String" check="0" optimistic-lock="true">
       <key column="baz">
         <column name="`baz_id@#$`" not-null="true" unique="false" unique-key="1" />
       </key>
@@ -139,7 +139,7 @@
       </key>
       <element column="`name!`" type="String" />
     </bag>
-    <idbag name="IdFooBag" access="Int32" table="baz_id_foo" schema="null" lazy="false" cascade="all" order-by="1" where="1" collection-type="Boolean" generic="false">
+    <idbag name="IdFooBag" access="Int32" table="baz_id_foo" schema="null" lazy="false" cascade="all" order-by="1" where="1" collection-type="Boolean">
       <collection-id column="pkid" type="Int64" length="8">
         <generator class="hilo" />
       </collection-id>

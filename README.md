@@ -9,7 +9,7 @@ With NHibernate.Mapping.Attributes, you can use .NET attributes to decorate your
 Licensed under the terms of the GNU Lesser General Public License.
 
 ========================
-Build for NHibernate 3.0
+Build for NHibernate 4.0
 ========================
 
 Important breaking change: When using the [*Class] attributes, the property Name is automatically deduced only if Name and EntityName are both null.

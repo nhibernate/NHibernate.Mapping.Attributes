@@ -14,16 +14,13 @@
 
 using System;
 using System.Collections;
-using System.CodeDom;
 using System.ComponentModel;
 using System.Data;
 
 namespace Refly.Templates
 {
 	using Refly.CodeDom;
-	using Refly.CodeDom.Expressions;
 	using Refly.CodeDom.Statements;
-	using Refly.CodeDom.Collections;
 
 	/// <summary>
 	/// Summary description for DataReaderTemplate.

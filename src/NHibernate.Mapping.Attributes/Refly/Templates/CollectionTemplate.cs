@@ -13,10 +13,9 @@
 ///3. This notice may not be removed or altered from any source distribution.
 
 using System;
-using System.ComponentModel;
-using System.Collections;
-using System.Xml.Serialization;
 using System.CodeDom;
+using System.Collections;
+using System.ComponentModel;
 
 namespace Refly.Templates
 {

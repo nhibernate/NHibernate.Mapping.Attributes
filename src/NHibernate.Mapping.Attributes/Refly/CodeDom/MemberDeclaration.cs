@@ -25,7 +25,6 @@ using System.CodeDom;
 
 namespace Refly.CodeDom
 {
-	using Refly.CodeDom.Collections;
 
 	/// <summary>
 	/// Abstract class for member declaration

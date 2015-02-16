@@ -2,6 +2,9 @@
 // NHibernate.Mapping.Attributes
 // This product is under the terms of the GNU Lesser General Public License.
 //
+
+using System.Xml;
+
 namespace NHibernate.Mapping.Attributes
 {
 	/// <summary>
@@ -268,6 +271,20 @@ namespace NHibernate.Mapping.Attributes
 				Serialize(stream, assembly);
 		}
 
+		private XmlReader CreateReader(XmlTextReader tr)
+		{
+			// Open the Schema
+			System.IO.Stream schema = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("NHibernate.Mapping.Attributes.nhibernate-mapping.xsd");
+
+			var settings = new XmlReaderSettings();
+			settings.Schemas.Add("urn:nhibernate-mapping-2.2", new System.Xml.XmlTextReader(schema));
+			settings.ValidationType = System.Xml.ValidationType.Schema;
+			settings.ValidationEventHandler += new System.Xml.Schema.ValidationEventHandler(XmlValidationHandler);
+			var reader = XmlReader.Create(tr, settings);
+
+			return reader;
+		}
+
 
 		/// <summary> Writes the mapping of all mapped classes of the specified assembly in the specified stream. </summary>
 		/// <param name="stream">Where the xml is written.</param>
@@ -357,16 +374,11 @@ namespace NHibernate.Mapping.Attributes
 			{
 				writer.BaseStream.Position = 0;
 				System.Xml.XmlTextReader tr = new System.Xml.XmlTextReader(writer.BaseStream);
-				System.Xml.XmlValidatingReader vr = new System.Xml.XmlValidatingReader(tr);
 
-				// Open the Schema
-				System.IO.Stream schema = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("NHibernate.Mapping.Attributes.nhibernate-mapping.xsd");
-				vr.Schemas.Add("urn:nhibernate-mapping-2.2", new System.Xml.XmlTextReader(schema));
-				vr.ValidationType = System.Xml.ValidationType.Schema;
-				vr.ValidationEventHandler += new System.Xml.Schema.ValidationEventHandler(XmlValidationHandler);
+				var reader = CreateReader(tr);
 
 				_stop = false;
-				while(vr.Read() && !_stop) // Read to validate (stop at the first error)
+				while(reader.Read() && !_stop) // Read to validate (stop at the first error)
 					;
 			}
 			catch(System.Exception ex)
@@ -484,17 +496,11 @@ namespace NHibernate.Mapping.Attributes
 				try
 				{
 					writer.BaseStream.Position = 0;
-					System.Xml.XmlTextReader tr = new System.Xml.XmlTextReader(writer.BaseStream);
-					System.Xml.XmlValidatingReader vr = new System.Xml.XmlValidatingReader(tr);
-
-					// Open the Schema
-					System.IO.Stream schema = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("NHibernate.Mapping.Attributes.nhibernate-mapping.xsd");
-					vr.Schemas.Add("urn:nhibernate-mapping-2.2", new System.Xml.XmlTextReader(schema));
-					vr.ValidationType = System.Xml.ValidationType.Schema;
-					vr.ValidationEventHandler += new System.Xml.Schema.ValidationEventHandler(XmlValidationHandler);
+					var tr = new System.Xml.XmlTextReader(writer.BaseStream);
+					var reader = CreateReader(tr);
 
 					_stop = false;
-					while(vr.Read() && !_stop) // Read to validate (stop at the first error)
+					while(reader.Read() && !_stop) // Read to validate (stop at the first error)
 						;
 				}
 				catch(System.Exception ex)

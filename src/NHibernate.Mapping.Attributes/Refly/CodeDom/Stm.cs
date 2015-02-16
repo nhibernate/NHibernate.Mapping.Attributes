@@ -26,7 +26,6 @@ using System.CodeDom;
 namespace Refly.CodeDom
 {
 	using Refly.CodeDom.Expressions;
-	using Refly.CodeDom.Collections;
 	using Refly.CodeDom.Statements;
 
 	/// <summary>

@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
 using System.ComponentModel;
-using System.Windows.Forms.Design;
-using System.ComponentModel.Design;
 using System.Drawing.Design;
-using System.Collections.Specialized;
+using System.Windows.Forms.Design;
 
 namespace Refly.Templates
 {

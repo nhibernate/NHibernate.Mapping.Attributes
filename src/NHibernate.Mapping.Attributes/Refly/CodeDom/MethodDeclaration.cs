@@ -20,13 +20,11 @@
 ///
 ///3. This notice may not be removed or altered from any source distribution.
 
-using System;
 using System.CodeDom;
 
 namespace Refly.CodeDom
 {
 	using Refly.CodeDom.Collections;
-	using Refly.CodeDom.Statements;
 
 	/// <summary>
 	/// A method declaration

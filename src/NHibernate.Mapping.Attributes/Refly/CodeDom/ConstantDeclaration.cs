@@ -25,8 +25,6 @@ using System.CodeDom;
 
 namespace Refly.CodeDom
 {
-	using Refly.CodeDom.Collections;
-	using Refly.CodeDom.Expressions;
 
 	/// <summary>
 	/// A constant value declaration.

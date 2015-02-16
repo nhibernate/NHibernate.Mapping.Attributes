@@ -13,13 +13,12 @@
 ///3. This notice may not be removed or altered from any source distribution.
 
 using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Specialized;
-using System.CodeDom;
 
 namespace Refly
 {
-	using Refly.CodeDom;
 	/// <summary>
 	/// Summary description for NameConformer.
 	/// </summary>

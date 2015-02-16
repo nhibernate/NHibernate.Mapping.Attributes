@@ -21,14 +21,10 @@
 ///3. This notice may not be removed or altered from any source distribution.
 
 using System;
-using System.CodeDom;
-using System.Collections.Specialized;
 
 namespace Refly.CodeDom
 {
 	using Refly.CodeDom.Collections;
-	using Refly.CodeDom.Expressions;
-	using Refly.CodeDom.Statements;
 
 	/// <summary>
 	/// An attribute declaration

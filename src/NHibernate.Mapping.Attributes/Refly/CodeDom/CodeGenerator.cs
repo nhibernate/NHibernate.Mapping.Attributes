@@ -23,12 +23,11 @@
 using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
-using System.IO;
-using System.Reflection;
-using Microsoft.CSharp;
-using Microsoft.VisualBasic;
 using System.Collections;
 using System.ComponentModel;
+using System.IO;
+using Microsoft.CSharp;
+using Microsoft.VisualBasic;
 
 namespace Refly.CodeDom
 {
@@ -174,7 +173,6 @@ namespace Refly.CodeDom
 			if (ns==null)
 				throw new ArgumentNullException("ns");
 
-            ICodeGenerator gen = provider.CreateGenerator();
             foreach(DictionaryEntry de in ns.ToCodeDom()) 
 			{
 				FileName key = (FileName)de.Key;
@@ -197,7 +195,7 @@ namespace Refly.CodeDom
 					// Create a TextWriter to a StreamWriter to an output file.
 					IndentedTextWriter tw = new IndentedTextWriter(writer,this.tab);
 					// Generate source code using the code generator.
-                    gen.GenerateCodeFromNamespace(nms, tw, options);
+					provider.GenerateCodeFromNamespace(nms, tw, options);
 
                     // log
                     this.OnFileCreated(new StringEventArgs(filePath));

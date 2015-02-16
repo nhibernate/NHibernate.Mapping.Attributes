@@ -378,10 +378,6 @@ namespace NHibernate.Mapping.Attributes.Generator
 			{
 				log.Error("Unexpected Exception", ex);
 			}
-			catch
-			{
-				log.Error("Unexpected non-CLSCompliant Exception");
-			}
 		}
 	}
 }

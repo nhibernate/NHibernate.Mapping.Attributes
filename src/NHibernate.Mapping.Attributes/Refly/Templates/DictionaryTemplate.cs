@@ -13,14 +13,12 @@
 ///3. This notice may not be removed or altered from any source distribution.
 
 using System;
-using System.ComponentModel;
 using System.Collections;
-using System.Xml.Serialization;
+using System.ComponentModel;
 
 namespace Refly.Templates
 {
 	using Refly.CodeDom;
-	using Refly.CodeDom.Statements;
 
 	public class DictionaryTemplate : Template
 	{

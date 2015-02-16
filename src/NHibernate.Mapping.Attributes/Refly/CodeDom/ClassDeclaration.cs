@@ -21,14 +21,12 @@
 ///3. This notice may not be removed or altered from any source distribution.
 
 using System;
-using System.Reflection;
 using System.CodeDom;
-using System.Collections.Specialized;
+using System.Reflection;
 
 namespace Refly.CodeDom
 {
 	using Refly.CodeDom.Collections;
-	using Refly.CodeDom.Expressions;
 	using Refly.CodeDom.Statements;
 
 	/// <summary>

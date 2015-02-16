@@ -15,7 +15,6 @@
 
 using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
 //
 // General Information about an assembly is controlled through the following 
@@ -71,5 +70,5 @@ using System.Runtime.CompilerServices;
 //       documentation for more information on this.
 //
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyKeyFile("..\\..\\..\\Refly.snk")]
+//[assembly: AssemblyKeyFile("..\\..\\..\\Refly.snk")]
 [assembly: AssemblyKeyName("")]
