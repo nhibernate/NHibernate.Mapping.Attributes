@@ -238,7 +238,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 				log.Info("Generation of NHibernate.Mapping.Attributes");
 
 				// Open the Schema (in /NHMA/ directory)
-				System.Xml.XmlTextReader reader = new System.Xml.XmlTextReader("../../../nhibernate-mapping.xsd");
+                System.Xml.XmlTextReader reader = new System.Xml.XmlTextReader("../../../NHibernate.Mapping.Attributes/nhibernate-mapping.xsd");
 				schema = System.Xml.Schema.XmlSchema.Read(reader, null);
 
 				Refly.CodeDom.NamespaceDeclaration nd = new Refly.CodeDom.NamespaceDeclaration("NHibernate.Mapping.Attributes", conformer);
@@ -371,7 +371,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 				#endregion
 
 				log.Info("CodeGenerator.GenerateCode()... Classes=" + nd.Classes.Count + ", Enums=" + nd.Enums.Count);
-				gen.GenerateCode("..\\..\\..", nd);
+                gen.GenerateCode(@"../../../NHibernate.Mapping.Attributes", nd);
 				log.Info("Done !");
 			}
 			catch(System.Exception ex)
