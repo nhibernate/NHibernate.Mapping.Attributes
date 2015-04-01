@@ -355,6 +355,7 @@
     <EmbeddedResource Include="nhibernate-mapping.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="NHibernate.Mapping.Attributes.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
