@@ -117,6 +117,23 @@ namespace NHibernate.Mapping.Attributes.Generator
 				}
 			}"));
 						}
+                        else if (attribName == "access")
+                        {
+							method.Body.Add(Refly.CodeDom.Stm.Snippet(@"else
+            {
+                var access = string.Empty;
+                switch (member.MemberType)
+                {
+                    case MemberTypes.Property:
+                        access = ""property"";
+                        break;
+                    case MemberTypes.Field:
+                        access = ""field"";
+                        break;
+                }
+                writer.WriteAttributeString(""access"", access);
+            }"));
+                        }
 					}
 				}
 

@@ -243,6 +243,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 
 				Refly.CodeDom.NamespaceDeclaration nd = new Refly.CodeDom.NamespaceDeclaration("NHibernate.Mapping.Attributes", conformer);
 				nd.Imports.Clear(); // remove "using System;"
+                nd.Imports.Add("System.Reflection");
 				conformer.Capitalize = true;
 				Refly.CodeDom.ClassDeclaration hbmWriter = nd.AddClass("HbmWriter");
 				hbmWriter.Attributes = System.Reflection.TypeAttributes.Public;
