@@ -117,7 +117,7 @@ namespace NHibernate.Mapping.Attributes.Generator
 				}
 			}"));
 						}
-                        else if (attribName == "access")
+                        else if (attribName == "access" && schemaEltName != "Component") // "access" attribute auto calculation, except Component elements
                         {
 							method.Body.Add(Refly.CodeDom.Stm.Snippet(@"else
             {
