@@ -1,3 +1,5 @@
+CI Build status: [![Build status](https://ci.appveyor.com/api/projects/status/5voaaboe7wdv5eao/branch/master?svg=true)](https://ci.appveyor.com/project/Toshik/nhibernate-mapping-attributes/branch/master)
+
 ======================================
 What is NHibernate.Mapping.Attributes?
 ======================================
