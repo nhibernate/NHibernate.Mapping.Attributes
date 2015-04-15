@@ -117,13 +117,14 @@ namespace NHibernate.Mapping.Attributes.Generator
 				}
 			}"));
 						}
-                        else if (attribName == "access" && schemaEltName != "Component") // "access" attribute auto calculation, except Component elements
+                        else if (attribName == "access" &&  !schemaEltIsRoot) // auto generate "access" attribute
                         {
 							method.Body.Add(Refly.CodeDom.Stm.Snippet(@"else
             {
                 var access = string.Empty;
                 switch (member.MemberType)
                 {
+
                     case MemberTypes.Property:
                         access = ""property"";
                         break;
@@ -132,6 +133,13 @@ namespace NHibernate.Mapping.Attributes.Generator
                         break;
                 }
                 writer.WriteAttributeString(""access"", access);
+            }"));
+                        }
+                        else if (attribName == "name" && !schemaEltIsRoot) // auto generate "name" attribute
+                        {
+                            method.Body.Add(Refly.CodeDom.Stm.Snippet(@"else
+            {
+                writer.WriteAttributeString(""name"", member.Name);
             }"));
                         }
 					}
