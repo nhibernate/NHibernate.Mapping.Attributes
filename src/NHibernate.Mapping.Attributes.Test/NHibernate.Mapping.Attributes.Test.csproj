@@ -115,6 +115,7 @@
     <Compile Include="DomainModel.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HbmWriterHelperFixture.cs" />
     <Compile Include="SerializationFixture.cs">
       <SubType>Code</SubType>
     </Compile>
