@@ -16,8 +16,12 @@ namespace NHibernate.Mapping.Attributes
         {
             //return type.FullName + ", " + type.Assembly.GetName().Name; // Requires FileIOPermission in medium-trust
             string assemblyName = type.Assembly.FullName;
-            int comma = assemblyName.IndexOf(",");
-            assemblyName = assemblyName.Substring(0, comma);
+
+            if (!type.Assembly.GlobalAssemblyCache) {
+                int comma = assemblyName.IndexOf(",");
+                assemblyName = assemblyName.Substring(0, comma);
+            }
+
             return type.FullName + ", " + assemblyName;
         }
 
