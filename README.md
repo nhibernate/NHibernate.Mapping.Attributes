@@ -1,4 +1,3 @@
-======================================
 What is NHibernate.Mapping.Attributes?
 ======================================
 
@@ -8,7 +7,6 @@ With NHibernate.Mapping.Attributes, you can use .NET attributes to decorate your
 
 Licensed under the terms of the GNU Lesser General Public License.
 
-========================
 Build for NHibernate 4.0
 ========================
 
@@ -17,7 +15,6 @@ This is due to the fact that this property is optional since you can use EntityN
 You can turn off this behavior by doing:
 ((HbmWriterEx) HbmSerializer.Default.HbmWriter).DoNotAutoDetectClassName = true;
 
-==================
 Online information
 ==================
 
