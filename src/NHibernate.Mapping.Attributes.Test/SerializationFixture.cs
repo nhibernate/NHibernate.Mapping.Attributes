@@ -110,7 +110,8 @@ namespace NHibernate.Mapping.Attributes.Test
 					refLine = refReader.ReadLine();
 					if (l != 2 && line != refLine) // line 2 contain a comment
 						throw new Exception(string.Format(
-						                    	"Difference at line {0}:{3}Src={1}{3}Ref={2}", l, line, refLine, Environment.NewLine));
+						                        "Difference with {4} at line {0}:{3}Src={1}{3}Ref={2}",
+						                        l, line, refLine, Environment.NewLine, Path.GetFileName(refFilePath)));
 				} while (line != null && refLine != null);
 			}
 		}
