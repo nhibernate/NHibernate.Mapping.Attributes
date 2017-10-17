@@ -32,8 +32,6 @@ namespace NHibernate.Mapping.Attributes
 		
 		private Laziness _lazy = Laziness.Unspecified;
 		
-		private bool _embedxml = true;
-		
 		private string _entityname = null;
 		
 		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
@@ -41,8 +39,6 @@ namespace NHibernate.Mapping.Attributes
 		private FetchMode _fetch = FetchMode.Unspecified;
 		
 		private string _propertyref = null;
-		
-		private bool _embedxmlspecified;
 		
 		private string _foreignkey = null;
 		
@@ -294,29 +290,6 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._node = value;
-			}
-		}
-		
-		/// <summary> </summary>
-		public virtual bool EmbedXml
-		{
-			get
-			{
-				return this._embedxml;
-			}
-			set
-			{
-				this._embedxml = value;
-				_embedxmlspecified = true;
-			}
-		}
-		
-		/// <summary> Tells if EmbedXml has been specified. </summary>
-		public virtual bool EmbedXmlSpecified
-		{
-			get
-			{
-				return this._embedxmlspecified;
 			}
 		}
 	}

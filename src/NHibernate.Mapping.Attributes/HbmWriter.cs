@@ -1217,140 +1217,145 @@ if( element1 == null )
 			{
 	if( typeOfElement2 == typeof(MetaAttribute) )
 				{
-					if( element1 is SubselectAttribute || element1 is SynchronizeAttribute || element1 is CommentAttribute || element1 is TuplizerAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SubselectAttribute || element1 is SynchronizeAttribute || element1 is CommentAttribute || element1 is TuplizerAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SubselectAttribute) )
 				{
-					if( element1 is SynchronizeAttribute || element1 is CommentAttribute || element1 is TuplizerAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SynchronizeAttribute || element1 is CommentAttribute || element1 is TuplizerAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SynchronizeAttribute) )
 				{
-					if( element1 is CommentAttribute || element1 is TuplizerAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is CommentAttribute || element1 is TuplizerAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(CommentAttribute) )
 				{
-					if( element1 is TuplizerAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is TuplizerAttribute || element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(TuplizerAttribute) )
 				{
-					if( element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is KeyAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(KeyAttribute) )
 				{
-					if( element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(PropertyAttribute) )
 				{
-					if( element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ManyToOneAttribute) )
 				{
-					if( element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(OneToOneAttribute) )
 				{
-					if( element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ComponentAttribute) )
 				{
-					if( element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(DynamicComponentAttribute) )
 				{
-					if( element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(PropertiesAttribute) )
 				{
-					if( element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(AnyAttribute) )
 				{
-					if( element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(MapAttribute) )
 				{
-					if( element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SetAttribute) )
 				{
-					if( element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ListAttribute) )
 				{
-					if( element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(BagAttribute) )
 				{
-					if( element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(IdBagAttribute) )
 				{
-					if( element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ArrayAttribute) )
 				{
-					if( element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is PrimitiveArrayAttribute || element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(PrimitiveArrayAttribute) )
 				{
-					if( element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is JoinedSubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(JoinedSubclassAttribute) )
 				{
-					if( element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(LoaderAttribute) )
 				{
-					if( element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SqlInsertAttribute) )
 				{
-					if( element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SqlUpdateAttribute) )
 				{
-					if( element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SqlDeleteAttribute) )
 				{
-					if( element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ResultSetAttribute) )
 				{
-					if( element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(QueryAttribute) )
 				{
-					if( element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SqlQueryAttribute) )
+				{
+					if( element1 is FilterAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(FilterAttribute) )
 				{
 					if( typeOfElement2 == null )
 						return true;
@@ -2112,130 +2117,135 @@ if( element1 == null )
 			{
 	if( typeOfElement2 == typeof(MetaAttribute) )
 				{
-					if( element1 is TuplizerAttribute || element1 is SynchronizeAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is TuplizerAttribute || element1 is SynchronizeAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(TuplizerAttribute) )
 				{
-					if( element1 is SynchronizeAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SynchronizeAttribute || element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SynchronizeAttribute) )
 				{
-					if( element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is PropertyAttribute || element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(PropertyAttribute) )
 				{
-					if( element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ManyToOneAttribute || element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ManyToOneAttribute) )
 				{
-					if( element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is OneToOneAttribute || element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(OneToOneAttribute) )
 				{
-					if( element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ComponentAttribute || element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ComponentAttribute) )
 				{
-					if( element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is DynamicComponentAttribute || element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(DynamicComponentAttribute) )
 				{
-					if( element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is PropertiesAttribute || element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(PropertiesAttribute) )
 				{
-					if( element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is AnyAttribute || element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(AnyAttribute) )
 				{
-					if( element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is MapAttribute || element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(MapAttribute) )
 				{
-					if( element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SetAttribute || element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SetAttribute) )
 				{
-					if( element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ListAttribute || element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ListAttribute) )
 				{
-					if( element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is BagAttribute || element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(BagAttribute) )
 				{
-					if( element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is IdBagAttribute || element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(IdBagAttribute) )
 				{
-					if( element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ArrayAttribute || element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ArrayAttribute) )
 				{
-					if( element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is PrimitiveArrayAttribute || element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(PrimitiveArrayAttribute) )
 				{
-					if( element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is JoinAttribute || element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(JoinAttribute) )
 				{
-					if( element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SubclassAttribute || element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SubclassAttribute) )
 				{
-					if( element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is LoaderAttribute || element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(LoaderAttribute) )
 				{
-					if( element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SqlInsertAttribute || element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SqlInsertAttribute) )
 				{
-					if( element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SqlUpdateAttribute || element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SqlUpdateAttribute) )
 				{
-					if( element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SqlDeleteAttribute || element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SqlDeleteAttribute) )
 				{
-					if( element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is ResultSetAttribute || element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(ResultSetAttribute) )
 				{
-					if( element1 is QueryAttribute || element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is QueryAttribute || element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(QueryAttribute) )
 				{
-					if( element1 is SqlQueryAttribute || typeOfElement2 == null )
+					if( element1 is SqlQueryAttribute || element1 is FilterAttribute || typeOfElement2 == null )
 						return true;
 				}
 	if( typeOfElement2 == typeof(SqlQueryAttribute) )
+				{
+					if( element1 is FilterAttribute || typeOfElement2 == null )
+						return true;
+				}
+	if( typeOfElement2 == typeof(FilterAttribute) )
 				{
 					if( typeOfElement2 == null )
 						return true;
@@ -2673,9 +2683,6 @@ writer.WriteAttributeString("optimistic-lock", attribute.OptimisticLock ? "true"
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 
@@ -3042,9 +3049,6 @@ writer.WriteAttributeString("optimistic-lock", attribute.OptimisticLock ? "true"
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 			// Attribute: <generic>
 if( attribute.GenericSpecified )
 writer.WriteAttributeString("generic", attribute.Generic ? "true" : "false");
@@ -5548,9 +5552,6 @@ writer.WriteAttributeString("optimistic-lock", attribute.OptimisticLock ? "true"
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 			// Attribute: <generic>
 if( attribute.GenericSpecified )
 writer.WriteAttributeString("generic", attribute.Generic ? "true" : "false");
@@ -6708,6 +6709,18 @@ System.Collections.ArrayList SqlQueryList = FindAttributedMembers( attribute, ty
 					WriteSqlQuery(writer, member, memberAttrib as SqlQueryAttribute, attribute, type);
 			}
 WriteUserDefinedContent(writer, type, typeof(SqlQueryAttribute), attribute);
+			// Element: <filter>
+System.Collections.ArrayList FilterList = FindAttributedMembers( attribute, typeof(FilterAttribute), type );
+			foreach( System.Reflection.MemberInfo member in FilterList )
+			{
+				object[] objects = member.GetCustomAttributes(typeof(FilterAttribute), false);
+				System.Collections.ArrayList memberAttribs = new System.Collections.ArrayList();
+				memberAttribs.AddRange(objects);
+				memberAttribs.Sort();
+				foreach(object memberAttrib in memberAttribs)
+					WriteFilter(writer, member, memberAttrib as FilterAttribute, attribute, type);
+			}
+WriteUserDefinedContent(writer, type, typeof(FilterAttribute), attribute);
 
 			writer.WriteEndElement();
 		}
@@ -7003,9 +7016,6 @@ writer.WriteAttributeString("optimistic-lock", attribute.OptimisticLock ? "true"
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 			// Attribute: <generic>
 if( attribute.GenericSpecified )
 writer.WriteAttributeString("generic", attribute.Generic ? "true" : "false");
@@ -7492,9 +7502,6 @@ writer.WriteAttributeString("class", GetAttributeValue(attribute.Class, mappedCl
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 			// Attribute: <entity-name>
 if(attribute.EntityName != null)
 writer.WriteAttributeString("entity-name", GetAttributeValue(attribute.EntityName, mappedClass));
@@ -7676,9 +7683,6 @@ writer.WriteAttributeString("not-found", GetXmlEnumValue(typeof(NotFoundMode), a
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 
@@ -7805,9 +7809,6 @@ writer.WriteAttributeString("optimistic-lock", attribute.OptimisticLock ? "true"
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 			// Attribute: <generic>
 if( attribute.GenericSpecified )
 writer.WriteAttributeString("generic", attribute.Generic ? "true" : "false");
@@ -8589,9 +8590,6 @@ writer.WriteAttributeString("not-found", GetXmlEnumValue(typeof(NotFoundMode), a
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 			// Attribute: <entity-name>
 if(attribute.EntityName != null)
 writer.WriteAttributeString("entity-name", GetAttributeValue(attribute.EntityName, mappedClass));
@@ -8643,9 +8641,6 @@ writer.WriteAttributeString("lazy", GetXmlEnumValue(typeof(Laziness), attribute.
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 
@@ -8774,9 +8769,6 @@ writer.WriteAttributeString("optimistic-lock", attribute.OptimisticLock ? "true"
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 
 			WriteUserDefinedContent(writer, member, null, attribute);
 
@@ -9578,9 +9570,6 @@ writer.WriteAttributeString("optimistic-lock", attribute.OptimisticLock ? "true"
 			// Attribute: <node>
 if(attribute.Node != null)
 writer.WriteAttributeString("node", GetAttributeValue(attribute.Node, mappedClass));
-			// Attribute: <embed-xml>
-if( attribute.EmbedXmlSpecified )
-writer.WriteAttributeString("embed-xml", attribute.EmbedXml ? "true" : "false");
 			// Attribute: <generic>
 if( attribute.GenericSpecified )
 writer.WriteAttributeString("generic", attribute.Generic ? "true" : "false");
@@ -10338,6 +10327,18 @@ System.Collections.ArrayList SqlQueryList = FindAttributedMembers( attribute, ty
 					WriteSqlQuery(writer, member, memberAttrib as SqlQueryAttribute, attribute, type);
 			}
 WriteUserDefinedContent(writer, type, typeof(SqlQueryAttribute), attribute);
+			// Element: <filter>
+System.Collections.ArrayList FilterList = FindAttributedMembers( attribute, typeof(FilterAttribute), type );
+			foreach( System.Reflection.MemberInfo member in FilterList )
+			{
+				object[] objects = member.GetCustomAttributes(typeof(FilterAttribute), false);
+				System.Collections.ArrayList memberAttribs = new System.Collections.ArrayList();
+				memberAttribs.AddRange(objects);
+				memberAttribs.Sort();
+				foreach(object memberAttrib in memberAttribs)
+					WriteFilter(writer, member, memberAttrib as FilterAttribute, attribute, type);
+			}
+WriteUserDefinedContent(writer, type, typeof(FilterAttribute), attribute);
 
 			writer.WriteEndElement();
 		}

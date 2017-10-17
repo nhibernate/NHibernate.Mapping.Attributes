@@ -31,10 +31,6 @@ namespace NHibernate.Mapping.Attributes
 		[System.Xml.Serialization.XmlEnumAttribute("poco")]
 		Poco,
 		
-		/// <summary>xml</summary>
-		[System.Xml.Serialization.XmlEnumAttribute("xml")]
-		Xml,
-		
 		/// <summary>dynamic-map</summary>
 		[System.Xml.Serialization.XmlEnumAttribute("dynamic-map")]
 		DynamicMap,

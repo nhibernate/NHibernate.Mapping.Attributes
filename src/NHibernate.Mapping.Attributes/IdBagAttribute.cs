@@ -26,59 +26,55 @@ namespace NHibernate.Mapping.Attributes
 	public class IdBagAttribute : BaseAttribute
 	{
 		
-		private string _persister = null;
-		
-		private string _where = null;
-		
-		private string _schema = null;
-		
-		private bool _mutablespecified;
-		
-		private bool _generic = false;
-		
-		private string _catalog = null;
-		
-		private bool _mutable = true;
-		
-		private string _orderby = null;
-		
-		private long _batchsize = -9223372036854775808;
-		
-		private CollectionFetchMode _fetch = CollectionFetchMode.Unspecified;
-		
-		private string _subselect = null;
-		
-		private string _table = null;
-		
-		private bool _embedxml = true;
-		
-		private bool _inverse = false;
-		
-		private string _cascade = null;
-		
-		private string _name = null;
-		
-		private string _node = null;
-		
 		private bool _inversespecified;
-		
-		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
-		
-		private CollectionLazy _lazy = CollectionLazy.Unspecified;
-		
-		private bool _embedxmlspecified;
 		
 		private string _access = null;
 		
-		private bool _genericspecified;
+		private string _collectiontype = null;
 		
-		private bool _optimisticlockspecified;
+		private CollectionLazy _lazy = CollectionLazy.Unspecified;
 		
-		private string _check = null;
+		private string _catalog = null;
+		
+		private string _orderby = null;
+		
+		private bool _inverse = false;
+		
+		private string _table = null;
+		
+		private string _schema = null;
+		
+		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
 		
 		private bool _optimisticlock = true;
 		
-		private string _collectiontype = null;
+		private string _persister = null;
+		
+		private string _cascade = null;
+		
+		private CollectionFetchMode _fetch = CollectionFetchMode.Unspecified;
+		
+		private bool _genericspecified;
+		
+		private string _node = null;
+		
+		private string _subselect = null;
+		
+		private bool _mutable = true;
+		
+		private string _name = null;
+		
+		private bool _mutablespecified;
+		
+		private string _check = null;
+		
+		private long _batchsize = -9223372036854775808;
+		
+		private string _where = null;
+		
+		private bool _optimisticlockspecified;
+		
+		private bool _generic = false;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public IdBagAttribute() : 
@@ -427,29 +423,6 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._node = value;
-			}
-		}
-		
-		/// <summary> </summary>
-		public virtual bool EmbedXml
-		{
-			get
-			{
-				return this._embedxml;
-			}
-			set
-			{
-				this._embedxml = value;
-				_embedxmlspecified = true;
-			}
-		}
-		
-		/// <summary> Tells if EmbedXml has been specified. </summary>
-		public virtual bool EmbedXmlSpecified
-		{
-			get
-			{
-				return this._embedxmlspecified;
 			}
 		}
 		

@@ -26,17 +26,13 @@ namespace NHibernate.Mapping.Attributes
 	public class OneToManyAttribute : BaseAttribute
 	{
 		
-		private string _entityname = null;
-		
-		private bool _embedxmlspecified;
+		private string _node = null;
 		
 		private NotFoundMode _notfound = NotFoundMode.Unspecified;
 		
+		private string _entityname = null;
+		
 		private string _class = null;
-		
-		private bool _embedxml = true;
-		
-		private string _node = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public OneToManyAttribute() : 
@@ -102,29 +98,6 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._node = value;
-			}
-		}
-		
-		/// <summary> </summary>
-		public virtual bool EmbedXml
-		{
-			get
-			{
-				return this._embedxml;
-			}
-			set
-			{
-				this._embedxml = value;
-				_embedxmlspecified = true;
-			}
-		}
-		
-		/// <summary> Tells if EmbedXml has been specified. </summary>
-		public virtual bool EmbedXmlSpecified
-		{
-			get
-			{
-				return this._embedxmlspecified;
 			}
 		}
 		
