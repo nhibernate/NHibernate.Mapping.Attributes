@@ -30,7 +30,7 @@ namespace NHibernate.Mapping.Attributes
 		
 		private RestrictedLaziness _lazy = RestrictedLaziness.Unspecified;
 		
-		private bool _embedxml = true;
+		private string _orderby = null;
 		
 		private string _entityname = null;
 		
@@ -43,10 +43,6 @@ namespace NHibernate.Mapping.Attributes
 		private string _propertyref = null;
 		
 		private bool _unique = false;
-		
-		private string _orderby = null;
-		
-		private bool _embedxmlspecified;
 		
 		private string _foreignkey = null;
 		
@@ -111,29 +107,6 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._node = value;
-			}
-		}
-		
-		/// <summary> </summary>
-		public virtual bool EmbedXml
-		{
-			get
-			{
-				return this._embedxml;
-			}
-			set
-			{
-				this._embedxml = value;
-				_embedxmlspecified = true;
-			}
-		}
-		
-		/// <summary> Tells if EmbedXml has been specified. </summary>
-		public virtual bool EmbedXmlSpecified
-		{
-			get
-			{
-				return this._embedxmlspecified;
 			}
 		}
 		

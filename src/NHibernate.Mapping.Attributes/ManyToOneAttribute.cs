@@ -26,61 +26,57 @@ namespace NHibernate.Mapping.Attributes
 	public class ManyToOneAttribute : BaseAttribute
 	{
 		
-		private bool _embedxmlspecified;
+		private string _cascade = null;
+		
+		private FetchMode _fetch = FetchMode.Unspecified;
+		
+		private string _column = null;
+		
+		private bool _notnullspecified;
 		
 		private bool _optimisticlockspecified;
+		
+		private string _node = null;
+		
+		private bool _update = true;
+		
+		private string _entityname = null;
+		
+		private bool _optimisticlock = true;
+		
+		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
+		
+		private string _foreignkey = null;
+		
+		private string _uniquekey = null;
+		
+		private string _propertyref = null;
+		
+		private Laziness _lazy = Laziness.Unspecified;
+		
+		private bool _insertspecified;
+		
+		private bool _unique = false;
 		
 		private bool _updatespecified;
 		
 		private bool _uniquespecified;
 		
-		private bool _unique = false;
-		
-		private bool _notnull = false;
-		
-		private bool _insert = true;
-		
-		private FetchMode _fetch = FetchMode.Unspecified;
-		
-		private bool _update = true;
-		
-		private string _formula = null;
-		
-		private string _uniquekey = null;
-		
-		private bool _insertspecified;
-		
-		private bool _embedxml = true;
-		
-		private string _cascade = null;
-		
-		private string _name = null;
-		
-		private bool _notnullspecified;
-		
-		private string _node = null;
-		
-		private string _foreignkey = null;
+		private string _access = null;
 		
 		private string _index = null;
 		
-		private Laziness _lazy = Laziness.Unspecified;
-		
-		private string _column = null;
-		
-		private string _propertyref = null;
+		private bool _notnull = false;
 		
 		private string _class = null;
 		
-		private string _access = null;
+		private bool _insert = true;
 		
-		private bool _optimisticlock = true;
-		
-		private string _entityname = null;
+		private string _name = null;
 		
 		private NotFoundMode _notfound = NotFoundMode.Unspecified;
 		
-		private OuterJoinStrategy _outerjoin = OuterJoinStrategy.Unspecified;
+		private string _formula = null;
 		
 		/// <summary> Default constructor (position=0) </summary>
 		public ManyToOneAttribute() : 
@@ -462,29 +458,6 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._node = value;
-			}
-		}
-		
-		/// <summary> </summary>
-		public virtual bool EmbedXml
-		{
-			get
-			{
-				return this._embedxml;
-			}
-			set
-			{
-				this._embedxml = value;
-				_embedxmlspecified = true;
-			}
-		}
-		
-		/// <summary> Tells if EmbedXml has been specified. </summary>
-		public virtual bool EmbedXmlSpecified
-		{
-			get
-			{
-				return this._embedxmlspecified;
 			}
 		}
 	}

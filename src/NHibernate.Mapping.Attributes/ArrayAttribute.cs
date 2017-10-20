@@ -36,8 +36,6 @@ namespace NHibernate.Mapping.Attributes
 		
 		private string _catalog = null;
 		
-		private bool _embedxml = true;
-		
 		private bool _inverse = false;
 		
 		private string _table = null;
@@ -51,8 +49,6 @@ namespace NHibernate.Mapping.Attributes
 		private string _persister = null;
 		
 		private bool _inversespecified;
-		
-		private bool _embedxmlspecified;
 		
 		private CollectionFetchMode _fetch = CollectionFetchMode.Unspecified;
 		
@@ -408,29 +404,6 @@ namespace NHibernate.Mapping.Attributes
 			set
 			{
 				this._node = value;
-			}
-		}
-		
-		/// <summary> </summary>
-		public virtual bool EmbedXml
-		{
-			get
-			{
-				return this._embedxml;
-			}
-			set
-			{
-				this._embedxml = value;
-				_embedxmlspecified = true;
-			}
-		}
-		
-		/// <summary> Tells if EmbedXml has been specified. </summary>
-		public virtual bool EmbedXmlSpecified
-		{
-			get
-			{
-				return this._embedxmlspecified;
 			}
 		}
 	}

@@ -31,12 +31,16 @@ namespace NHibernate.Mapping.Attributes
 		[System.Xml.Serialization.XmlEnumAttribute("auto")]
 		Auto,
 		
-		/// <summary>never</summary>
-		[System.Xml.Serialization.XmlEnumAttribute("never")]
-		Never,
+		/// <summary>manual</summary>
+		[System.Xml.Serialization.XmlEnumAttribute("manual")]
+		Manual,
 		
 		/// <summary>always</summary>
 		[System.Xml.Serialization.XmlEnumAttribute("always")]
 		Always,
+		
+		/// <summary>never</summary>
+		[System.Xml.Serialization.XmlEnumAttribute("never")]
+		Never,
 	}
 }

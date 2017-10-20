@@ -1018,7 +1018,7 @@ namespace NHibernate.Mapping.Attributes.Test.DomainModel
 	public interface UnionSubclass
 	{
 		[NHMA.Meta(0, Attribute = "Meta", Content = "Content")]
-		[NHMA.Tuplizer(1, Class = "FakeClass", EntityMode = NHMA.TuplizerEntityMode.Xml)]
+		[NHMA.Tuplizer(1, Class = "FakeClass", EntityMode = NHMA.TuplizerEntityMode.DynamicMap)]
 		object Object { get; }
 	}
 	#endregion

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--Generated from NHibernate.Mapping.Attributes on 2011-08-13 16:13:06Z.-->
 <hibernate-mapping auto-import="true" default-lazy="true" xmlns="urn:nhibernate-mapping-2.2">
-  <import class="NHibernate.Mapping.Attributes.Test.DomainModel.Glarch, NHibernate.Mapping.Attributes.Test" />
   <import class="Double" rename="RealNumber" />
+  <import class="NHibernate.Mapping.Attributes.Test.DomainModel.Glarch, NHibernate.Mapping.Attributes.Test" />
   <class name="NHibernate.Mapping.Attributes.Test.DomainModel.Baz, NHibernate.Mapping.Attributes.Test" proxy="NHibernate.Mapping.Attributes.Test.DomainModel.Baz, NHibernate.Mapping.Attributes.Test" discriminator-value="base" mutable="false" polymorphism="explicit" where="1" persister="NHibernate.Mapping.Attributes.Test.DomainModel.Baz, NHibernate.Mapping.Attributes.Test" batch-size="9" check="0">
     <id name="Code" access="Int32" column="Id" type="String" length="8" unsaved-value="null">
       <column name="baz_id" length="32" />
@@ -297,7 +297,7 @@
   <joined-subclass extends="Guid" name="X+PrivS+PrivJ, NHibernate.Mapping.Attributes.Test">
     <key />
     <property name="userPattern" type="X+PrivS+PrivC, NHMA.Test" />
-    <property name="sqlPattern" type="NHibernate.UserTypes.SqlTypes.SqlDateTimeType, NHibernate.UserTypes.SqlTypes" />
+    <property name="sqlPattern" type="NHibernate.UserTypes.SqlTypes.SqlDateTimeType, NHibernate.UserTypes.SqlTypes, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <joined-subclass name="X+PrivS+PrivJ+C+IntJ, NHibernate.Mapping.Attributes.Test" extends="Guid">
       <key />
     </joined-subclass>
@@ -305,7 +305,7 @@
   <subclass extends="Guid" name="X+PrivS, NHibernate.Mapping.Attributes.Test" />
   <union-subclass entity-name="NHibernate.Mapping.Attributes.Test.DomainModel.Foo, NHibernate.Mapping.Attributes.Test" proxy="NHibernate.Mapping.Attributes.Test.DomainModel.UnionSubclass, NHibernate.Mapping.Attributes.Test" table="uT" schema="none" select-before-update="true" extends="NHibernate.Mapping.Attributes.Test.DomainModel.Baz, NHibernate.Mapping.Attributes.Test" abstract="false" check="maybe">
     <meta attribute="Meta">Content</meta>
-    <tuplizer entity-mode="xml" class="FakeClass" />
+    <tuplizer entity-mode="dynamic-map" class="FakeClass" />
   </union-subclass>
   <joined-subclass name="NHibernate.Mapping.Attributes.Test.DomainModel.JoinedBaz, NHibernate.Mapping.Attributes.Test" proxy="NHibernate.Mapping.Attributes.Test.DomainModel.JoinedBaz, NHibernate.Mapping.Attributes.Test" schema-action="X" select-before-update="true" extends="NHibernate.Mapping.Attributes.Test.DomainModel.Baz, NHibernate.Mapping.Attributes.Test">
     <meta attribute="Meta">Content</meta>
