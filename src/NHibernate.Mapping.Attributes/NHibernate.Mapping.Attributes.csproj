@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>5.1.0</Version>
+    <VersionPrefix>5.1.0</VersionPrefix>
     <Company>NHibernate.org</Company>
     <Authors>Pierre Henri Kuaté</Authors>
     <Description>Attribute based mapping for NHibernate.</Description>
