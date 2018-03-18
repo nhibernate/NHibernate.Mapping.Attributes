@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E454F68D-C4C2-4D44-8761-E1E6C6276EB8}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Gene
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refly", "Refly\Refly.csproj", "{53086B22-3A6C-4017-ADB7-F22BF49FFF58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate.Mapping.Attributes", "NHibernate.Mapping.Attributes\NHibernate.Mapping.Attributes.csproj", "{AE0F3023-0ED6-45BE-8995-8C3B2E585A20}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate.Mapping.Attributes.Test", "NHibernate.Mapping.Attributes.Test\NHibernate.Mapping.Attributes.Test.csproj", "{A6585067-79C1-41A9-A006-A83C3A800B21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHibernate.Mapping.Attributes", "NHibernate.Mapping.Attributes\NHibernate.Mapping.Attributes.csproj", "{BA0B9218-3A5D-4842-9E75-D71DF3BDE65F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,16 +29,19 @@ Global
 		{53086B22-3A6C-4017-ADB7-F22BF49FFF58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53086B22-3A6C-4017-ADB7-F22BF49FFF58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53086B22-3A6C-4017-ADB7-F22BF49FFF58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AE0F3023-0ED6-45BE-8995-8C3B2E585A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE0F3023-0ED6-45BE-8995-8C3B2E585A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE0F3023-0ED6-45BE-8995-8C3B2E585A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE0F3023-0ED6-45BE-8995-8C3B2E585A20}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A6585067-79C1-41A9-A006-A83C3A800B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A6585067-79C1-41A9-A006-A83C3A800B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6585067-79C1-41A9-A006-A83C3A800B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6585067-79C1-41A9-A006-A83C3A800B21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA0B9218-3A5D-4842-9E75-D71DF3BDE65F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0B9218-3A5D-4842-9E75-D71DF3BDE65F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0B9218-3A5D-4842-9E75-D71DF3BDE65F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0B9218-3A5D-4842-9E75-D71DF3BDE65F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BB0227F-ECE1-4DC7-8F89-3FF67E0484CB}
 	EndGlobalSection
 EndGlobal
