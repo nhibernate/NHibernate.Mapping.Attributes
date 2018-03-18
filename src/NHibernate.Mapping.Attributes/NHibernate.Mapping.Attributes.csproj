@@ -8,6 +8,7 @@
     <Description>Attribute based mapping for NHibernate.</Description>
     <AssemblyVersion>5.1.0.0</AssemblyVersion>
     <FileVersion>5.1.0.0</FileVersion>
+    <PackageLicenseUrl>https://github.com/nhibernate/NHibernate.Mapping.Attributes/blob/master/LICENSE.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/nhibernate/NHibernate.Mapping.Attributes</PackageProjectUrl>
     <Copyright>NHibernate community</Copyright>
     <PackageTags>NHibernate, Attributes, NHibernate-Mapping</PackageTags>
