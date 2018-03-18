@@ -20,4 +20,12 @@
     <DocumentationFile>bin\Debug\netstandard2.0\NHibernate.Mapping.Attributes.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="nhibernate-mapping.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="nhibernate-mapping.xsd" />
+  </ItemGroup>
+
 </Project>
