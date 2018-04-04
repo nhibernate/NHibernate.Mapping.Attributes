@@ -51,11 +51,16 @@ namespace NHibernate.Mapping.Attributes.Test
 				if (HbmSerializer.Default.Validate && HbmSerializer.Default.Error.Length > 0)
 					throw new Exception(HbmSerializer.Default.Error.ToString());
 
-				// Compare with references
-				Compare(bazStream, "Baz.Reference.hbm.xml");
+                // Compare with references
+#if NET461
+                Compare(bazStream, "Baz.Reference.hbm.xml");
 				Compare(assemblyStream, "DomainModel.Reference.hbm.xml");
-			}
-			finally
+#else
+                Compare(bazStream, "Baz.CoreReference.hbm.xml");
+                Compare(assemblyStream, "DomainModel.CoreReference.hbm.xml");
+#endif
+            }
+            finally
 			{
 				if (bazStream != null)
 					bazStream.Close();

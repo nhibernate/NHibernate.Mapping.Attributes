@@ -17,7 +17,13 @@
     <ProjectReference Include="..\NHibernate.Mapping.Attributes\NHibernate.Mapping.Attributes.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="Baz.CoreReference.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Baz.Reference.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DomainModel.CoreReference.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="hibernate.cfg.xml">
