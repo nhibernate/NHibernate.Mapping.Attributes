@@ -19,7 +19,7 @@ namespace NHibernate.Mapping.Attributes.Test
 	public class Tests
 	{
 		/// <summary> Set up </summary>
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void TestFixtureSetUp()
 		{
 			// Enable validation of generated XML files
