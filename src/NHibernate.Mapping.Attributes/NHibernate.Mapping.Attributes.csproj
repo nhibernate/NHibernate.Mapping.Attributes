@@ -1,23 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../NHibernate.Mapping.Attributes.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
-    <VersionPrefix>5.1.0</VersionPrefix>
-    <Company>NHibernate.org</Company>
-    <Authors>Pierre Henri Kuaté</Authors>
+    <Product>NHibernate.Mapping.Attributes</Product>
+    <Title>NHibernate.Mapping.Attributes</Title>
     <Description>Attribute based mapping for NHibernate.</Description>
-    <AssemblyVersion>5.1.0.0</AssemblyVersion>
-    <FileVersion>5.1.0.0</FileVersion>
-    <PackageLicenseUrl>https://github.com/nhibernate/NHibernate.Mapping.Attributes/blob/master/LICENSE.md</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/nhibernate/NHibernate.Mapping.Attributes</PackageProjectUrl>
-    <Copyright>NHibernate community</Copyright>
-    <PackageTags>NHibernate, Attributes, NHibernate-Mapping</PackageTags>
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>../NHibernate.snk</AssemblyOriginatorKeyFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageTags>NHibernate; Attributes; NHibernate-Mapping</PackageTags>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net461'">
+    <DefineConstants>NETFX;$(DefineConstants)</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,2 +1,1 @@
-rem .nuget\nuget pack NHibernate.Mapping.Attributes\NHibernate.Mapping.Attributes.csproj -Symbols -Properties Configuration=Release
 dotnet pack NHibernate.Mapping.Attributes\NHibernate.Mapping.Attributes.csproj --include-symbols --configuration release

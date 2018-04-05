@@ -1,0 +1,26 @@
+<Project>
+  <PropertyGroup>
+    <VersionMajor Condition="'$(VersionMajor)' == ''">5</VersionMajor>
+    <VersionMinor Condition="'$(VersionMinor)' == ''">1</VersionMinor>
+    <VersionPatch Condition="'$(VersionPatch)' == ''">0</VersionPatch>
+    <VersionSuffix Condition="'$(VersionSuffix)' == ''"></VersionSuffix>
+
+    <VersionPrefix>$(VersionMajor).$(VersionMinor).$(VersionPatch)</VersionPrefix>
+    <AssemblyVersion>$(VersionMajor).$(VersionMinor).0.0</AssemblyVersion>
+    <FileVersion>$(VersionPrefix).0</FileVersion>
+
+    <Company>NHibernate.info</Company>
+    <Copyright>Licensed under LGPL.</Copyright>
+    <Authors>Pierre Henri Kuaté; NHibernate community</Authors>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>https://github.com/nhibernate/NHibernate.Mapping.Attributes/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/nhibernate/NHibernate.Mapping.Attributes</PackageProjectUrl>
+    <PackageTags>NHibernate; Attributes; NHibernate-Mapping</PackageTags>
+    <RepositoryUrl>https://github.com/nhibernate/NHibernate.Mapping.Attributes.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <TreatSpecificWarningsAsErrors />
+  </PropertyGroup>
+</Project>

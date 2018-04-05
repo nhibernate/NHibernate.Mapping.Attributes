@@ -2,6 +2,7 @@
 // NHibernate.Mapping.Attributes
 // This product is under the terms of the GNU Lesser General Public License.
 //
+#pragma warning disable 1591
 namespace NHibernate.Mapping.Attributes
 {
 	/// <summary>
@@ -9,9 +10,11 @@ namespace NHibernate.Mapping.Attributes
 	/// Support ComponentPropertyAttribute.
 	/// </summary>
 	public class HbmWriterEx : HbmWriter
-    {
-        /// <summary> Gets or sets whether, when a class attribute doesn't have a name & entity-name, its name should be the class type name. </summary>
-        public virtual bool DoNotAutoDetectClassName { get; set; }
+	{
+		/// <summary>
+		/// Gets or sets whether, when a class attribute doesn't have a name and entity-name, its name should be the class type name.
+		/// </summary>
+		public virtual bool DoNotAutoDetectClassName { get; set; }
 
 
 		public virtual System.Collections.ArrayList FindSystemAttributedMembers(System.Type attributeType, System.Type classType)

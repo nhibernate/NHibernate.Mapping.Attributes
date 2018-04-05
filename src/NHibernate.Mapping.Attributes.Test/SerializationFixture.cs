@@ -25,6 +25,8 @@ namespace NHibernate.Mapping.Attributes.Test
 			// Enable validation of generated XML files
 			HbmSerializer.Default.Validate = true;
 			HbmSerializer.Default.HbmWriter.Patterns.Add(@"X\+(\S+), NHibernate.Mapping.Attributes.Test", "X+$1, NHMA.Test");
+
+			Directory.SetCurrentDirectory(Path.GetDirectoryName(typeof(Tests).Assembly.Location));
 		}
 
 
@@ -51,16 +53,16 @@ namespace NHibernate.Mapping.Attributes.Test
 				if (HbmSerializer.Default.Validate && HbmSerializer.Default.Error.Length > 0)
 					throw new Exception(HbmSerializer.Default.Error.ToString());
 
-                // Compare with references
-#if NET461
-                Compare(bazStream, "Baz.Reference.hbm.xml");
+				// Compare with references
+#if NETFX
+				Compare(bazStream, "Baz.Reference.hbm.xml");
 				Compare(assemblyStream, "DomainModel.Reference.hbm.xml");
 #else
-                Compare(bazStream, "Baz.CoreReference.hbm.xml");
-                Compare(assemblyStream, "DomainModel.CoreReference.hbm.xml");
+				Compare(bazStream, "Baz.CoreReference.hbm.xml");
+				Compare(assemblyStream, "DomainModel.CoreReference.hbm.xml");
 #endif
-            }
-            finally
+			}
+			finally
 			{
 				if (bazStream != null)
 					bazStream.Close();

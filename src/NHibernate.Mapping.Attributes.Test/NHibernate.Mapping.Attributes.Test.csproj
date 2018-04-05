@@ -1,18 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../NHibernate.Mapping.Attributes.props" />
 
   <PropertyGroup>
+    <Product>NHibernate.Mapping.Attributes.Generator</Product>
+    <Description>Unit tests of NHibernate.Mapping.Attributes</Description>
     <TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net461'">
+    <DefineConstants>NETFX;$(DefineConstants)</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
     <OutputType>Exe</OutputType>
     <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="NUnit" Version="3.9.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.1" />
-    <PackageReference Include="log4net" version="2.0.8" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NHibernate.Mapping.Attributes\NHibernate.Mapping.Attributes.csproj" />
   </ItemGroup>
@@ -26,11 +27,20 @@
     <None Update="DomainModel.CoreReference.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="DomainModel.Reference.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.9.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.1" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+  </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
