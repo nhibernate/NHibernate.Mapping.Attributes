@@ -1,1 +1,2 @@
-.nuget\nuget pack NHibernate.Mapping.Attributes\NHibernate.Mapping.Attributes.csproj -Symbols -Properties Configuration=Release
+rmdir build /S /Q
+dotnet pack NHibernate.Mapping.Attributes\NHibernate.Mapping.Attributes.csproj --include-symbols --include-source --configuration release -o ..\build\

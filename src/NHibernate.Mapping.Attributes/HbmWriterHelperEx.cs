@@ -2,6 +2,7 @@
 // NHibernate.Mapping.Attributes
 // This product is under the terms of the GNU Lesser General Public License.
 //
+#pragma warning disable 1591
 namespace NHibernate.Mapping.Attributes
 {
 	/// <summary>
