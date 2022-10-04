@@ -42,13 +42,9 @@ namespace NHibernate.Mapping.Attributes.Test
 				HbmSerializer.Default.Error.Remove(0, HbmSerializer.Default.Error.Length);
 
 			// Generate (baz & assembly) + Validate
-			Stream bazStream = null;
-			Stream assemblyStream = null;
-			try
+			using (var bazStream = SerializeBaz())
+			using (var assemblyStream = SerializeAssembly())
 			{
-				bazStream = SerializeBaz();
-				assemblyStream = SerializeAssembly();
-
 				// Throw if errors
 				if (HbmSerializer.Default.Validate && HbmSerializer.Default.Error.Length > 0)
 					throw new Exception(HbmSerializer.Default.Error.ToString());
@@ -61,13 +57,6 @@ namespace NHibernate.Mapping.Attributes.Test
 				Compare(bazStream, "Baz.CoreReference.hbm.xml");
 				Compare(assemblyStream, "DomainModel.CoreReference.hbm.xml");
 #endif
-			}
-			finally
-			{
-				if (bazStream != null)
-					bazStream.Close();
-				if (assemblyStream != null)
-					assemblyStream.Close();
 			}
 		}
 

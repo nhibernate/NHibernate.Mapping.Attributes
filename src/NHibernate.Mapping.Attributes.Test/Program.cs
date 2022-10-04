@@ -1,4 +1,4 @@
-﻿#if NETCOREAPP2_0
+﻿#if !NETFX
 namespace NHibernate.Mapping.Attributes.Test
 {
 	public class Program

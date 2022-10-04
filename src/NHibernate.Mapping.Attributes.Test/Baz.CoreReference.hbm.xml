@@ -119,7 +119,7 @@
         <property name="Count" type="Int32" column="count_" />
       </composite-element>
     </list>
-    <list name="ManyToAny" lazy="true" collection-type="System.Collections.ArrayList, System.Runtime.Extensions">
+    <list name="ManyToAny" lazy="true" collection-type="Collections.ArrayList">
       <key column="baz" />
       <index column="ind" />
       <many-to-any id-type="String">
