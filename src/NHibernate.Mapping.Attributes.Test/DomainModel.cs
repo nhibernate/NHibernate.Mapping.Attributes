@@ -1,3 +1,4 @@
+#pragma warning disable CS0414
 //
 // NHibernate.Mapping.Attributes.Test
 // This product is under the terms of the GNU Lesser General Public License.
