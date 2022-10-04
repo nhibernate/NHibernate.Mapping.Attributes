@@ -13,6 +13,6 @@
     <ProjectReference Include="..\Refly\Refly.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="log4net" Version="2.0.15" />
   </ItemGroup>
 </Project>
