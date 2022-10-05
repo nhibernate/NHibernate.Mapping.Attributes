@@ -1,6 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="../NHibernate.Mapping.Attributes.props" />
-
   <PropertyGroup>
     <Product>NHibernate.Mapping.Attributes.Generator</Product>
     <Description>Unit tests of NHibernate.Mapping.Attributes</Description>

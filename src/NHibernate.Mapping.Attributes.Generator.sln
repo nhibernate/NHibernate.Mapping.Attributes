@@ -5,7 +5,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E454F68D-C4C2-4D44-8761-E1E6C6276EB8}"
 	ProjectSection(SolutionItems) = preProject
 		NHibernate.snk = NHibernate.snk
-		NHibernate.Mapping.Attributes.props = NHibernate.Mapping.Attributes.props
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{22CADD56-EF07-4040-A171-BC5A3AB896FD}"
